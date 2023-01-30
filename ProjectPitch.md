@@ -24,33 +24,34 @@ We will meet in person every Tuesday at 1:30pm for roughly 2 hours and use Disco
 
 ## 4. Roles and responsibilities
 
+### Roles
 
-##### Test maker: Chris
+##### -Test maker: Chris
 
 As a test maker, I will create a Java test that checks if the methods inside other classes are functioning properly and not making any logical errors.
 
 
-##### Architect: Taehyuk
+##### -Architect: Taehyuk
 
 As an architect, I will be designed to align with the goals, constraints, and requirements of the project, and to enable the development team to deliver a high-quality product on time and within budget.
 
 
-##### Backend: Bingdi  
+##### -Backend: Bingdi  
 
 A backend developer is responsible for the server side of web development. They primarily focus on creating and maintaining the server-side logic, database, and APIs for web applications.
 
 
-##### UI/UX lead: Yeju
+##### -UI/UX lead: Yeju
 
 As a ux/ui lead, I will design the visual appearance of the game to look similar to the original one, and ensure that the user interface is intuitive and easy to use. I will contribute to the backend as well.
 
 
-##### Interfaces designer: Jiahuan
+##### -Interfaces designer: Jiahuan
 
 As an interface designer, I am responsible for designing the game interface, including the layout, visual elements, buttons, and other interactive elements, to ensure that players can intuitively and easily navigate and interact with the game, and to ensure that the game interface is visually pleasing and easy to distinguish.
 
 
-#### Expectations:
+### Expectations
 
 Initial project plan and proposal: 2 hours
 Gather and analyze requirements: 1 week
