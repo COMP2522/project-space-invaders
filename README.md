@@ -50,6 +50,8 @@ The Final README.md must give instructions on how to run your program, a list of
 
 Submission is here, on GitHub, in the `README.md` file.
 
+Hi 
+
 ## Final Product (group, 5%)
 
 The Final Product will be evaluated for overall code design and documentation and evaluated on the same design principles as individual contributions. If you are below the 1000 line minimum contribution, your mark will be scaled down for this portion.
