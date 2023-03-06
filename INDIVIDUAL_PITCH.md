@@ -4,6 +4,9 @@
 ### Yeju Jung (Barrier, BarrierManager, and BarrierTest class)
 As the developer in charge of the Barrier and BarrierManager classes, my responsibilities include managing the barriers that protect the player's spaceship from the aliens' bullets, creating and managing the barriers in the game, including positioning, destruction, and regeneration. Also I will write the test to see if Barrier works fine.
 
+<img width="449" alt="Screenshot 2023-03-06 at 2 39 41 PM" src="https://user-images.githubusercontent.com/113398044/223275167-c37bd125-0ad5-47dc-9c12-c9a2ee32c36a.png">
+
+
 ### Taehyuk Chung (Missile, and  MissileManager, and MissileTest class)
 As the missile developer, my role includes designing and implementing the missile object, creating collision detection, refining mechanics, collaborating with the team, and debugging.
 
