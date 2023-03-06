@@ -16,6 +16,9 @@ As the missile developer, my role includes designing and implementing the missil
 ### Bingdi Zhou (Invader class, Invader Manager class, Sprite, and InvaderTest class)
 As a developer of the Invader class and Invader Manager class, I will implement the Invader class which will represent individual invaders in the game and the InvaderManager class which will manage the collection of invaders and provide methods for adding, removing, and updating their properties. I will also have a InvaderTest class to test  the Invader class after its implementation.
 
+<img width="448" alt="image" src="https://user-images.githubusercontent.com/108831857/223275324-0963c174-b6c8-4e6a-98b0-e1415993c796.png">
+
+
 ### Tae Hyung Lee (Player, PlayerManager,SpriteManager, and PlayerTest class)
 As the designated sprite artist and player manager for the Java project, I will create an engaging and visually appealing representation of the player while ensuring that the game mechanics are functioning smoothly through rigorous testing and debugging. By utilizing my expertise in both art and programming, I aim to deliver a seamless gaming experience for all players.
 
