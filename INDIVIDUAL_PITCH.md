@@ -18,5 +18,7 @@ Our game requires objects that can be shot, moved, and collided with, so we prop
 The Shootable interface will represent objects that can be shot, the Movable interface will represent objects that can move, and the Collidable interface will represent objects that can collide with other objects.
 Implementing these interfaces will allow for more modular and reusable code in our game, and make it easier to add new objects with these behaviors.
 
+<img width="379" alt="스크린샷 2023-03-06 144230" src="https://user-images.githubusercontent.com/108831857/223273895-391ec67c-76d5-483e-aa52-706abfb71549.png">
+
 
 
