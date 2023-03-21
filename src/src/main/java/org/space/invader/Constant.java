@@ -24,8 +24,8 @@ public class Constant {
 
   //Invader movement unit
 
-  public final static int DX_INVADER= 5;
-  public final static int DY_INVADER= 25;
+  public final static int DX_INVADER= 2;
+  public final static int DY_INVADER= 20;
 
 
 
