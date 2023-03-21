@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/src" />
+    <file type="web" url="file://$PROJECT_DIR$/space_invader_game" />
   </component>
   <component name="PDMPlugin">
     <option name="skipTestSources" value="false" />
