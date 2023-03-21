@@ -15,14 +15,14 @@ private void initTableInvaders(){
     //create the invader table
   for(int column = 0; column < 10; column++){
     this.tabInvader[0][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-            Constant.ALT_INIT_INVADER, "/image/alien1.svg", "/image/alien1.svg");
+            Constant.ALT_INIT_INVADER, "/image/alien11.png", "/image/alien11.png");
     for(int row = 1; row <3; row++){
       this.tabInvader[row][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/image/alien2.svg", "/image/alien2.svg"  );
+              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/image/alien22.png", "/image/alien22.png"  );
     }
     for(int row = 3; row <5; row++){
       this.tabInvader[row][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/image/alien3.svg", "/image/alien3.svg"  );
+              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/image/alien33.png", "/image/alien33.png"  );
     }
 
   }

@@ -26,7 +26,7 @@ public class Window extends JPanel {
     g2.fillRect(30, 530, 535, 5);
 
     //Draw the invaders
-//    this.groupInvaders.drawInvader(g2);
+    this.groupInvaders.drawInvader(g2);
 
   }
   public static void main(String[] args) {
