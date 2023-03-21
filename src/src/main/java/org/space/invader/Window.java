@@ -1,16 +1,25 @@
 package org.space.invader;
 import javax.swing.*;
 import java.awt.*;
-
+import org.space.invader.*;
 public class Window extends JPanel {
   public InvaderManager groupInvaders = new InvaderManager();
 
+  public Barrier BarrierArray[] = new Barrier[4];
   public static final int WINDOW_SIZE = 600;
   public static final int WINDOW_HEIGHT = 600;
   public static final int WINDOW_MARGIN = 50;
 
+  public static boolean check = true;
   public Window(){
     super();
+
+    // Instantiation of Barrier Array
+    for (int column = 0; column < 4; column++) {
+      this.BarrierArray[column] = new Barrier(Constant.WINDOW_MARGIN +
+          Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER));
+    }
+
   }
 
   public void paintComponent(Graphics g){
@@ -27,6 +36,12 @@ public class Window extends JPanel {
 
     //Draw the invaders
 //    this.groupInvaders.drawInvader(g2);
+
+    // Draw the barriers
+    for (int column = 0; column < 4; column++) {
+      this.BarrierArray[column].drawBarrier(g2);
+    }
+
 
   }
   public static void main(String[] args) {
