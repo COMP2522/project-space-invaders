@@ -28,7 +28,7 @@ public abstract class Sprite {
   public int getxPos(){
     return xPos;
   }
-  public void setxPos(){
+  public void setxPos(int i){
     this.xPos = xPos;
   }
   public int getyPos(){
