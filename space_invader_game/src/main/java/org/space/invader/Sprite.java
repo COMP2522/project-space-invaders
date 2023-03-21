@@ -2,7 +2,7 @@ package org.space.invader;
 import javax.swing.*;
 import java.awt.Image;
 public abstract class Sprite {
-  /****Variables****/
+  /****instance Variables****/
 
   protected int size, height, xPos, yPos, dx, dy;
   protected boolean alive;
@@ -18,7 +18,6 @@ public abstract class Sprite {
   }
   public void setSize(int size){
     this.size = size;
-
   }
   public int getHeight(){
     return height;

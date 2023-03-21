@@ -12,7 +12,7 @@
 //public class MissilePlayer extends Sprite {
 //  /**** VARIABLES ****/
 //
-
+//  // vaisseauTire = "vaisseau"는 프랑스어로 "우주선"을 뜻하고, "tire"는 "발사"를 의미
 //  // vaisseauTire = playerShoot
 //  private boolean playerShoot = false;
 //

@@ -53,6 +53,7 @@ public class Constant {
 
   public final static int DX_INVADER= 2;
   public final static int DY_INVADER= 20;
+
 //  public final static int VITESSE_ALIEN = 1;
   public final static int INVADER_SPEED = 1;
 

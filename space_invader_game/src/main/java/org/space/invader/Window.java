@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import org.space.invader.*;
 public class Window extends JPanel {
+
+  Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
 
   public Barrier BarrierArray[] = new Barrier[4];
@@ -35,7 +37,10 @@ public class Window extends JPanel {
     g2.fillRect(30, 530, 535, 5);
 
     //Draw the invaders
-//    this.groupInvaders.drawInvader(g2);
+    this.groupInvaders.drawInvader(g2);
+
+    // draw player
+    g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
 
     // Draw the barriers
     for (int column = 0; column < 4; column++) {

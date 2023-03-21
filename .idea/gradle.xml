@@ -5,11 +5,11 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/src" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/space_invader_game" />
         <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/src" />
+            <option value="$PROJECT_DIR$/space_invader_game" />
           </set>
         </option>
       </GradleProjectSettings>

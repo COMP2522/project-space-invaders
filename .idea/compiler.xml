@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+      <entry name="!?*.png" />
+    </wildcardResourcePatterns>
+    <bytecodeTargetLevel>
+      <module name="space__invader" target="17" />
+      <module name="space__invader.main" target="17" />
+      <module name="space__invader.test" target="17" />
+      <module name="space_invader" target="17" />
+      <module name="space_invader.main" target="17" />
+      <module name="space_invader.test" target="17" />
+      <module name="src.main" target="17" />
+      <module name="src.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
