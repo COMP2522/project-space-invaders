@@ -161,6 +161,4 @@ public class Barrier extends Sprite {
     this.removeTopBricks(findTopBrick(column), column);
   }
 
-
-
 }
