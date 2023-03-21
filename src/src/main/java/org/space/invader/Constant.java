@@ -53,11 +53,9 @@ public class Constant {
 
   public final static int DX_INVADER= 2;
   public final static int DY_INVADER= 20;
-<<<<<<< HEAD
-=======
+
 //  public final static int VITESSE_ALIEN = 1;
   public final static int INVADER_SPEED = 1;
->>>>>>> 020bfd8355bb8b48a5240c837d9c87ca6569cc72
 
   // Nombre total d'aliens
   // Total number of aliens
