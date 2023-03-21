@@ -4,9 +4,9 @@ import java.awt.*;
 
 public class Window extends JPanel {
 
-  public static final int windowSize = 600;
-  public static final int windowHeight = 600;
-  public static final int windowMargin = 50;
+  public static final int WINDOW_SIZE = 600;
+  public static final int WINDOW_HEIGHT = 600;
+  public static final int WINDOW_MARGIN = 50;
 
   public Window(){
     super();
@@ -18,7 +18,7 @@ public class Window extends JPanel {
 
     //Draw the window frame
     g2.setColor(Color.BLACK);
-    g2.fillRect(0,0, windowSize, windowHeight);
+    g2.fillRect(0,0, WINDOW_SIZE, WINDOW_HEIGHT);
 
 
 
