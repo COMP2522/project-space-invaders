@@ -6,7 +6,7 @@ public class Invader extends Sprite {
 
 
 
-public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
+public Invader(int xPos, int yPos, String strImg1, String strImg2 ) {
   //Initialize the variables of the super class
   super.xPos = xPos;
   super.yPos = yPos;
@@ -20,10 +20,6 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
 //  super.strImg3 = strImg3;
   super.ico = new ImageIcon(getClass().getResource(super.strImg1));
   super.img = this.ico.getImage();
-
-
-
 }
-
 
 }
