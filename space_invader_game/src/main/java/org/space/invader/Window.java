@@ -3,8 +3,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Window extends JPanel {
-
-  Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
 
   public static final int WINDOW_SIZE = 600;
@@ -28,9 +26,7 @@ public class Window extends JPanel {
     g2.fillRect(30, 530, 535, 5);
 
     //Draw the invaders
-//    this.groupInvaders.drawInvader(g2);
-    // draw player
-    g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
+    this.groupInvaders.drawInvader(g2);
 
   }
   public static void main(String[] args) {
