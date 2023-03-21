@@ -9,7 +9,7 @@ public class Player extends Sprite {
     super.size = Constant.PLAYER_SIZE;
     super.height = Constant.PLAYER_HEIGHT;
 
-    super.strImg1 = "spaceship.png";
+    super.strImg1 = "/spaceship2.png";
 //    super.strImg2 = "/src/image/spaceship.png";
 //    super.strImg3 = "/src/image/spaceship.png";
 
