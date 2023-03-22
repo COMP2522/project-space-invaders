@@ -13,5 +13,8 @@
       <entry name="!?*.aj" />
       <entry name="!?*.png" />
     </wildcardResourcePatterns>
+    <bytecodeTargetLevel>
+      <module name="org.space.invader.src" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
