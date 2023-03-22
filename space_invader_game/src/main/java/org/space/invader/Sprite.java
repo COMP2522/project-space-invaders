@@ -34,7 +34,7 @@ public abstract class Sprite {
   public int getyPos(){
     return yPos;
   }
-  public void setYpos(){
+  public void setyPos(int i){
     this.yPos = yPos;
   }
 

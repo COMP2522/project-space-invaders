@@ -25,5 +25,14 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
 
 }
 
+  public void changeImage(boolean pos1) {
+  //Method of changing the image of invader according to its status and position
 
+    if(this.isAlive() == true) {
+      if(pos1 == true) {super.ico = new ImageIcon(getClass().getResource(strImg1));}
+      else {super.ico = new ImageIcon(getClass().getResource(strImg2));}
+    }
+    else {super.ico = new ImageIcon(getClass().getResource(strImg3));}
+    super.img = this.ico.getImage();
+  }
 }
