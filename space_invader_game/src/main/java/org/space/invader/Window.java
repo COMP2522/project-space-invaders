@@ -6,6 +6,8 @@ import java.awt.event.KeyListener;
 import org.space.invader.*;
 public class Window extends JPanel {
 
+  static Window window;
+
   static Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
 
@@ -21,6 +23,10 @@ public class Window extends JPanel {
     this.setFocusable(true);
     this.requestFocusInWindow();
     this.addKeyListener(new Keyboard());
+
+    Thread thread = new Thread(new Chrono());
+    thread.start();
+
 
     // Instantiation of Barrier Array
     for (int column = 0; column < 4; column++) {
@@ -58,7 +64,7 @@ public class Window extends JPanel {
   public static void main(String[] args) {
     JFrame frame = new JFrame("Space Invaders");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    Window window = new Window();
+    window = new Window();
     window.setPreferredSize(new Dimension(WINDOW_SIZE, WINDOW_HEIGHT));
     frame.add(window);
     frame.pack();
