@@ -131,9 +131,9 @@ public class Constant {
 //  public static final int VALEUR_ALIEN_HAUT = 50;
   public static final int HIGH_VALUE_INVADER = 50;
 //  public static final int VALEUR_ALIEN_MILIEU = 40;
-  public static final int middle_VALUE_INVADER = 40;
+  public static final int MIDDLE_VALUE_INVADER = 40;
 //  public static final int VALEUR_ALIEN_BAS = 20;
-  public static final int low_VALUE_INVADER = 20;
+  public static final int LOW_VALUE_INVADER = 20;
 //  public static final int VALEUR_SOUCOUPE = 100;
 
 }

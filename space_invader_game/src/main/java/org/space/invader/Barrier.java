@@ -26,8 +26,7 @@ public class Barrier extends Sprite {
 
 // Creation of the initial array associated with the undamaged barrier
   public void initBarrierArray() {
-    // Fill al\
-    // ?>,mnbvgcfdsaq 213l cells of the array with true
+    // Fill all cells of the array with true
     for (int row = 0; row < NUM_ROWS; row++) {
       for (int col = 0; col < NUM_COLS; col++) {
         BarrierArray[row][col] = true;
@@ -35,7 +34,7 @@ public class Barrier extends Sprite {
     }
 
     // Fill all cells without bricks with false
-    // Breaking? the top of the castle
+    // Making a shape for the top of the castle
     for (int col = 0; col < 6; col++) {
       for (int row = 0; row < 2; row++) {
         BarrierArray[row][col] = false;

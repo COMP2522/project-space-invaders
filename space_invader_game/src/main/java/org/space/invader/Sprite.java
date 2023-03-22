@@ -34,14 +34,14 @@ public abstract class Sprite {
   public int getyPos(){
     return yPos;
   }
-  public void setYpos(){
+  public void setyPos(int i){
     this.yPos = yPos;
   }
 
   public int getDx(){
     return dx;
   }
-  public void setDx(){
+  public void setDx(int dxPlayer){
     this.dx = dx;
   }
   public int getDy(){
