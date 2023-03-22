@@ -16,6 +16,7 @@ public class MissileInvader extends Sprite {
 //  Random hasard = new Random();
   Random rand = new Random();
 
+  Window window;
 
   /**** Constructor ****/
 
@@ -48,7 +49,7 @@ public class MissileInvader extends Sprite {
 
 //  public int deplacementTirAlien() {
   public int movMissileInvader() {
-    if (Chrono.compteTours % 4 == 0) {
+    if (Stopwatch.count % 4 == 0) {
       if (this.yPos < 600) {
         this.yPos = this.yPos + Constant.DY_MISSILE_INVADER;
       }
@@ -104,7 +105,7 @@ public class MissileInvader extends Sprite {
       tabRep[0] = this.numberBarrier(); // enregistre le num ro du ch teau touch  dans tabRep[0]
       if (tabRep[0] != -1) {
         tabRep[1] = this.xContactMisInvaderBarrier(
-            Main.scene.tabChateaux[tabRep[0]]);
+            window.BarrierArray[tabRep[0]]);
       }
     }
     return tabRep;
@@ -114,9 +115,9 @@ public class MissileInvader extends Sprite {
   public void misInvaderDestroyBarrier(Barrier arrayBarriers[]) {
     int[] array = this.missileInvaderTouchBarrier(); // Contient (-1,-1) ou le num ro du ch teau touch  et l'abscisse du tir
     if (array[0] != -1) { // Un ch teau est touch
-      if (arrayBarriers[array[0]].trouveBriqueHaut(arrayBarriers[array[0]].trouveColonneChateau(array[1])) != -1
-          && arrayBarriers[array[0]].trouveBriqueHaut(arrayBarriers[array[0]].trouveColonneChateau(array[1])) != 27) {
-        arrayBarriers[array[0]].casseBriquesHaut(array[1]); // D truit les briques du ch teau touch
+      if (arrayBarriers[array[0]].findTopBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != -1
+          && arrayBarriers[array[0]].findTopBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != 27) {
+        arrayBarriers[array[0]].breakTopBricks(array[1]); // D truit les briques du ch teau touch
         this.yPos = 700; // On tue le tir de l'alien
       }
     }
