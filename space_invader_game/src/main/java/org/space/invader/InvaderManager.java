@@ -149,18 +149,18 @@ public void drawInvader(Graphics g){
     if(this.pos1 == true) {this.pos1 = false;}
     else {this.pos1 = true;}
     //Changer the direction if the invader hit the window border
-    // M�j du sens de d�placement si un alien atteint le bord de la fen�tre
+
     this.invaderTurnAndLower();
   }
 
-  public void tirVaisseauToucheAlien(TirVaisseau tirVaisseau) {
+  public void misslePlayerTouchInvader(MissilePlayer missilePlayer) {
     //Missile contact with invader
     for(int column=0; column<10; column++) {
       for(int row=0; row<5; row++) {
         if(this.tabInvader[row][column] != null) {
-          if(tirVaisseau.tueAlien(this.tabInvader[row][column]) == true) {
+          if(missilePlayer.tueAlien(this.tabInvader[row][column]) == true) {
             this.tabInvader[row][column].alive = false; // We kill the invader
-            tirVaisseau.yPos = -1; // We kill the shot
+            missilePlayer.yPos = -1; // We kill the shot
             // We save the position of the dead alien in the array
             this.tabInvaderDead[0] = row;
             this.tabInvaderDead[1] = column;
