@@ -146,11 +146,12 @@ public class MissilePlayer extends Sprite {
 
   //  public void tirVaisseauDetruitChateau(Chateau tabChateaux[]) {
   // Ship Shot Destroys barrier.
-  public void misPlayerDestroyBarrier(Barrier arrayBarriers[]) {
+  public void misPlayerDestroyBarrier(Barrier BarrierArray[]) {
+//    int[] array = this.misPlayerTouchBarrier(); // original
     int[] array = this.misPlayerTouchBarrier(); // Contient (-1,-1) ou le num ro du ch teau touch  et l'abscisse du contact tirVaisseau et ch teau
     if (array[0] != -1) { // Un ch teau est touch
-      if (arrayBarriers[array[0]].findBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != -1) {
-        arrayBarriers[array[0]].breakBricks(array[1]); // D truit les briques du ch teau touch
+      if (BarrierArray[array[0]].findBrick(BarrierArray[array[0]].findBarrierColumn(array[1])) != -1) {
+        BarrierArray[array[0]].breakBricks(array[1]); // D truit les briques du ch teau touch
         this.yPos = -1; // On tue le tir et on r active le canon du vaisseau
       }
     }
