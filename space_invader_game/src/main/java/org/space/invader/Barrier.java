@@ -34,7 +34,7 @@ public class Barrier extends Sprite {
     }
 
     // Fill all cells without bricks with false
-    // Breaking? the top of the castle
+    // Making a shape for the top of the castle
     for (int col = 0; col < 6; col++) {
       for (int row = 0; row < 2; row++) {
         BarrierArray[row][col] = false;

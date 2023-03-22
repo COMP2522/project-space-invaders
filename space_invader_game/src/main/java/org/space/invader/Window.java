@@ -10,13 +10,15 @@ public class Window extends JPanel {
 
   static Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
-
   public Barrier BarrierArray[] = new Barrier[4];
   public static final int WINDOW_SIZE = 600;
   public static final int WINDOW_HEIGHT = 600;
   public static final int WINDOW_MARGIN = 50;
-
   public static boolean check = true;
+
+  private Font score = new Font("Arial", Font.PLAIN, 20);
+  private Font text = new Font("Arial", Font.PLAIN, 80);
+
   public Window(){
     super();
 
@@ -34,6 +36,9 @@ public class Window extends JPanel {
           Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER));
     }
 
+    // Instantiation of the stopwatch (at the end of the constructor)
+    Thread stopwatch = new Thread(new Stopwatch());
+    stopwatch.start();
   }
 
   public void paintComponent(Graphics g){
@@ -48,6 +53,10 @@ public class Window extends JPanel {
     g2.setColor(Color.GREEN);
     g2.fillRect(30, 530, 535, 5);
 
+    // Display the screen
+    g.setFont(score);
+    g.drawString("SCORE : " + score, 400, 25);
+
     //Draw the invaders
     this.groupInvaders.drawInvader(g2);
 
@@ -59,10 +68,24 @@ public class Window extends JPanel {
       this.BarrierArray[column].drawBarrier(g2);
     }
 
+    // Start message
+    if(Stopwatch.count < 500) {
+      g.setFont(text);
+      g.drawString("Good luck!", 95, 100);
+    }
+
+    // Game over message
+    if(this.player.isAlive() == false) {
+      g.setFont(text);
+      g.drawString("GAME OVER", 50, 100);
+    }
 
   }
   public static void main(String[] args) {
     JFrame frame = new JFrame("Space Invaders");
+    frame.setSize(WINDOW_SIZE, WINDOW_HEIGHT);
+    frame.setResizable(false);
+    frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     window = new Window();
     window.setPreferredSize(new Dimension(WINDOW_SIZE, WINDOW_HEIGHT));
