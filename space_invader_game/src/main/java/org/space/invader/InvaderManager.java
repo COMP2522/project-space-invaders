@@ -153,31 +153,31 @@ public void drawInvader(Graphics g){
     this.invaderTurnAndLower();
   }
 
-  public void misslePlayerTouchInvader(MissilePlayer missilePlayer) {
-    //Missile contact with invader
-    //Taehyuk part here
-    for(int column=0; column<10; column++) {
-      for(int row=0; row<5; row++) {
-        if(this.tabInvader[row][column] != null) {
-          if(missilePlayer.tueAlien(this.tabInvader[row][column]) == true) {
-            this.tabInvader[row][column].alive = false; // We kill the invader
-            missilePlayer.yPos = -1; // We kill the shot
-            // We save the position of the dead alien in the array
-            this.tabInvaderDead[0] = row;
-            this.tabInvaderDead[1] = column;
-            if(row == 0) {
-              //Don't know what to modify
-              Main.scene.score = Main.scene.score + Constant.HIGH_VALUE_INVADER;}
-            else if(row>0 && row<3) {
-              Main.scene.score = Main.scene.score + Constant.MIDDLE_VALUE_INVADER;}
-            else {
-              Main.scene.score = Main.scene.score + Constant.LOW_VALUE_INVADER;}
-            break;
-          }
-        }
-      }
-    }
-  }
+//  public void misslePlayerTouchInvader(MissilePlayer missilePlayer) {
+//    //Missile contact with invader
+//    //Taehyuk part here
+//    for(int column=0; column<10; column++) {
+//      for(int row=0; row<5; row++) {
+//        if(this.tabInvader[row][column] != null) {
+//          if(missilePlayer.tueAlien(this.tabInvader[row][column]) == true) {
+//            this.tabInvader[row][column].alive = false; // We kill the invader
+//            missilePlayer.yPos = -1; // We kill the shot
+//            // We save the position of the dead alien in the array
+//            this.tabInvaderDead[0] = row;
+//            this.tabInvaderDead[1] = column;
+//            if(row == 0) {
+//              //Don't know what to modify
+//              Main.scene.score = Main.scene.score + Constant.HIGH_VALUE_INVADER;}
+//            else if(row>0 && row<3) {
+//              Main.scene.score = Main.scene.score + Constant.MIDDLE_VALUE_INVADER;}
+//            else {
+//              Main.scene.score = Main.scene.score + Constant.LOW_VALUE_INVADER;}
+//            break;
+//          }
+//        }
+//      }
+//    }
+//  }
 
   private void eliminateInvaderDead(int[] tabInvaderDead) {
     //Method of removing the dead invader from the array
