@@ -13,7 +13,7 @@ public class Stopwatch implements Runnable {
   public void run() {
     while (window.check == true) {
       count++;
-//      window.repaint(); // Call the PaintComponent method of the window object
+      Window.window.repaint(); // Call the PaintComponent method of the window object
       try {
         Thread.sleep(PAUSE);
       } // pause for some time (5 ms)

@@ -11,7 +11,7 @@ public class Window extends JPanel {
   static Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
 //  public TirVaisseau tirVaisseau = new TirVaisseau();
-  public MissilePlayer missilePlayer = new MissilePlayer();
+  public static MissilePlayer missilePlayer = new MissilePlayer();
 
   public MissileInvader missileInvader1, missileInvader2, missileInvader3;
 
@@ -141,7 +141,7 @@ public class Window extends JPanel {
 
     if(this.groupInvaders.getInvaderNum() == 0) {groupInvaders = new InvaderManager();}
 
-//    if(this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {this.player.destructionVaisseau();}
+    if(this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {this.player.destructionVaisseau();}
   }
 
 //}

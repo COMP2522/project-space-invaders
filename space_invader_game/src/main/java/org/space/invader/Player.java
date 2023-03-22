@@ -1,6 +1,7 @@
 package org.space.invader;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Player extends Sprite {
   static Player player = new Player();
@@ -20,6 +21,8 @@ public class Player extends Sprite {
     super.ico = new ImageIcon(getClass().getResource(strImg1));
 //    super.ico = new ImageIcon(getClass().getResource(strImg1).getImage());
     super.img = this.ico.getImage();
+    super.alive = true;
+
   }
 
   public int playerLimit(){
@@ -34,5 +37,18 @@ public class Player extends Sprite {
 
     }
     return this.xPos;
+  }
+  public void drawPlayer(Graphics g) {
+    if(this.alive == false) {this.destructionPlayer();}
+    g.drawImage(this.img, this.deplacementVaisseau(), this.yPos, null);
+  }
+
+  public void destructionPlayer() {
+    if(compteur < 300) {
+      if(Stopwatch.count % 2 == 0) {super.ico = new ImageIcon(getClass().getResource(super.strImg2));}
+      else {super.ico = new ImageIcon(getClass().getResource(super.strImg3));}
+      compteur++;
+    }else {Main.jeu = false;}
+    super.img = this.ico.getImage();
   }
 }

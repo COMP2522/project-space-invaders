@@ -14,24 +14,39 @@ public class Keyboard implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
-    if(e.getKeyCode()== KeyEvent.VK_RIGHT && Window.player.xPos<=LIMIT_RIGHT_VAISSEAU){
-      Window.player.xPos+=5;
-      System.out.println(Window.player.getxPos());
-      Window.window.repaint();
-    } else if(e.getKeyCode() == KeyEvent.VK_LEFT && Window.player.xPos>=LIMIT_LEFT_PLAYER){
-      Window.player.xPos-=5;
-      System.out.println(Window.player.getxPos());
-      Window.window.repaint();
+//    if(e.getKeyCode()== KeyEvent.VK_RIGHT && Window.player.xPos<=LIMIT_RIGHT_VAISSEAU){
+//      Window.player.xPos+=5;
+//      System.out.println(Window.player.getxPos());
+//      Window.window.repaint();
+//    } else if(e.getKeyCode() == KeyEvent.VK_LEFT && Window.player.xPos>=LIMIT_LEFT_PLAYER){
+//      Window.player.xPos-=5;
+//      System.out.println(Window.player.getxPos());
+//      Window.window.repaint();
+//    }
+    if (Window.player.isAlive() == true) {
+      if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        Window.player.setDx(Constant.DX_PLAYER);
+      } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        Window.player.setDx(-Constant.DX_PLAYER);
+      } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+        if (Window.missilePlayer.isPlayerShoot() == false) {
+          Audio.playSound("/sons/sonTirVaisseau.wav");
+          Window.missilePlayer.setyPos(Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER);
+          Window.missilePlayer.setxPos(Window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
+          Window.missilePlayer.setPlayerShoot(true);
+        }
+      }
     }
   }
+
   @Override
-  public void keyTyped(KeyEvent e) {
-    Window.player.setDx(0);
+  public void keyTyped(KeyEvent arg0) {
 
   }
 
   @Override
   public void keyReleased(KeyEvent e) {
+    Window.player.setDx(0);
 
   }
 }
