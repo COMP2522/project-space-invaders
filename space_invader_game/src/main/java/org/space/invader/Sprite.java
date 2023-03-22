@@ -41,7 +41,7 @@ public abstract class Sprite {
   public int getDx(){
     return dx;
   }
-  public void setDx(){
+  public void setDx(int dxPlayer){
     this.dx = dx;
   }
   public int getDy(){
