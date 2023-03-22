@@ -10,14 +10,21 @@ public class Window extends JPanel {
 
   static Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
+//  public TirVaisseau tirVaisseau = new TirVaisseau();
+  public MissilePlayer missilePlayer = new MissilePlayer();
+
+  public MissileInvader missileInvader1, missileInvader2, missileInvader3;
+
   public Barrier BarrierArray[] = new Barrier[4];
   public static final int WINDOW_SIZE = 600;
   public static final int WINDOW_HEIGHT = 600;
   public static final int WINDOW_MARGIN = 50;
   public static boolean check = true;
 
-  private Font score = new Font("Arial", Font.PLAIN, 20);
-  private Font text = new Font("Arial", Font.PLAIN, 80);
+  private Font DisplayScore = new Font("Arial", Font.PLAIN, 20);
+  private Font Displaytext = new Font("Arial", Font.PLAIN, 80);
+
+  public int score = 0;
 
   public Window(){
     super();
@@ -54,11 +61,16 @@ public class Window extends JPanel {
     g2.fillRect(30, 530, 535, 5);
 
     // Display the screen
-    g.setFont(score);
+    g.setFont(DisplayScore);
     g.drawString("SCORE : " + score, 400, 25);
 
     //Draw the invaders
     this.groupInvaders.drawInvader(g2);
+
+    // Dessin du tir vaisseau
+    // Drawing of the spaceship shot
+    // this.tirVaisseau.dessinTirVaisseau(g2);
+    this.missilePlayer.drawPlayerMissile(g2);
 
     // draw player
     g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
@@ -70,13 +82,13 @@ public class Window extends JPanel {
 
     // Start message
     if(Stopwatch.count < 500) {
-      g.setFont(text);
+      g.setFont(Displaytext);
       g.drawString("Good luck!", 95, 100);
     }
 
     // Game over message
     if(this.player.isAlive() == false) {
-      g.setFont(text);
+      g.setFont(Displaytext);
       g.drawString("GAME OVER", 50, 100);
     }
 
