@@ -1,10 +1,12 @@
 package org.space.invader;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
+
 import org.space.invader.*;
 public class Window extends JPanel {
 
-  Player player = new Player();
+  static Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
 
   public Barrier BarrierArray[] = new Barrier[4];
@@ -15,6 +17,10 @@ public class Window extends JPanel {
   public static boolean check = true;
   public Window(){
     super();
+
+    this.setFocusable(true);
+    this.requestFocusInWindow();
+    this.addKeyListener(new Keyboard());
 
     // Instantiation of Barrier Array
     for (int column = 0; column < 4; column++) {
