@@ -125,8 +125,8 @@ public class MissileInvader extends Sprite {
   //  public boolean toucheVaisseau(Vaisseau vaisseau) {
   public boolean touchPlayer(Player player) {
     // Renvoie vrai si un tirAlien touche le vaisseau
-    if (this.yPos < player.getyPos() + player.getHauteur() && this.yPos + this.height > player.getyPos()
-        && this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getLargeur()) {
+    if (this.yPos < player.getyPos() + player.getHeight() && this.yPos + this.height > player.getyPos()
+        && this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize()) {
       this.yPos = 700;
       Audio.playSound("/sons/sonDestructionVaisseau.wav");
       return true;

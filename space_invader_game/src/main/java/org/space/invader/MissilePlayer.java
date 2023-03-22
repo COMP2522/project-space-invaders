@@ -75,10 +75,10 @@ public class MissilePlayer extends Sprite {
   public boolean killInvader(Invader invader) {
     // le tir du vaisseau d truit un alien
     // the spaceship's shot destroys an alien
-    if (this.yPos < invader.getyPos() + invader.getHauteur()
+    if (this.yPos < invader.getyPos() + invader.getHeight()
         && this.yPos + this.height > invader.getyPos()
         && this.xPos + this.size > invader.getxPos()
-        && this.xPos < invader.getxPos() + invader.getLargeur()) {
+        && this.xPos < invader.getxPos() + invader.getSize()) {
       Audio.playSound("/sons/sonAlienMeurt.wav");
       return true;
     } else {
