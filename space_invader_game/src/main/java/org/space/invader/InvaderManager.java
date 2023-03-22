@@ -155,6 +155,7 @@ public void drawInvader(Graphics g){
 
   public void misslePlayerTouchInvader(MissilePlayer missilePlayer) {
     //Missile contact with invader
+    //Taehyuk part here
     for(int column=0; column<10; column++) {
       for(int row=0; row<5; row++) {
         if(this.tabInvader[row][column] != null) {
