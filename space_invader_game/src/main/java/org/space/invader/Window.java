@@ -14,6 +14,7 @@ public class Window extends JPanel {
   public static final int WINDOW_MARGIN = 50;
   public static boolean check = true;
 
+  private Font score = new Font("Arial", Font.PLAIN, 20);
   private Font text = new Font("Arial", Font.PLAIN, 80);
 
   public Window(){
@@ -46,6 +47,10 @@ public class Window extends JPanel {
     g2.setColor(Color.GREEN);
     g2.fillRect(30, 530, 535, 5);
 
+    // Display the screen
+    g.setFont(score);
+    g.drawString("SCORE : " + score, 400, 25);
+
     //Draw the invaders
     this.groupInvaders.drawInvader(g2);
 
@@ -63,6 +68,11 @@ public class Window extends JPanel {
       g.drawString("Good luck!", 95, 100);
     }
 
+    // Game over message
+    if(this.player.isAlive() == false) {
+      g.setFont(text);
+      g.drawString("GAME OVER", 50, 100);
+    }
 
   }
   public static void main(String[] args) {
