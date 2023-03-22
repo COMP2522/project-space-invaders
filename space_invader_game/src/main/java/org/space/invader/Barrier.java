@@ -26,7 +26,8 @@ public class Barrier extends Sprite {
 
 // Creation of the initial array associated with the undamaged barrier
   public void initBarrierArray() {
-    // Fill all cells of the array with true
+    // Fill al\
+    // ?>,mnbvgcfdsaq 213l cells of the array with true
     for (int row = 0; row < NUM_ROWS; row++) {
       for (int col = 0; col < NUM_COLS; col++) {
         BarrierArray[row][col] = true;
