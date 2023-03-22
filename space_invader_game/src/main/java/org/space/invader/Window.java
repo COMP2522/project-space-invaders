@@ -6,6 +6,8 @@ import java.awt.event.KeyListener;
 import org.space.invader.*;
 public class Window extends JPanel {
 
+  static Window window;
+
   static Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
   public Barrier BarrierArray[] = new Barrier[4];
@@ -14,6 +16,7 @@ public class Window extends JPanel {
   public static final int WINDOW_MARGIN = 50;
   public static boolean check = true;
 
+  private Font score = new Font("Arial", Font.PLAIN, 20);
   private Font text = new Font("Arial", Font.PLAIN, 80);
 
   public Window(){
@@ -22,6 +25,10 @@ public class Window extends JPanel {
     this.setFocusable(true);
     this.requestFocusInWindow();
     this.addKeyListener(new Keyboard());
+
+    Thread thread = new Thread(new Chrono());
+    thread.start();
+
 
     // Instantiation of Barrier Array
     for (int column = 0; column < 4; column++) {
@@ -46,6 +53,10 @@ public class Window extends JPanel {
     g2.setColor(Color.GREEN);
     g2.fillRect(30, 530, 535, 5);
 
+    // Display the screen
+    g.setFont(score);
+    g.drawString("SCORE : " + score, 400, 25);
+
     //Draw the invaders
     this.groupInvaders.drawInvader(g2);
 
@@ -63,6 +74,11 @@ public class Window extends JPanel {
       g.drawString("Good luck!", 95, 100);
     }
 
+    // Game over message
+    if(this.player.isAlive() == false) {
+      g.setFont(text);
+      g.drawString("GAME OVER", 50, 100);
+    }
 
   }
   public static void main(String[] args) {
@@ -71,7 +87,7 @@ public class Window extends JPanel {
     frame.setResizable(false);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    Window window = new Window();
+    window = new Window();
     window.setPreferredSize(new Dimension(WINDOW_SIZE, WINDOW_HEIGHT));
     frame.add(window);
     frame.pack();
