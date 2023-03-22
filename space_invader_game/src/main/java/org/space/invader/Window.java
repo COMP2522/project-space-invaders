@@ -34,7 +34,7 @@ public class Window extends JPanel {
     this.requestFocusInWindow();
     this.addKeyListener(new Keyboard());
 
-    Thread thread = new Thread(new Chrono());
+    Thread thread = new Thread(new Stopwatch());
     thread.start();
 
 
@@ -100,21 +100,21 @@ public class Window extends JPanel {
 
     // Dessin des tirs des aliens
     // Drawing of the aliens' Missile`
-    if(Chrono.compteTours % 500 == 0) {
+    if(Stopwatch.count % 500 == 0) {
       missileInvader1 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());}
     if(this.missileInvader1 != null) {
       this.missileInvader1.drawInvaderMissile(g2);
       this.missileInvader1.misInvaderDestroyBarrier(BarrierArray); // D?ection contact tirAlien1 avec ch?eau
       if(this.missileInvader1.touchPlayer(player) == true) {this.player.setAlive(false);}
     }
-    if(Chrono.compteTours % 750 == 0) {
+    if(Stopwatch.count % 750 == 0) {
       missileInvader2 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());}
     if(this.missileInvader2 != null) {
       this.missileInvader2.drawInvaderMissile(g2);
       this.missileInvader2.misInvaderDestroyBarrier(BarrierArray); // D?ection contact tirAlien2 avec ch?eau
       if(this.missileInvader2.touchPlayer(player) == true) {this.player.setAlive(false);}
     }
-    if(Chrono.compteTours % 900 == 0) {
+    if(Stopwatch.count % 900 == 0) {
       missileInvader3 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());}
     if(this.missileInvader3 != null) {
       this.missileInvader3.drawInvaderMissile(g2);
@@ -141,7 +141,7 @@ public class Window extends JPanel {
 
     if(this.groupInvaders.getInvaderNum() == 0) {groupInvaders = new InvaderManager();}
 
-    if(this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {this.player.destructionVaisseau();}
+//    if(this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {this.player.destructionVaisseau();}
   }
 
 //}
