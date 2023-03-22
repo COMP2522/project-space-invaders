@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Invader extends Sprite {
 
 
-
+// Invader class
 public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
   //Initialize the variables of the super class
   super.xPos = xPos;
