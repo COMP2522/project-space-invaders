@@ -16,7 +16,6 @@ public class MissileInvader extends Sprite {
 //  Random hasard = new Random();
   Random rand = new Random();
 
-  Window window;
 
   /**** Constructor ****/
 
@@ -105,7 +104,7 @@ public class MissileInvader extends Sprite {
       tabRep[0] = this.numberBarrier(); // enregistre le num ro du ch teau touch  dans tabRep[0]
       if (tabRep[0] != -1) {
         tabRep[1] = this.xContactMisInvaderBarrier(
-            window.BarrierArray[tabRep[0]]);
+            Window.window.BarrierArray[tabRep[0]]);
       }
     }
     return tabRep;
@@ -129,7 +128,7 @@ public class MissileInvader extends Sprite {
     if (this.yPos < player.getyPos() + player.getHeight() && this.yPos + this.height > player.getyPos()
         && this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize()) {
       this.yPos = 700;
-      Audio.playSound("/sons/sonDestructionVaisseau.wav");
+//      Audio.playSound("/sons/sonDestructionVaisseau.wav");
       return true;
     } else {
       return false;
