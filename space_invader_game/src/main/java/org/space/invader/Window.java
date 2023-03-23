@@ -7,6 +7,8 @@ import org.space.invader.*;
 public class Window extends JPanel {
 
   static Window window;
+  public static boolean game = true;
+
 
   static Player player = new Player();
   public InvaderManager groupInvaders = new InvaderManager();
@@ -16,10 +18,10 @@ public class Window extends JPanel {
   public MissileInvader missileInvader1, missileInvader2, missileInvader3;
 
   public Barrier BarrierArray[] = new Barrier[4];
-  public static final int WINDOW_SIZE = 600;
-  public static final int WINDOW_HEIGHT = 600;
-  public static final int WINDOW_MARGIN = 50;
-  public static boolean check = true;
+//  public static final int WINDOW_SIZE = 600;
+//  public static final int WINDOW_HEIGHT = 600;
+//  public static final int WINDOW_MARGIN = 50;
+//  public static boolean check = true;
 
   private Font DisplayScore = new Font("Arial", Font.PLAIN, 20);
   private Font Displaytext = new Font("Arial", Font.PLAIN, 80);
@@ -34,8 +36,8 @@ public class Window extends JPanel {
     this.requestFocusInWindow();
     this.addKeyListener(new Keyboard());
 
-    Thread thread = new Thread(new Stopwatch());
-    thread.start();
+//    Thread thread = new Thread(new Stopwatch());
+//    thread.start();
 
 
     // Instantiation of Barrier Array
@@ -55,7 +57,7 @@ public class Window extends JPanel {
 
     //Draw the window frame
     g2.setColor(Color.BLACK);
-    g2.fillRect(0,0, WINDOW_SIZE, WINDOW_HEIGHT);
+    g2.fillRect(0,0, Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
 
     //Draw the green line on the bottom of the window
     g2.setColor(Color.GREEN);
@@ -65,6 +67,9 @@ public class Window extends JPanel {
     g.setFont(DisplayScore);
     g.drawString("SCORE : " + score, 400, 25);
 
+    // Draw the player
+    this.player.drawPlayer(g2);
+
     //Draw the invaders
     this.groupInvaders.drawInvader(g2);
 
@@ -73,8 +78,8 @@ public class Window extends JPanel {
     // this.tirVaisseau.dessinTirVaisseau(g2);
     this.missilePlayer.drawPlayerMissile(g2);
 
-    // draw player
-    g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
+//    // draw player
+//    g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
 
     // Draw the barriers
     for (int column = 0; column < 4; column++) {
@@ -141,18 +146,18 @@ public class Window extends JPanel {
 
     if(this.groupInvaders.getInvaderNum() == 0) {groupInvaders = new InvaderManager();}
 
-    if(this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {this.player.destructionVaisseau();}
+    if(this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {this.player.destructionPlayer();}
   }
 
 //}
   public static void main(String[] args) {
     JFrame frame = new JFrame("Space Invaders");
-    frame.setSize(WINDOW_SIZE, WINDOW_HEIGHT);
+    frame.setSize(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
     frame.setResizable(false);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     window = new Window();
-    window.setPreferredSize(new Dimension(WINDOW_SIZE, WINDOW_HEIGHT));
+    window.setPreferredSize(new Dimension(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT));
     frame.add(window);
     frame.pack();
     frame.setVisible(true);
