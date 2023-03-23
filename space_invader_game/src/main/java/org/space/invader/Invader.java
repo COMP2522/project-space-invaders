@@ -17,6 +17,7 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
   //Address of the images
   super.strImg1 = strImg1;
   super.strImg2 = strImg2;
+  //strImg3 should be the image of dead alien
   super.strImg3 = "/alien333.png";
   super.ico = new ImageIcon(getClass().getResource(super.strImg1));
   super.img = this.ico.getImage();
