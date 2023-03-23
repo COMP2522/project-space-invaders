@@ -30,14 +30,14 @@ private void initTableInvaders(){
     //create the invader table
   for(int column = 0; column < 10; column++){
     this.tabInvader[0][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-            Constant.ALT_INIT_INVADER, "/alien111.png", "/alien222.png");
+            Constant.ALT_INIT_INVADER, "/alien111.png", "/alien111.png");
     for(int row = 1; row <3; row++){
       this.tabInvader[row][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien222.png", "/alien333.png"  );
+              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien222.png", "/alien222.png"  );
     }
     for(int row = 3; row <5; row++){
       this.tabInvader[row][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien333.png", "/alien111.png"  );
+              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien333.png", "/alien333.png"  );
     }
 
   }
