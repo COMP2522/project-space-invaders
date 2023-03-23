@@ -134,9 +134,9 @@ public void drawInvader(Graphics g){
     if(this.goToRight == true) { // Move to right
       for(int column=0; column<10; column++) {
         for(int row=0; row<5; row++) {
-//          if(this.tabInvader[row][column] != null) {
+          if(this.tabInvader[row][column] != null) {
             this.tabInvader[row][column].setxPos(this.tabInvader[row][column].getxPos() + Constant.DX_INVADER);
-
+          }
         }
       }
     }else{ // Move to left
@@ -149,7 +149,7 @@ public void drawInvader(Graphics g){
       }
     }
     //Play the sound of invader
-    this.playSoundInvader();
+//    this.playSoundInvader();
     //increase of the count of the sound
     this.countSoundInvader++;
     // Changement de l'image de l'alien
@@ -212,13 +212,13 @@ public void drawInvader(Graphics g){
     return positionInvader;
   }
 
-  private void playSoundInvader() { // Method that plays the sound of the alien (4 possible sounds)
-    int count = this.countSoundInvader % 4;
-    if(count==0) {Audio.playSound("/sons/sonAlien1.wav");}
-    else if(count==1) {Audio.playSound("/sons/sonAlien2.wav");}
-    else if(count==2) {Audio.playSound("/sons/sonAlien3.wav");}
-    else {Audio.playSound("/sons/sonAlien4.wav");}
-  }
+//  private void playSoundInvader() { // Method that plays the sound of the alien (4 possible sounds)
+//    int count = this.countSoundInvader % 4;
+//    if(count==0) {Audio.playSound("/sons/sonAlien1.wav");}
+//    else if(count==1) {Audio.playSound("/sons/sonAlien2.wav");}
+//    else if(count==2) {Audio.playSound("/sons/sonAlien3.wav");}
+//    else {Audio.playSound("/sons/sonAlien4.wav");}
+//  }
 
   public int getInvaderNum() {return invaderNum;}
 
