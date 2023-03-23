@@ -93,6 +93,8 @@ public class Window extends JPanel {
       g.drawString("GAME OVER", 50, 100);
     }
 
+
+    this.groupInvaders.misslePlayerTouchInvader(this.missilePlayer);
     // D?ection contact tirVaisseau avec ch?eau
     // Direction of spaceship's contact with the castle
 //    this.tirVaisseau.tirVaisseauDetruitChateau(tabChateaux);
@@ -141,7 +143,7 @@ public class Window extends JPanel {
 
     if(this.groupInvaders.getInvaderNum() == 0) {groupInvaders = new InvaderManager();}
 
-//    if(this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {this.player.destructionVaisseau();}
+//    if(this.groupeAliens.positionAlienLePlusBas() > Constantes.Y_POS_VAISSEAU) {this.vaisseau.destructionVaisseau();}
   }
 
 //}
@@ -151,6 +153,9 @@ public class Window extends JPanel {
     frame.setResizable(false);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setAlwaysOnTop(true);
+
+
     window = new Window();
     window.setPreferredSize(new Dimension(WINDOW_SIZE, WINDOW_HEIGHT));
     frame.add(window);

@@ -17,7 +17,7 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
   //Address of the images
   super.strImg1 = strImg1;
   super.strImg2 = strImg2;
-//  super.strImg3 = strImg3;
+  super.strImg3 = "/alien-1.png";
   super.ico = new ImageIcon(getClass().getResource(super.strImg1));
   super.img = this.ico.getImage();
 
@@ -25,19 +25,9 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
 
 }
 
-  public void changeImage(boolean pos1) {
-  //Method of changing the image of invader according to its status and position
-
-    if(this.isAlive() == true) {
-      if(pos1 == true) {super.ico = new ImageIcon(getClass().getResource(strImg1));}
-      else {super.ico = new ImageIcon(getClass().getResource(strImg2));}
-    }
-    else {super.ico = new ImageIcon(getClass().getResource(strImg3));}
-    super.img = this.ico.getImage();
-  }
 
   public void chooseImage(boolean pos1) {
-  //Method of changing the image of invader accorfing to the sound status and position(1,2)
+  //Method of changing the image of invader according to the sound status and position(1,2)
 
     if(this.alive == true) {
       if(pos1 == true) {super.ico = new ImageIcon(getClass().getResource(strImg1));}
