@@ -30,45 +30,47 @@ private void initTableInvaders(){
     //create the invader table
   for(int column = 0; column < 10; column++){
     this.tabInvader[0][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-            Constant.ALT_INIT_INVADER, "/alien11.png", "/alien11.png");
+            Constant.ALT_INIT_INVADER, "/alien111.png", "/alien222.png");
     for(int row = 1; row <3; row++){
       this.tabInvader[row][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien22.png", "/alien22.png"  );
+              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien222.png", "/alien333.png"  );
     }
     for(int row = 3; row <5; row++){
       this.tabInvader[row][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER)* column,
-              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien33.png", "/alien33.png"  );
+              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien333.png", "/alien111.png"  );
     }
 
   }
 }
 public void drawInvader(Graphics g){
+  if(Stopwatch.count % (100 - 10 * this.speed) == 0) {this.moveInvader();}
     //Draw the invaders in the invader table
   for(int column = 0; column < 10; column++){
     for(int row = 0; row < 5; row++){
-      g.drawImage(this.tabInvader[row][column].getImg(), this.tabInvader[row][column].getxPos(),
-              this.tabInvader[row][column].getyPos(), null );
+      if(this.tabInvader[row][column] != null) {
+        this.tabInvader[row][column].chooseImage(pos1);
+        g.drawImage(this.tabInvader[row][column].getImg(), this.tabInvader[row][column].getxPos(),
+                this.tabInvader[row][column].getyPos(), null);
+      }
     }
   }
 }
 
   private boolean touchLeftBorder() {
-
     //Method of detecting the left border of the window
-
     boolean response = false;
-    for(int column=0; column<10; column++) {
-      for(int row=0; row<5; row++) {
-        if(this.tabInvader[row][column] != null) {
-          if(this.tabInvader[row][column].getxPos() < Constant.WINDOW_MARGIN){
+    for (int column = 0; column < 10; column++) {
+      for (int row = 0; row < 5; row++) {
+        if (this.tabInvader[row][column] != null) {
+          if (this.tabInvader[row][column].getxPos() < Constant.WINDOW_MARGIN) {
             response = true;
             break;
           }
+          }
         }
       }
+      return response;
     }
-    return response;
-  }
 
   private boolean touchRightBorder() {
     //Method of detecting the right border of the window
@@ -82,54 +84,59 @@ public void drawInvader(Graphics g){
             response = true;
             break;
           }
+          }
         }
       }
-    }
     return response;
-  }
+    }
+
 
   public void invaderTurnAndLower() {
     //Method which changes the direction of movement of the alien and lowers it by one notch
 
-    if(this.touchRightBorder() == true) {
-      for(int column=0; column<10; column++) {
-        for(int  row=0;  row<5;  row++) {
-          if(this.tabInvader[row][column] != null) {
+    if (this.touchRightBorder() == true) {
+      for (int column = 0; column < 10; column++) {
+        for (int row = 0; row < 5; row++) {
+          if (this.tabInvader[row][column] != null) {
             this.tabInvader[row][column].setyPos(this.tabInvader[row][column].getyPos() + Constant.DY_INVADER);
           }
         }
       }
       this.goToRight = false;
-      if(this.speed < 9) {this.speed++;}
+      if (this.speed < 9) {
+        this.speed++;
+      }
     } else {
-      if(this.touchLeftBorder() == true) {
-        for(int column=0; column<10; column++) {
-          for(int row=0; row<5; row++) {
-            if(this.tabInvader[row][column] != null) {
+      if (this.touchLeftBorder() == true) {
+        for (int column = 0; column < 10; column++) {
+          for (int row = 0; row < 5; row++) {
+            if (this.tabInvader[row][column] != null) {
               this.tabInvader[row][column].setyPos(
                       this.tabInvader[row][column].getyPos() + Constant.DY_INVADER);
             }
+            }
+          }
+          this.goToRight = true;
+          if (this.speed < 9) {
+            this.speed++;
           }
         }
-        this.goToRight = true;
-        if(this.speed < 9) {this.speed++;}
       }
     }
-  }
 
   public void moveInvader() {
     //Method of moving the invaders
 
     if(this.tabInvaderDead[0] != -1) { // Eliminate the invader if necessary
       eliminateInvaderDead(tabInvaderDead);
-      tabInvaderDead[0] = -1; // R�initialisation de tabAlienMort
+      tabInvaderDead[0] = -1;
     }
     if(this.goToRight == true) { // Move to right
       for(int column=0; column<10; column++) {
         for(int row=0; row<5; row++) {
-          if(this.tabInvader[row][column] != null) {
+//          if(this.tabInvader[row][column] != null) {
             this.tabInvader[row][column].setxPos(this.tabInvader[row][column].getxPos() + Constant.DX_INVADER);
-          }
+
         }
       }
     }else{ // Move to left

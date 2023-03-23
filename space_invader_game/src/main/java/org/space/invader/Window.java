@@ -98,6 +98,8 @@ public class Window extends JPanel {
       g.drawString("GAME OVER", 50, 100);
     }
 
+
+    this.groupInvaders.misslePlayerTouchInvader(this.missilePlayer);
     // D?ection contact tirVaisseau avec ch?eau
     // Direction of spaceship's contact with the castle
 //    this.tirVaisseau.tirVaisseauDetruitChateau(tabChateaux);
@@ -156,6 +158,9 @@ public class Window extends JPanel {
     frame.setResizable(false);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setAlwaysOnTop(true);
+
+
     window = new Window();
     window.setPreferredSize(new Dimension(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT));
     frame.add(window);
