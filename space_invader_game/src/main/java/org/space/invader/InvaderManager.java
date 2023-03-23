@@ -134,9 +134,9 @@ public void drawInvader(Graphics g){
     if(this.goToRight == true) { // Move to right
       for(int column=0; column<10; column++) {
         for(int row=0; row<5; row++) {
-//          if(this.tabInvader[row][column] != null) {
+          if(this.tabInvader[row][column] != null) {
             this.tabInvader[row][column].setxPos(this.tabInvader[row][column].getxPos() + Constant.DX_INVADER);
-
+          }
         }
       }
     }else{ // Move to left
