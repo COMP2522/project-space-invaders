@@ -17,7 +17,7 @@ public class Window extends JPanel {
 
   public MissileInvader missileInvader1, missileInvader2, missileInvader3;
 
-  public Barrier BarrierArray[] = new Barrier[4];
+  public static Barrier[] BarrierArray = new Barrier[4];
 //  public static final int WINDOW_SIZE = 600;
 //  public static final int WINDOW_HEIGHT = 600;
 //  public static final int WINDOW_MARGIN = 50;
