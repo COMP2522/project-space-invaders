@@ -15,7 +15,7 @@ public class MissilePlayer extends Sprite {
 
   // vaisseauTire = playerShoot
   private boolean playerShoot = false;
-  Window window;
+//  Window window;
 
 
   /**** CONSTRUCTOR ****/
@@ -138,7 +138,7 @@ public class MissilePlayer extends Sprite {
       arrayRep[0] = this.numberBarrier(); // enregistre le num ro du ch teau touch  dans tabRep[0]
       if (arrayRep[0] != -1) {
         //enregistre l'abscisse du tir du vaisseau lors du contact avec le ch teau dans tabRep[1]
-        arrayRep[1] = this.xContactMisBarrier(window.BarrierArray[arrayRep[0]]);
+        arrayRep[1] = this.xContactMisBarrier(Window.BarrierArray[arrayRep[0]]);
       }
     }
     return arrayRep;

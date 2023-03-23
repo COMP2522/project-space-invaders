@@ -125,7 +125,7 @@ public class Barrier extends Sprite {
 
   public void breakBricks(int xShot) {
     // Calls the previous 3 methods
-    Audio.playSound("/sounds/soundBrickBreak.wav");
+//    Audio.playSound("/sounds/soundBrickBreak.wav");
     int column = this.findBarrierColumn(xShot);
     this.removeBricks(findBrick(column), column);
   }

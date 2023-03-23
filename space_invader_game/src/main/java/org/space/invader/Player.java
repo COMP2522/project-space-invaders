@@ -16,8 +16,8 @@ public class Player extends Sprite {
         super.dy = 0;
 
         super.strImg1 = "/spaceship2.png";
-//    super.strImg2 = "/src/image/spaceship.png";
-//    super.strImg3 = "/src/image/spaceship.png";
+    super.strImg2 = "/playerDes1.png";
+    super.strImg3 = "/playerDes2.png";
 
 
 //    super.ico = new ImageIcon(getClass().getResource(strImg1));
