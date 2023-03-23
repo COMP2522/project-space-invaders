@@ -79,7 +79,7 @@ public class MissilePlayer extends Sprite {
         && this.yPos + this.height > invader.getyPos()
         && this.xPos + this.size > invader.getxPos()
         && this.xPos < invader.getxPos() + invader.getSize()) {
-      Audio.playSound("/sons/sonAlienMeurt.wav");
+//      Audio.playSound("/sons/sonAlienMeurt.wav");
       return true;
     } else {
       return false;
