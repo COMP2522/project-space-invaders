@@ -28,28 +28,24 @@ public abstract class Sprite {
   public int getxPos(){
     return xPos;
   }
-  public void setxPos(int i){
+  public void setxPos(int xPos){
     this.xPos = xPos;
   }
   public int getyPos(){
     return yPos;
   }
-  public void setyPos(int i){
-    this.yPos = yPos;
-  }
+  public void setyPos(int yPos){ this.yPos = yPos; }
 
   public int getDx(){
     return dx;
   }
-  public void setDx(int dxPlayer){
+  public void setDx(int dx){
     this.dx = dx;
   }
   public int getDy(){
     return dx;
   }
-  public void setDy(){
-    this.dy = dy;
-  }
+  public void setDy(int dy){ this.dy = dy; }
  public boolean isAlive(){
     return alive;
  }

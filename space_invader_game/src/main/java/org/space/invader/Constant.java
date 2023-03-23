@@ -30,7 +30,7 @@ public class Constant {
 //  public final static int LIMITE_GAUCHE_VAISSEAU = 60;
   public final static int LIMIT_LEFT_PLAYER = 60;
 //  public final static int LIMITE_DROITE_VAISSEAU = 500;
-  public final static int LIMIT_RIGHT_VAISSEAU = 500;
+  public final static int LIMIT_RIGHT_PLAYER = 500;
 
 
 
@@ -45,7 +45,7 @@ public class Constant {
 
   //Invader position
   public final static int ALT_INIT_INVADER = 120;
-  public final static int XPOS_INIT_INVADER = 29 + Window.WINDOW_MARGIN;
+  public final static int XPOS_INIT_INVADER = 29 + WINDOW_MARGIN;
   public final static int SPACE_ROW_INVADER = 40;
   public final static int SPACE_COLOMN_INVADER = 10;
 
