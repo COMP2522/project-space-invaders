@@ -3,19 +3,20 @@ package org.space.invader;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-//import static org.space.invader.Constant.LIMIT_LEFT_PLAYER;
-//import static org.space.invader.Constant.LIMIT_RIGHT_PLAYER;
-//import static org.space.invader.Player.player;
-
+/**
+ *  Keyboard class that implements KeyListener interface to handle user keyboard input.
+ */
 public class Keyboard implements KeyListener {
-
-//  private Window window;
-//  Window window = new Window();
 
 //  public Keyboard(Window window) {
 //    this.window = window;
 //  }
 
+  /**
+   * Overrides the keyPressed method from KeyListener interface to handle user input.
+   *
+   * @param e The KeyEvent object representing the user input.
+   */
   @Override
   public void keyPressed(KeyEvent e) {
 //    if(e.getKeyCode()== KeyEvent.VK_RIGHT && Window.player.xPos<=LIMIT_RIGHT_PLAYER){
@@ -43,10 +44,21 @@ public class Keyboard implements KeyListener {
     }
   }
 
+  /**
+   *  Overrides the keyReleased method from KeyListener interface to set player's horizontal speed to 0 when the key is released.
+   *
+   *  @param e The KeyEvent object representing the user input.
+   */
   @Override
   public void keyReleased(KeyEvent e) {
     Window.player.setDx(0);
   }
+
+  /**
+   *  Overrides the keyTyped method from KeyListener interface, but does nothing.
+   *
+   *  @param arg0 The KeyEvent object representing the user input.
+   */
   @Override
   public void keyTyped(KeyEvent arg0) {
 

@@ -5,24 +5,25 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
-//import jeu.Main;
-//import ressources.Audio;
-//import ressources.Chrono;
-//import ressources.Constantes;
-
+/**
+ * MissileInvader class represents the missile fired by an invader alien.
+ * It extends the Sprite class.
+ */
 public class MissileInvader extends Sprite {
   /**** VARIABLES ****/
 
 //  Random hasard = new Random();
   Random rand = new Random();
 
-
-  /**** Constructor ****/
-
-//  public MissileInvader(int[] tabPositionAlien) {
+  /**
+   * Constructor that initializes a new MissileInvader object with the given
+   * array of invader position coordinates.
+   *
+   * @param arrayPositionInvader an array of integers representing the x and y
+   *                             coordinates of the invader that fired the missile.
+   */
   public MissileInvader(int[] arrayPositionInvader) {
 
-    // Initialisation des variables de la super classe
     // Initialization of variables in the superclass
     super.xPos = arrayPositionInvader[0] + Constant.INVADER_SIZE / 2 - 1;
     super.yPos = arrayPositionInvader[1] + Constant.INVADER_HEIGHT;
@@ -30,11 +31,9 @@ public class MissileInvader extends Sprite {
     super.height = Constant.HEIGHT_MISSILE_INVADER;
     super.dx = 0;
     super.dy = Constant.DY_MISSILE_INVADER;
-    // Adresse des images du vaisseau
     super.strImg1 = "/tirAlien1.png";  // I'll change it later
     super.strImg2 = "/tirAlien2.png";  // I'll change it later
     super.strImg3 = "";
-    // Chargement de l'image du tir de l'alien
     if (rand.nextInt(2) == 0) {
       super.ico = new ImageIcon(getClass().getResource(super.strImg1));
     } else {
@@ -43,11 +42,12 @@ public class MissileInvader extends Sprite {
     super.img = this.ico.getImage();
   }
 
-
-  /**** METHODES ****/
-
-//  public int deplacementTirAlien() {
-  public int movMissileInvader() {
+  /**
+   * Moves the missile downwards on the game screen.
+   *
+   * @return the new y-coordinate of the missile after moving it.
+   */
+  public int moveMissileInvader() {
     if (Stopwatch.count % 4 == 0) {
       if (this.yPos < 600) {
         this.yPos = this.yPos + Constant.DY_MISSILE_INVADER;
@@ -56,14 +56,21 @@ public class MissileInvader extends Sprite {
     return yPos;
   }
 
-  //  public void dessinTirAlien(Graphics g) {
+  /**
+   * Draws the invader missile icon on the game screen at the current missile position.
+   *
+   * @param g the Graphics object used to draw the missile icon.
+   */
   public void drawInvaderMissile(Graphics g) {
-    g.drawImage(this.img, this.xPos, this.movMissileInvader(), null);
+    g.drawImage(this.img, this.xPos, this.moveMissileInvader(), null);
   }
 
-  //  private boolean tirAlienAHauteurDeChateau() {
+  /**
+   * Checks if the invader missile is at the same height as a barrier.
+   *
+   * @return true if the missile is at the same height as a barrier, false otherwise.
+   */
   private boolean missileInvaderFireAtBarrier() {
-    // Renvoie vrai si le tir du vaisseau est   hauteur des ch teaux
     if (this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER && this.yPos + this.height > Constant.Y_POS_BARRIER) {
       return true;
     } else {
@@ -71,9 +78,12 @@ public class MissileInvader extends Sprite {
     }
   }
 
-  //  private int chateauProche() {
+  /**
+   * Determines the number of the barrier that is closest to the invader missile based on its x-coordinate.
+   *
+   *  @return the number of the barrier closest to the missile, or -1 if there is no barrier close enough.
+   */
   private int numberBarrier() {
-    // Renvoie le num ro du ch teau (0,1,2 ou 3) dans la zone de tir du vaisseau
     int numBarrier = -1;
     int column = -1;
     while (numBarrier == -1 && column < 4) {
@@ -88,7 +98,13 @@ public class MissileInvader extends Sprite {
     return numBarrier;
   }
 
-  //  private int abscisseContactTirAlienChateau(Chateau chateau) {
+  /**
+   * Returns the x-coordinate of the point where the invader missile touches the barrier.
+   * If there is no contact between the missile and the barrier, -1 is returned.
+   *
+   * @param barrier the Barrier object to check for collision
+   * @return the x-coordinate of the contact point, or -1 if there is no contact
+   */
   private int xContactMisInvaderBarrier(Barrier barrier) {
     int xPosTirAlien = -1;
     if (this.xPos + this.size > barrier.getxPos() && this.xPos < barrier.getxPos() + Constant.SIZE_BARRIER) {
@@ -97,11 +113,18 @@ public class MissileInvader extends Sprite {
     return xPosTirAlien;
   }
 
-  //  public int[] tirAlienToucheChateau() { // Renvoie num ro ch teau touch  et abscisse du tir
-  public int[] missileInvaderTouchBarrier() { // Renvoie num ro ch teau touch  et abscisse du tir
+  /**
+   * Returns an integer array with two values: the index of the barrier that the invader missile touches,
+   * and the x-coordinate of the point where the missile touches the barrier. If the missile does not touch
+   * any barrier, both values in the array are set to -1.
+   *
+   * @return an integer array with two values representing the index of the barrier and the x-coordinate of
+   * the point where the missile touches the barrier, or {-1, -1} if there is no contact
+   */
+  public int[] missileInvaderTouchBarrier() {
     int[] tabRep = {-1, -1};
-    if (this.missileInvaderFireAtBarrier() == true) { // Le tir alien est   hauteur du ch teau
-      tabRep[0] = this.numberBarrier(); // enregistre le num ro du ch teau touch  dans tabRep[0]
+    if (this.missileInvaderFireAtBarrier() == true) {
+      tabRep[0] = this.numberBarrier();
       if (tabRep[0] != -1) {
         tabRep[1] = this.xContactMisInvaderBarrier(
             Window.window.BarrierArray[tabRep[0]]);
@@ -110,21 +133,31 @@ public class MissileInvader extends Sprite {
     return tabRep;
   }
 
-  //  public void TirAlienDetruitChateau(Chateau tabChateaux[]) {
+  /**
+   * Checks if the invader missile touches any barrier, and breaks the top brick of the corresponding
+   * barrier column if it does. Also updates the y-coordinate of the missile to move it off the screen.
+   *
+   * @param arrayBarriers an array of Barrier objects to check for collision
+   */
   public void misInvaderDestroyBarrier(Barrier arrayBarriers[]) {
-    int[] array = this.missileInvaderTouchBarrier(); // Contient (-1,-1) ou le num ro du ch teau touch  et l'abscisse du tir
+    int[] array = this.missileInvaderTouchBarrier();
     if (array[0] != -1) { // Un ch teau est touch
       if (arrayBarriers[array[0]].findTopBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != -1
           && arrayBarriers[array[0]].findTopBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != 27) {
-        arrayBarriers[array[0]].breakTopBricks(array[1]); // D truit les briques du ch teau touch
-        this.yPos = 700; // On tue le tir de l'alien
+        arrayBarriers[array[0]].breakTopBricks(array[1]);
+        this.yPos = 700;
       }
     }
   }
 
-  //  public boolean toucheVaisseau(Vaisseau vaisseau) {
+  /**
+   * Checks if the invader missile touches the player's ship, and returns true if it does. Also updates
+   * the y-coordinate of the missile to move it off the screen.
+   *
+   * @param player the Player object representing the player's ship
+   * @return true if the missile touches the player's ship, false otherwise
+   */
   public boolean touchPlayer(Player player) {
-    // Renvoie vrai si un tirAlien touche le vaisseau
     if (this.yPos < player.getyPos() + player.getHeight() && this.yPos + this.height > player.getyPos()
         && this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize()) {
       this.yPos = 700;

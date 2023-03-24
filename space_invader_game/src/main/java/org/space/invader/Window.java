@@ -2,33 +2,39 @@ package org.space.invader;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
-
-import org.space.invader.*;
+/**
+ * The Window class extends JPanel and is responsible for painting the game
+ * window with its graphical components, including the player, the invaders,
+ * missiles, barriers, and game messages. It implements the KeyListener interface
+ * to receive keyboard input events from the user.
+ */
 public class Window extends JPanel {
 
+  /** The game window. */
   static Window window;
+  /** A boolean that indicates whether the game is still running or not. */
   public static boolean game = true;
-
-
+  /** The player object. */
   static Player player = new Player();
+  /** The manager for the invaders. */
   public InvaderManager groupInvaders = new InvaderManager();
-//  public TirVaisseau tirVaisseau = new TirVaisseau();
+  /** The player missile object. */
   public static MissilePlayer missilePlayer = new MissilePlayer();
-
+  /** Three missile invader objects. */
   public MissileInvader missileInvader1, missileInvader2, missileInvader3;
-
+  /** An array of barrier objects. */
   public static Barrier[] BarrierArray = new Barrier[4];
-//  public static final int WINDOW_SIZE = 600;
-//  public static final int WINDOW_HEIGHT = 600;
-//  public static final int WINDOW_MARGIN = 50;
-//  public static boolean check = true;
-
+  /** The font used to display the score. */
   private Font DisplayScore = new Font("Arial", Font.PLAIN, 20);
+  /** The font used to display text. */
   private Font Displaytext = new Font("Arial", Font.PLAIN, 80);
-
-  // original: public int score = 0;
+  /** The score of the game. */
   public static int score = 0;
 
+  /**
+   *  The constructor of the Window class. Sets up the graphical components,
+   *  including the player, the invaders, missiles, barriers, and game messages.
+   */
   public Window(){
     super();
 
@@ -38,7 +44,6 @@ public class Window extends JPanel {
 
 //    Thread thread = new Thread(new Stopwatch());
 //    thread.start();
-
 
     // Instantiation of Barrier Array
     for (int column = 0; column < 4; column++) {
@@ -51,6 +56,15 @@ public class Window extends JPanel {
     stopwatch.start();
   }
 
+  /**
+   *  Paints all the components of the game. It draws the window frame, green line at the bottom,
+   *  score display, player, invaders, player missiles, barriers and game messages. It also checks
+   *  for collisions between the missiles and the barriers and the player and the missiles. Finally,
+   *  it checks for game over and end of game conditions, and restarts the game if all invaders are
+   *  destroyed.
+   *
+   *  @param g the Graphics object used to draw the components of the game.
+   */
   public void paintComponent(Graphics g){
     super.paintComponent(g);
     Graphics g2 = (Graphics2D)g;
@@ -73,9 +87,7 @@ public class Window extends JPanel {
     //Draw the invaders
     this.groupInvaders.drawInvader(g2);
 
-    // Dessin du tir vaisseau
     // Drawing of the spaceship shot
-    // this.tirVaisseau.dessinTirVaisseau(g2);
     this.missilePlayer.drawPlayerMissile(g2);
 
 //    // draw player
@@ -98,60 +110,43 @@ public class Window extends JPanel {
       g.drawString("GAME OVER", 50, 100);
     }
 
-
     this.groupInvaders.misslePlayerTouchInvader(this.missilePlayer);
-    // D?ection contact tirVaisseau avec ch?eau
     // Direction of spaceship's contact with the castle
-//    this.tirVaisseau.tirVaisseauDetruitChateau(tabChateaux);
     this.missilePlayer.misPlayerDestroyBarrier(BarrierArray);
 
-    // Dessin des tirs des aliens
-    // Drawing of the aliens' Missile`
+    // Drawing of the aliens' Missile
     if(Stopwatch.count % 500 == 0) {
       missileInvader1 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());}
     if(this.missileInvader1 != null) {
       this.missileInvader1.drawInvaderMissile(g2);
-      this.missileInvader1.misInvaderDestroyBarrier(BarrierArray); // D?ection contact tirAlien1 avec ch?eau
+      this.missileInvader1.misInvaderDestroyBarrier(BarrierArray);
       if(this.missileInvader1.touchPlayer(player) == true) {this.player.setAlive(false);}
     }
     if(Stopwatch.count % 750 == 0) {
       missileInvader2 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());}
     if(this.missileInvader2 != null) {
       this.missileInvader2.drawInvaderMissile(g2);
-      this.missileInvader2.misInvaderDestroyBarrier(BarrierArray); // D?ection contact tirAlien2 avec ch?eau
+      this.missileInvader2.misInvaderDestroyBarrier(BarrierArray);
       if(this.missileInvader2.touchPlayer(player) == true) {this.player.setAlive(false);}
     }
     if(Stopwatch.count % 900 == 0) {
       missileInvader3 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());}
     if(this.missileInvader3 != null) {
       this.missileInvader3.drawInvaderMissile(g2);
-      this.missileInvader3.misInvaderDestroyBarrier(BarrierArray); // D?ection contact tirAlien3 avec ch?eau
+      this.missileInvader3.misInvaderDestroyBarrier(BarrierArray);
       if(this.missileInvader3.touchPlayer(player) == true) {this.player.setAlive(false);}
     }
-
-    // we don't have to write the below method
-//    // Dessin de la soucoupe
-//    if(Chrono.compteTours % 2500 == 0) {soucoupe = new Soucoupe();}
-//    if(this.soucoupe != null) {
-//      if(this.soucoupe.getxPos()>0) {
-//        // D?ection contact tir vaisseau avec soucoupe
-//        if(this.tirVaisseau.detruitSoucoupe(this.soucoupe) == true) {
-//          if(this.soucoupe.getDx() != 0) {this.score = this.score + Constantes.VALEUR_SOUCOUPE;}
-//          this.soucoupe.setDx(0);
-//          this.soucoupe.setVivant(false);
-//          this.soucoupe.musiqueSoucoupe.stop();
-//          this.soucoupe.musiqueDestructionSoucoupe.play();
-//        }
-//        this.soucoupe.dessinSoucoupe(g2);
-//      }else {this.soucoupe = null;}
-//    }
 
     if(this.groupInvaders.getInvaderNum() == 0) {groupInvaders = new InvaderManager();}
 
     if(this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {this.player.destructionPlayer();}
   }
 
-//}
+  /**
+   *  Creates a JFrame and adds a custom JPanel that handles the game logic and rendering.
+   *
+   *  @param args The command line arguments.
+   */
   public static void main(String[] args) {
     JFrame frame = new JFrame("Space Invaders");
     frame.setSize(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
@@ -159,7 +154,6 @@ public class Window extends JPanel {
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setAlwaysOnTop(true);
-
 
     window = new Window();
     window.setPreferredSize(new Dimension(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT));
