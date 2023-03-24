@@ -2,10 +2,21 @@ package org.space.invader;
 
 import javax.swing.*;
 
+/**
+ * The Invader class represents an alien invader in the Space Invaders game.
+ * It extends the Sprite class and inherits its properties and methods.
+ */
+
 public class Invader extends Sprite {
 
-
-// Invader class
+  /**
+   * Constructor for creating a new Invader object.
+   *
+   * @param xPos    The x-coordinate of the invader's position.
+   * @param yPos    The y-coordinate of the invader's position.
+   * @param strImg1 The filename of the image for the invader in its first position.
+   * @param strImg2 The filename of the image for the invader in its second position.
+   */
 public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
   //Initialize the variables of the super class
   super.xPos = xPos;
@@ -26,7 +37,11 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
 
 }
 
-
+  /**
+   * This method changes the image of the invader according to the sound status and position.
+   *
+   * @param pos1 A boolean indicating whether the invader is in its first position.
+   */
   public void chooseImage(boolean pos1) {
   //Method of changing the image of invader according to the sound status and position(1,2)
 
@@ -37,10 +52,6 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
     else {super.ico = new ImageIcon(getClass().getResource(strImg3));}
     super.img = this.ico.getImage(); // Change of image
   }
-
-
-
-
 
 
 }
