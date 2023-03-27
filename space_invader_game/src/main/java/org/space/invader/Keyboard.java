@@ -35,7 +35,7 @@ public class Keyboard implements KeyListener {
         Window.player.setDx(-Constant.DX_PLAYER);
       } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
         if (Window.missilePlayer.isPlayerShoot() == false) {
-//          Audio.playSound("/sons/sonTirVaisseau.wav");
+//          Audio.playSound("/missile_player.wav");
           Window.missilePlayer.setyPos(Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER);
           Window.missilePlayer.setxPos(Window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
           Window.missilePlayer.setPlayerShoot(true);

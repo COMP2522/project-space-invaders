@@ -11,8 +11,6 @@ import javax.swing.ImageIcon;
  */
 public class MissileInvader extends Sprite {
   /**** VARIABLES ****/
-
-//  Random hasard = new Random();
   Random rand = new Random();
 
   /**
@@ -31,8 +29,8 @@ public class MissileInvader extends Sprite {
     super.height = Constant.HEIGHT_MISSILE_INVADER;
     super.dx = 0;
     super.dy = Constant.DY_MISSILE_INVADER;
-    super.strImg1 = "/tirAlien1.png";  // I'll change it later
-    super.strImg2 = "/tirAlien2.png";  // I'll change it later
+    super.strImg1 = "/missileInvader1.png";
+    super.strImg2 = "/missileInvader2.png";
     super.strImg3 = "";
     if (rand.nextInt(2) == 0) {
       super.ico = new ImageIcon(getClass().getResource(super.strImg1));
@@ -71,7 +69,8 @@ public class MissileInvader extends Sprite {
    * @return true if the missile is at the same height as a barrier, false otherwise.
    */
   private boolean missileInvaderFireAtBarrier() {
-    if (this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER && this.yPos + this.height > Constant.Y_POS_BARRIER) {
+    if (this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
+            && this.yPos + this.height > Constant.Y_POS_BARRIER) {
       return true;
     } else {
       return false;
@@ -107,7 +106,8 @@ public class MissileInvader extends Sprite {
    */
   private int xContactMisInvaderBarrier(Barrier barrier) {
     int xPosTirAlien = -1;
-    if (this.xPos + this.size > barrier.getxPos() && this.xPos < barrier.getxPos() + Constant.SIZE_BARRIER) {
+    if (this.xPos + this.size > barrier.getxPos()
+            && this.xPos < barrier.getxPos() + Constant.SIZE_BARRIER) {
       xPosTirAlien = this.xPos;
     }
     return xPosTirAlien;
@@ -122,7 +122,7 @@ public class MissileInvader extends Sprite {
    * the point where the missile touches the barrier, or {-1, -1} if there is no contact
    */
   public int[] missileInvaderTouchBarrier() {
-    int[] tabRep = {-1, -1};
+    int[] tabRep = {-1, -1};    // tabRep[0] = the number of Barrier, tabRep[1] = x position
     if (this.missileInvaderFireAtBarrier() == true) {
       tabRep[0] = this.numberBarrier();
       if (tabRep[0] != -1) {
@@ -141,7 +141,7 @@ public class MissileInvader extends Sprite {
    */
   public void misInvaderDestroyBarrier(Barrier arrayBarriers[]) {
     int[] array = this.missileInvaderTouchBarrier();
-    if (array[0] != -1) { // Un ch teau est touch
+    if (array[0] != -1) {
       if (arrayBarriers[array[0]].findTopBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != -1
           && arrayBarriers[array[0]].findTopBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != 27) {
         arrayBarriers[array[0]].breakTopBricks(array[1]);
@@ -161,7 +161,7 @@ public class MissileInvader extends Sprite {
     if (this.yPos < player.getyPos() + player.getHeight() && this.yPos + this.height > player.getyPos()
         && this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize()) {
       this.yPos = 700;
-//      Audio.playSound("/sons/sonDestructionVaisseau.wav");
+      Audio.playSound("/player_dead.wav");
       return true;
     } else {
       return false;
