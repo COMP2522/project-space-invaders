@@ -1,6 +1,8 @@
 package org.space.invader;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 /**
  * The Window class extends JPanel and is responsible for painting the game
@@ -147,6 +149,22 @@ public class Window extends JPanel {
    *
    *  @param args The command line arguments.
    */
+//  public static void main(String[] args) {
+//    JFrame frame = new JFrame("Space Invaders");
+//    frame.setSize(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
+//    frame.setResizable(false);
+//    frame.setLocationRelativeTo(null);
+//    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    frame.setAlwaysOnTop(true);
+//
+//
+//    window = new Window();
+//    window.setPreferredSize(new Dimension(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT));
+//    frame.add(window);
+//    frame.pack();
+//    frame.setVisible(true);
+//  }
+
   public static void main(String[] args) {
     JFrame frame = new JFrame("Space Invaders");
     frame.setSize(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
@@ -155,10 +173,26 @@ public class Window extends JPanel {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setAlwaysOnTop(true);
 
+    JPanel mainMenuPanel = new JPanel();
+    mainMenuPanel.setPreferredSize(new Dimension(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT));
+    JButton playButton = new JButton("Play");
+    playButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        window.setPreferredSize(new Dimension(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT));
+        frame.add(window);
+        frame.pack();
+        frame.setVisible(true);
+        playButton.setFocusable(false);
+      }
+    });
+
+    mainMenuPanel.add(playButton);
     window = new Window();
     window.setPreferredSize(new Dimension(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT));
-    frame.add(window);
+    frame.add(mainMenuPanel);
     frame.pack();
     frame.setVisible(true);
   }
+
 }

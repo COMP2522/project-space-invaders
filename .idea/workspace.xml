@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/space_invader_game/src/main/resources/InvaderDead.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/space_invader_game/src/main/resources/player_dead.wav" afterDir="false" />
+    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="Fixed the barrier array null issue">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -15,15 +15,8 @@
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/tirAlien1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/tirAlien2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/tirVaisseau.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissileInvader.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissileInvader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissilePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissilePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/tirAlien1.png" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/resources/missileInvader1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/tirAlien2.png" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/resources/missileInvader2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/tirVaisseau.png" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/resources/misPlayer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
