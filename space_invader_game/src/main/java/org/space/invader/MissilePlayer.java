@@ -19,8 +19,8 @@ public class MissilePlayer extends Sprite {
     super.size = Constant.SIZE_MISSILE_PLAYER;
     super.height = Constant.HEIGHT_MISSILE_PLAYER;
     super.dx = 0;
-    super.dy = Constant.DY_MISSILE_PLAYER;
-    super.strImg1 = "/tirVaisseau.png";  // I'll change it later
+    super.dy = Constant.DY_MISSILE_PLAYER;  // the speed of missile
+    super.strImg1 = "/misPlayer.png";
     super.strImg2 = "";
     super.strImg3 = "";
     super.ico = new ImageIcon(getClass().getResource(super.strImg1));
@@ -81,12 +81,12 @@ public class MissilePlayer extends Sprite {
    * @return boolean
    */
   public boolean killInvader(Invader invader) {
-    // the spaceship's shot destroys an alien
+    // the player's shot destroys an alien
     if (this.yPos < invader.getyPos() + invader.getHeight()
         && this.yPos + this.height > invader.getyPos()
         && this.xPos + this.size > invader.getxPos()
         && this.xPos < invader.getxPos() + invader.getSize()) {
-//      Audio.playSound("/sons/sonAlienMeurt.wav");
+      Audio.playSound("/InvaderDead.wav");
       return true;
     } else {
       return false;
@@ -101,7 +101,8 @@ public class MissilePlayer extends Sprite {
    */
   private boolean missilePlayerFireAtBarrier() {
     // Returns true if the ship's shot is at the height of the barriers
-    if (this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER && this.yPos + this.height > Constant.Y_POS_BARRIER) {
+    if (this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
+            && this.yPos + this.height > Constant.Y_POS_BARRIER) {
       return true;
     } else {
       return false;
@@ -174,7 +175,6 @@ public class MissilePlayer extends Sprite {
    * @param BarrierArray array of 'Barrier' objects
    */
   public void misPlayerDestroyBarrier(Barrier BarrierArray[]) {
-//    int[] array = this.misPlayerTouchBarrier(); // original
     int[] array = this.misPlayerTouchBarrier();
     if (array[0] != -1) {
       if (BarrierArray[array[0]].findBrick(BarrierArray[array[0]].findBarrierColumn(array[1])) != -1) {

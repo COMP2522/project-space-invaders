@@ -253,8 +253,7 @@ public void drawInvader(Graphics g){
     if(this.invaderNum != 0) { // We check that there are still living invaders
       do {int column = accident.nextInt(10); // We randomly draw a column from the
         // array of invaders
-        for(int row=4;row>=0;row--) { // On cherche le 1er alien vivant
-          // en partant du bas
+        for(int row=4;row>=0;row--) {
           if(tabInvader[row][column]!= null) {
             positionInvader[0] = this.tabInvader[row][column].getxPos();
             positionInvader[1] = this.tabInvader[row][column].getyPos();
