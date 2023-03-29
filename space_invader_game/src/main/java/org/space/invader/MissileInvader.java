@@ -10,6 +10,16 @@ import javax.swing.ImageIcon;
  * It extends the Sprite class.
  */
 public class MissileInvader extends Sprite {
+  final int INVALID = -1;
+  final int ZERO = 0;
+  final int ONE = 1;
+  final int TWO = 2;
+  final int WINDOW_HEIGHT = 600;
+  final int NUMBER_COLUMN = 4;
+  final int SCREEN_HEIGHT = 700;
+  final int BARRIER_HEIGHT = 27;
+  final int MISSILE_MOVE_INTERVAL = 4;
+
   /**** VARIABLES ****/
   Random rand = new Random();
 
@@ -23,16 +33,16 @@ public class MissileInvader extends Sprite {
   public MissileInvader(int[] arrayPositionInvader) {
 
     // Initialization of variables in the superclass
-    super.xPos = arrayPositionInvader[0] + Constant.INVADER_SIZE / 2 - 1;
-    super.yPos = arrayPositionInvader[1] + Constant.INVADER_HEIGHT;
+    super.xPos = arrayPositionInvader[ZERO] + Constant.INVADER_SIZE / TWO - ONE;
+    super.yPos = arrayPositionInvader[ONE] + Constant.INVADER_HEIGHT;
     super.size = Constant.SIZE_MISSILE_INVADER;
     super.height = Constant.HEIGHT_MISSILE_INVADER;
-    super.dx = 0;
+    super.dx = ZERO;
     super.dy = Constant.DY_MISSILE_INVADER;
     super.strImg1 = "/missileInvader1.png";
     super.strImg2 = "/missileInvader2.png";
-    super.strImg3 = "";
-    if (rand.nextInt(2) == 0) {
+//    super.strImg3 = "";
+    if (rand.nextInt(TWO) == ZERO) {
       super.ico = new ImageIcon(getClass().getResource(super.strImg1));
     } else {
       super.ico = new ImageIcon(getClass().getResource(super.strImg2));
@@ -46,8 +56,8 @@ public class MissileInvader extends Sprite {
    * @return the new y-coordinate of the missile after moving it.
    */
   public int moveMissileInvader() {
-    if (Stopwatch.count % 4 == 0) {
-      if (this.yPos < 600) {
+    if (Stopwatch.count % MISSILE_MOVE_INTERVAL == ZERO) {
+      if (this.yPos < WINDOW_HEIGHT) {
         this.yPos = this.yPos + Constant.DY_MISSILE_INVADER;
       }
     }
@@ -69,12 +79,8 @@ public class MissileInvader extends Sprite {
    * @return true if the missile is at the same height as a barrier, false otherwise.
    */
   private boolean missileInvaderFireAtBarrier() {
-    if (this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
-            && this.yPos + this.height > Constant.Y_POS_BARRIER) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
+        && this.yPos + this.height > Constant.Y_POS_BARRIER;
   }
 
   /**
@@ -83,13 +89,13 @@ public class MissileInvader extends Sprite {
    *  @return the number of the barrier closest to the missile, or -1 if there is no barrier close enough.
    */
   private int numberBarrier() {
-    int numBarrier = -1;
-    int column = -1;
-    while (numBarrier == -1 && column < 4) {
+    int numBarrier = INVALID;
+    int column = INVALID;
+    while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
-      if (this.xPos + this.size - 1 > Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER +
+      if (this.xPos + this.size - ONE > Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER +
           Constant.GAP_BARRIER)
-          && this.xPos + 1 < Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + Constant.SIZE_BARRIER +
+          && this.xPos + ONE < Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + Constant.SIZE_BARRIER +
           column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)) {
         numBarrier = column;
       }
@@ -105,7 +111,7 @@ public class MissileInvader extends Sprite {
    * @return the x-coordinate of the contact point, or -1 if there is no contact
    */
   private int xContactMisInvaderBarrier(Barrier barrier) {
-    int xPosTirAlien = -1;
+    int xPosTirAlien = INVALID;
     if (this.xPos + this.size > barrier.getxPos()
             && this.xPos < barrier.getxPos() + Constant.SIZE_BARRIER) {
       xPosTirAlien = this.xPos;
@@ -122,12 +128,12 @@ public class MissileInvader extends Sprite {
    * the point where the missile touches the barrier, or {-1, -1} if there is no contact
    */
   public int[] missileInvaderTouchBarrier() {
-    int[] tabRep = {-1, -1};    // tabRep[0] = the number of Barrier, tabRep[1] = x position
-    if (this.missileInvaderFireAtBarrier() == true) {
-      tabRep[0] = this.numberBarrier();
-      if (tabRep[0] != -1) {
-        tabRep[1] = this.xContactMisInvaderBarrier(
-            Window.window.BarrierArray[tabRep[0]]);
+    int[] tabRep = {INVALID, INVALID};    // tabRep[0] = the number of Barrier, tabRep[1] = x position
+    if (this.missileInvaderFireAtBarrier()) {
+      tabRep[ZERO] = this.numberBarrier();
+      if (tabRep[ZERO] != INVALID) {
+        tabRep[ONE] = this.xContactMisInvaderBarrier(
+            Window.window.BarrierArray[tabRep[ZERO]]);
       }
     }
     return tabRep;
@@ -141,11 +147,11 @@ public class MissileInvader extends Sprite {
    */
   public void misInvaderDestroyBarrier(Barrier arrayBarriers[]) {
     int[] array = this.missileInvaderTouchBarrier();
-    if (array[0] != -1) {
-      if (arrayBarriers[array[0]].findTopBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != -1
-          && arrayBarriers[array[0]].findTopBrick(arrayBarriers[array[0]].findBarrierColumn(array[1])) != 27) {
-        arrayBarriers[array[0]].breakTopBricks(array[1]);
-        this.yPos = 700;
+    if (array[ZERO] != INVALID) {
+      if (arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID
+          && arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != BARRIER_HEIGHT) {
+        arrayBarriers[array[ZERO]].breakTopBricks(array[ONE]);
+        this.yPos = SCREEN_HEIGHT;
       }
     }
   }
@@ -160,7 +166,7 @@ public class MissileInvader extends Sprite {
   public boolean touchPlayer(Player player) {
     if (this.yPos < player.getyPos() + player.getHeight() && this.yPos + this.height > player.getyPos()
         && this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize()) {
-      this.yPos = 700;
+      this.yPos = SCREEN_HEIGHT;
       Audio.playSound("/player_dead.wav");
       return true;
     } else {
