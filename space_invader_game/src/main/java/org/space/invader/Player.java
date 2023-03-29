@@ -11,11 +11,17 @@ public class Player extends Sprite {
     /** An integer that counts the number of times a player is destroyed. */
     private int counter = 0;
 
+    // Add a new instance variable for the player's name
+    private String name;
+    private int score;
+
     //  static Player player = new Player();
     /** A constructor that sets the initial values for the player object.
      * It sets the position, size, height, direction, and image of the player.
      */
-    public Player() {
+    public Player(String name) {
+        this.name = name;
+        this.score = 0;
         super.xPos = Constant.X_POS_INIT_PLAYER;
         super.yPos = Constant.Y_POS_PLAYER;
         super.size = Constant.PLAYER_SIZE;
@@ -83,5 +89,19 @@ public class Player extends Sprite {
             Window.game = false;
         }
         super.img = this.ico.getImage();
+    }
+
+
+    // Getter and setter methods
+    public String getName() {
+        return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
