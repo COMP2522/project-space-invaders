@@ -4,6 +4,12 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 public class MissilePlayer extends Sprite {
+  final int INVALID = -1;
+  final int NUMBER_COLUMN = 4;
+  final int ZERO = 0;
+  final int ONE = 1;
+
+
 
   private boolean playerShoot = false;
 
@@ -14,15 +20,15 @@ public class MissilePlayer extends Sprite {
    */
   public MissilePlayer() {
 
-    super.xPos = 0;
+    super.xPos = ZERO;
     super.yPos = Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER;
     super.size = Constant.SIZE_MISSILE_PLAYER;
     super.height = Constant.HEIGHT_MISSILE_PLAYER;
-    super.dx = 0;
+    super.dx = ZERO;
     super.dy = Constant.DY_MISSILE_PLAYER;  // the speed of missile
     super.strImg1 = "/misPlayer.png";
-    super.strImg2 = "";
-    super.strImg3 = "";
+//    super.strImg2 = "";
+//    super.strImg3 = "";
     super.ico = new ImageIcon(getClass().getResource(super.strImg1));
     super.img = this.ico.getImage();
   }
@@ -51,8 +57,8 @@ public class MissilePlayer extends Sprite {
    * @return the new y-position of the missile.
    */
   public int moveMissilePlayer() {
-    if (this.playerShoot == true) {
-      if (this.yPos > 0) {
+    if (this.playerShoot) {
+      if (this.yPos > ZERO) {
         this.yPos = this.yPos - Constant.DY_MISSILE_PLAYER;
       } else {
         this.playerShoot = false;
@@ -67,7 +73,7 @@ public class MissilePlayer extends Sprite {
    * @param g the Graphics object to use for drawing.
    */
   public void drawPlayerMissile(Graphics g) {
-    if (this.playerShoot == true) {
+    if (this.playerShoot) {
       g.drawImage(this.img, this.xPos, this.moveMissilePlayer(), null);
     }
   }
@@ -101,12 +107,8 @@ public class MissilePlayer extends Sprite {
    */
   private boolean missilePlayerFireAtBarrier() {
     // Returns true if the ship's shot is at the height of the barriers
-    if (this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
-            && this.yPos + this.height > Constant.Y_POS_BARRIER) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
+        && this.yPos + this.height > Constant.Y_POS_BARRIER;
   }
 
   /**
@@ -115,9 +117,9 @@ public class MissilePlayer extends Sprite {
    * @return number of the barrier
    */
   private int numberBarrier() {
-    int numBarrier = -1;
-    int column = -1;
-    while (numBarrier == -1 && column < 4) {
+    int numBarrier = INVALID;
+    int column = INVALID;
+    while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
       if (this.xPos + this.size > Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + column *
           (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)
@@ -137,7 +139,7 @@ public class MissilePlayer extends Sprite {
    * @return the x coordinate of missile contacted with the barrier
    */
   private int xContactMisBarrier(Barrier barrier) {
-    int xPosMisPlayer = -1;
+    int xPosMisPlayer = INVALID;
     if (this.xPos + this.size > barrier.getxPos() && this.xPos < barrier.getxPos() + Constant.SIZE_BARRIER) {
       xPosMisPlayer = this.xPos;
     }
@@ -153,11 +155,11 @@ public class MissilePlayer extends Sprite {
    * arrayRep[1] = the x-coordinate of the collision point.
    */
   public int[] misPlayerTouchBarrier() {
-    int[] arrayRep = {-1, -1};
-    if (this.missilePlayerFireAtBarrier() == true) {
-      arrayRep[0] = this.numberBarrier();
-      if (arrayRep[0] != -1) {
-        arrayRep[1] = this.xContactMisBarrier(Window.BarrierArray[arrayRep[0]]);
+    int[] arrayRep = {INVALID, INVALID};
+    if (this.missilePlayerFireAtBarrier()) {
+      arrayRep[ZERO] = this.numberBarrier();
+      if (arrayRep[ZERO] != INVALID) {
+        arrayRep[ONE] = this.xContactMisBarrier(Window.BarrierArray[arrayRep[ZERO]]);
       }
     }
     return arrayRep;
@@ -176,10 +178,10 @@ public class MissilePlayer extends Sprite {
    */
   public void misPlayerDestroyBarrier(Barrier BarrierArray[]) {
     int[] array = this.misPlayerTouchBarrier();
-    if (array[0] != -1) {
-      if (BarrierArray[array[0]].findBrick(BarrierArray[array[0]].findBarrierColumn(array[1])) != -1) {
-        BarrierArray[array[0]].breakBricks(array[1]);
-        this.yPos = -1;
+    if (array[ZERO] != INVALID) {
+      if (BarrierArray[array[ZERO]].findBrick(BarrierArray[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID) {
+        BarrierArray[array[ZERO]].breakBricks(array[ONE]);
+        this.yPos = INVALID;
       }
     }
   }

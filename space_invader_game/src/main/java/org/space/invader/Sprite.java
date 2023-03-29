@@ -53,9 +53,9 @@ public abstract class Sprite {
    *
    * @param size the new size of the sprite
    */
-  public void setSize(int size){
-    this.size = size;
-  }
+//  public void setSize(int size){
+//    this.size = size;
+//  }
   /**
    *  Returns the height of the sprite.
    *
@@ -71,9 +71,9 @@ public abstract class Sprite {
    * @param height the new height of the sprite
    */
 
-  public void setHeight(int height){
-    this.height = height;
-  }
+//  public void setHeight(int height){
+//    this.height = height;
+//  }
 
   /**
    * Returns the x position of the sprite.
@@ -114,9 +114,7 @@ public abstract class Sprite {
    *
    * @return the horizontal speed of the sprite
    */
-  public int getDx(){
-    return dx;
-  }
+//  public int getDx(){ return dx; }
 
   /**
    * Sets the horizontal speed of the sprite.
@@ -132,16 +130,14 @@ public abstract class Sprite {
    *
    * @return the vertical speed of the sprite
    */
-  public int getDy(){
-    return dx;
-  }
+//  public int getDy(){ return dx; }
 
   /**
    * Sets the vertical speed of the sprite.
    *
    * @param dy the new vertical speed of the sprite
    */
-  public void setDy(int dy){ this.dy = dy; }
+//  public void setDy(int dy){ this.dy = dy; }
 
   /**
    * Returns whether the sprite is alive or not.
@@ -166,72 +162,72 @@ public abstract class Sprite {
    *
    * @return the string representation of the first image of the sprite.
    */
- public String getStrImg1(){
-    return strImg1;
- }
+// public String getStrImg1(){
+//    return strImg1;
+// }
 
   /**
    * Sets the string representation of the first image of the sprite.
    *
    * @param strImg1 the string representation of the first image of the sprite.
    */
- public void setStringImg1(String strImg1){
-    this.strImg1 = strImg1;
- }
+// public void setStringImg1(String strImg1){
+//    this.strImg1 = strImg1;
+// }
 
   /**
    * Gets the string representation of the second image of the sprite.
    *
    * @return the string representation of the second image of the sprite.
    */
-  public String getStrImg2(){
-    return strImg2;
-  }
+//  public String getStrImg2(){
+//    return strImg2;
+//  }
 
   /**
    * Sets the string representation of the second image of the sprite.
    *
    * @param strImg2 the string representation of the second image of the sprite.
    */
-  public void setStringImg2(String strImg2){
-    this.strImg2 = strImg2;
-  }
+//  public void setStringImg2(String strImg2){
+//    this.strImg2 = strImg2;
+//  }
 
   /**
    * Gets the string representation of the third image of the sprite.
    *
    * @return the string representation of the third image of the sprite.
    */
-  public String getStrImg3(){
-    return strImg3;
-  }
+//  public String getStrImg3(){
+//    return strImg3;
+//  }
 
   /**
    * Sets the string representation of the third image of the sprite.
    *
    * @param strImg3 the string representation of the third image of the sprite.
    */
-  public void setStringImg3(String strImg3){
-    this.strImg3 = strImg3;
-  }
+//  public void setStringImg3(String strImg3){
+//    this.strImg3 = strImg3;
+//  }
 
   /**
    * Gets the image icon of the sprite.
    *
    * @return the image icon of the sprite.
    */
-  public ImageIcon getIco(){
-    return ico;
-  }
+//  public ImageIcon getIco(){
+//    return ico;
+//  }
 
   /**
    * Sets the image icon of the sprite.
    *
    * @param ico the image icon of the sprite.
    */
-  public void setIco(ImageIcon ico){
-    this.ico = ico;
-  }
+//  public void setIco(ImageIcon ico){
+//    this.ico = ico;
+//  }
 
   /**
    * Gets the image of the sprite.
@@ -247,9 +243,9 @@ public abstract class Sprite {
    *
    * @param img the image of the sprite.
    */
-  public void setImg(Image img){
-    this.img = img;
-  }
+//  public void setImg(Image img){
+//    this.img = img;
+//  }
 
 
 

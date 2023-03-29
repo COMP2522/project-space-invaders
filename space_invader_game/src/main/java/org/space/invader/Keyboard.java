@@ -28,13 +28,13 @@ public class Keyboard implements KeyListener {
 //      System.out.println(Window.player.getxPos());
 //      Window.window.repaint();
 //    }
-    if (Window.player.isAlive() == true) {
+    if (Window.player.isAlive()) {
       if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
         Window.player.setDx(Constant.DX_PLAYER);
       } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
         Window.player.setDx(-Constant.DX_PLAYER);
       } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-        if (Window.missilePlayer.isPlayerShoot() == false) {
+        if (!Window.missilePlayer.isPlayerShoot()) {
 //          Audio.playSound("/missile_player.wav");
           Window.missilePlayer.setyPos(Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER);
           Window.missilePlayer.setxPos(Window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
