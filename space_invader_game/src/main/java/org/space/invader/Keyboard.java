@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
  *  Keyboard class that implements KeyListener interface to handle user keyboard input.
  */
 public class Keyboard implements KeyListener {
+
   private Window window;
 
   public Keyboard(Window window) {
@@ -17,7 +18,7 @@ public class Keyboard implements KeyListener {
 //    this.window = window;
 //  }
 
-  /**
+/**
    * Overrides the keyPressed method from KeyListener interface to handle user input.
    *
    * @param e The KeyEvent object representing the user input.
@@ -51,7 +52,6 @@ public class Keyboard implements KeyListener {
       window.player.setDx(0);
     }
   }
-
   /**
    *  Overrides the keyTyped method from KeyListener interface, but does nothing.
    *
