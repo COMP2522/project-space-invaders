@@ -10,28 +10,30 @@ import java.awt.*;
 public class Player extends Sprite {
     /** An integer that counts the number of times a player is destroyed. */
     private int counter = 0;
+    final int PLAYER_DESTRUCTION_DURATION = 300;
+    final int EVEN_IMAGE_INDEX = 2;
+    final int ZERO = 0;
 
-    //  static Player player = new Player();
     /** A constructor that sets the initial values for the player object.
      * It sets the position, size, height, direction, and image of the player.
      */
     public Player() {
-        super.xPos = Constant.X_POS_INIT_PLAYER;
-        super.yPos = Constant.Y_POS_PLAYER;
-        super.size = Constant.PLAYER_SIZE;
-        super.height = Constant.PLAYER_HEIGHT;
-        super.dx = 0;
-        super.dy = 0;
+        this.xPos = Constant.X_POS_INIT_PLAYER;
+        this.yPos = Constant.Y_POS_PLAYER;
+        this.size = Constant.PLAYER_SIZE;
+        this.height = Constant.PLAYER_HEIGHT;
+        this.dx = ZERO;
+        this.dy = ZERO;
 
-        super.strImg1 = "/spaceship2.png";
-        super.strImg2 = "/playerDes1.png";
-        super.strImg3 = "/playerDes2.png";
+        this.strImg1 = "/spaceship2.png";
+        this.strImg2 = "/playerDes1.png";
+        this.strImg3 = "/playerDes2.png";
 
 //    super.ico = new ImageIcon(getClass().getResource(strImg1));
-        super.ico = new ImageIcon(getClass().getResource(super.strImg1));
+        this.ico = new ImageIcon(getClass().getResource(super.strImg1));
 //    super.ico = new ImageIcon(getClass().getResource(strImg1).getImage());
-        super.img = this.ico.getImage();
-        super.alive = true;
+        this.img = this.ico.getImage();
+        this.alive = true;
     }
 
     /**
@@ -41,11 +43,11 @@ public class Player extends Sprite {
      * @return xPos x position of the player.
      */
     public int playerLimit() {
-        if (this.dx < 0) {
+        if (this.dx < ZERO) {
             if (this.xPos > Constant.LIMIT_LEFT_PLAYER) {
                 this.xPos = this.xPos + this.dx;
             }
-        } else if (this.dx > 0) {
+        } else if (this.dx > ZERO) {
             if (this.xPos + this.dx < Constant.LIMIT_RIGHT_PLAYER) {
                 this.xPos = this.xPos + this.dx;
             }
@@ -57,10 +59,10 @@ public class Player extends Sprite {
      * Draws the player object on the screen. If the player is not alive,
      * it calls the destructionPlayer() method to animate the player's destruction.
      *
-     * @param g
+     * @param g the Graphics object used for drawing
      */
     public void drawPlayer(Graphics g) {
-        if (this.alive == false) {
+        if (!this.alive) {
             this.destructionPlayer();
         }
         g.drawImage(this.img, this.playerLimit(), this.yPos, null);
@@ -72,8 +74,8 @@ public class Player extends Sprite {
      *  game variable to 'false' to end the game.
      */
     public void destructionPlayer() {
-        if (counter < 300) {
-            if (Stopwatch.count % 2 == 0) {
+        if (counter < PLAYER_DESTRUCTION_DURATION) {
+            if (Stopwatch.count % EVEN_IMAGE_INDEX == ZERO) {
                 super.ico = new ImageIcon(getClass().getResource(super.strImg2));
             } else {
                 super.ico = new ImageIcon(getClass().getResource(super.strImg3));

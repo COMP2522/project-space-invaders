@@ -33,21 +33,21 @@ public class MissileInvader extends Sprite {
   public MissileInvader(int[] arrayPositionInvader) {
 
     // Initialization of variables in the superclass
-    super.xPos = arrayPositionInvader[ZERO] + Constant.INVADER_SIZE / TWO - ONE;
-    super.yPos = arrayPositionInvader[ONE] + Constant.INVADER_HEIGHT;
-    super.size = Constant.SIZE_MISSILE_INVADER;
-    super.height = Constant.HEIGHT_MISSILE_INVADER;
-    super.dx = ZERO;
-    super.dy = Constant.DY_MISSILE_INVADER;
-    super.strImg1 = "/missileInvader1.png";
-    super.strImg2 = "/missileInvader2.png";
+    this.xPos = arrayPositionInvader[ZERO] + Constant.INVADER_SIZE / TWO - ONE;
+    this.yPos = arrayPositionInvader[ONE] + Constant.INVADER_HEIGHT;
+    this.size = Constant.SIZE_MISSILE_INVADER;
+    this.height = Constant.HEIGHT_MISSILE_INVADER;
+    this.dx = ZERO;
+    this.dy = Constant.DY_MISSILE_INVADER;
+    this.strImg1 = "/missileInvader1.png";
+    this.strImg2 = "/missileInvader2.png";
 //    super.strImg3 = "";
     if (rand.nextInt(TWO) == ZERO) {
-      super.ico = new ImageIcon(getClass().getResource(super.strImg1));
+      this.ico = new ImageIcon(getClass().getResource(this.strImg1));
     } else {
-      super.ico = new ImageIcon(getClass().getResource(super.strImg2));
+      this.ico = new ImageIcon(getClass().getResource(this.strImg2));
     }
-    super.img = this.ico.getImage();
+    this.img = this.ico.getImage();
   }
 
   /**
@@ -157,6 +157,17 @@ public class MissileInvader extends Sprite {
   }
 
   /**
+   Checks if the current object intersects with a given Player object.
+   @param player the Player object to check for intersection with
+   @return true if there is an intersection, false otherwise
+   */
+  private boolean intersects(Player player) {
+    boolean xOverlap = this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize();
+    boolean yOverlap = this.yPos + this.height > player.getyPos() && this.yPos < player.getyPos() + player.getHeight();
+    return xOverlap && yOverlap;
+  }
+
+  /**
    * Checks if the invader missile touches the player's ship, and returns true if it does. Also updates
    * the y-coordinate of the missile to move it off the screen.
    *
@@ -164,8 +175,7 @@ public class MissileInvader extends Sprite {
    * @return true if the missile touches the player's ship, false otherwise
    */
   public boolean touchPlayer(Player player) {
-    if (this.yPos < player.getyPos() + player.getHeight() && this.yPos + this.height > player.getyPos()
-        && this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize()) {
+    if (this.intersects(player)) {
       this.yPos = SCREEN_HEIGHT;
       Audio.playSound("/player_dead.wav");
       return true;

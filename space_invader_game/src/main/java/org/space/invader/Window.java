@@ -9,6 +9,10 @@ import java.awt.event.KeyListener;
  * to receive keyboard input events from the user.
  */
 public class Window extends JPanel {
+  final int DisplayScore_size = 20;
+  final int Displaytext_size = 80;
+  final int NUMBER_COLUMN = 4;
+
 
   /** The game window. */
   static Window window;
@@ -25,9 +29,9 @@ public class Window extends JPanel {
   /** An array of barrier objects. */
   public static Barrier[] BarrierArray = new Barrier[4];
   /** The font used to display the score. */
-  private Font DisplayScore = new Font("Arial", Font.PLAIN, 20);
+  private Font DisplayScore = new Font("Arial", Font.PLAIN, DisplayScore_size);
   /** The font used to display text. */
-  private Font Displaytext = new Font("Arial", Font.PLAIN, 80);
+  private Font Displaytext = new Font("Arial", Font.PLAIN, Displaytext_size);
   /** The score of the game. */
   public static int score = 0;
 
@@ -46,7 +50,7 @@ public class Window extends JPanel {
 //    thread.start();
 
     // Instantiation of Barrier Array
-    for (int column = 0; column < 4; column++) {
+    for (int column = 0; column < NUMBER_COLUMN; column++) {
       this.BarrierArray[column] = new Barrier(Constant.WINDOW_MARGIN +
           Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER));
     }
@@ -94,7 +98,7 @@ public class Window extends JPanel {
 //    g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
 
     // Draw the barriers
-    for (int column = 0; column < 4; column++) {
+    for (int column = 0; column < NUMBER_COLUMN; column++) {
       this.BarrierArray[column].drawBarrier(g2);
     }
 
