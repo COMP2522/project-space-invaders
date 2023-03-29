@@ -7,6 +7,11 @@ import java.awt.event.KeyListener;
  *  Keyboard class that implements KeyListener interface to handle user keyboard input.
  */
 public class Keyboard implements KeyListener {
+  private Window window;
+
+  public Keyboard(Window window) {
+    this.window = window;
+  }
 
 //  public Keyboard(Window window) {
 //    this.window = window;
@@ -19,25 +24,16 @@ public class Keyboard implements KeyListener {
    */
   @Override
   public void keyPressed(KeyEvent e) {
-//    if(e.getKeyCode()== KeyEvent.VK_RIGHT && Window.player.xPos<=LIMIT_RIGHT_PLAYER){
-//      Window.player.xPos+=5;
-//      System.out.println(Window.player.getxPos());
-//      Window.window.repaint();
-//    } else if(e.getKeyCode() == KeyEvent.VK_LEFT && Window.player.xPos>=LIMIT_LEFT_PLAYER){
-//      Window.player.xPos-=5;
-//      System.out.println(Window.player.getxPos());
-//      Window.window.repaint();
-//    }
-    if (Window.player.isAlive()) {
+    if (window.player != null && window.player.isAlive()) {
       if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        Window.player.setDx(Constant.DX_PLAYER);
+        window.player.setDx(Constant.DX_PLAYER);
       } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-        Window.player.setDx(-Constant.DX_PLAYER);
+        window.player.setDx(-Constant.DX_PLAYER);
       } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
         if (!Window.missilePlayer.isPlayerShoot()) {
 //          Audio.playSound("/missile_player.wav");
           Window.missilePlayer.setyPos(Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER);
-          Window.missilePlayer.setxPos(Window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
+          Window.missilePlayer.setxPos(window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
           Window.missilePlayer.setPlayerShoot(true);
         }
       }
@@ -51,7 +47,9 @@ public class Keyboard implements KeyListener {
    */
   @Override
   public void keyReleased(KeyEvent e) {
-    Window.player.setDx(0);
+    if (window.player != null) {
+      window.player.setDx(0);
+    }
   }
 
   /**
