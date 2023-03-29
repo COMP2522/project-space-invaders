@@ -14,16 +14,23 @@ public class Player extends Sprite {
     final int EVEN_IMAGE_INDEX = 2;
     final int ZERO = 0;
 
+    // Add a new instance variable for the player's name
+    private String name;
+    private int score;
+
+    //  static Player player = new Player();
     /** A constructor that sets the initial values for the player object.
      * It sets the position, size, height, direction, and image of the player.
      */
-    public Player() {
-        this.xPos = Constant.X_POS_INIT_PLAYER;
-        this.yPos = Constant.Y_POS_PLAYER;
-        this.size = Constant.PLAYER_SIZE;
-        this.height = Constant.PLAYER_HEIGHT;
-        this.dx = ZERO;
-        this.dy = ZERO;
+    public Player(String name) {
+        this.name = name;
+        this.score = 0;
+        super.xPos = Constant.X_POS_INIT_PLAYER;
+        super.yPos = Constant.Y_POS_PLAYER;
+        super.size = Constant.PLAYER_SIZE;
+        super.height = Constant.PLAYER_HEIGHT;
+        super.dx = 0;
+        super.dy = 0;
 
         this.strImg1 = "/spaceship2.png";
         this.strImg2 = "/playerDes1.png";
@@ -85,5 +92,19 @@ public class Player extends Sprite {
             Window.game = false;
         }
         super.img = this.ico.getImage();
+    }
+
+
+    // Getter and setter methods
+    public String getName() {
+        return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
