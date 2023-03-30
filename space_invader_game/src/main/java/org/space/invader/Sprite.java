@@ -121,7 +121,7 @@ public abstract class Sprite {
    *
    * @param dx the new horizontal speed of the sprite
    */
-  public void setDx(int dx){
+  public void setXspeed(int dx){
     this.dx = dx;
   }
 

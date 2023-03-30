@@ -64,32 +64,6 @@ public class Barrier extends Sprite {
         BarrierArray[row][NUM_COLS - col - 1] = false;
       }
     }
-//    // Barrier entrance
-//    for (int row = 18; row < NUM_ROWS; row++) {
-//      for (int col = 10; col < NUM_COLS - 10; col++) {
-//        BarrierArray[row][col] = false;
-//      }
-//    }
-//
-//    // Barrier entrance
-//    for (int column = 12; column < NUM_COLS - 12; column++) {
-//      for (int row = 16; row < 18; row++) {
-//        BarrierArray[row][column] = false;
-//        BarrierArray[row][NUM_COLS - column - 1] = false;
-//      }
-//    }
-//    for (int column = 14; column < NUM_COLS - 14; column++) {
-//      for (int row = 14; row < 16; row++) {
-//        BarrierArray[row][column] = false;
-//        BarrierArray[row][NUM_COLS - column - 1] = false;
-//      }
-//    }
-//    for (int column = 0; column < 2; column++) {
-//      for (int row = 4; row < 6; row++) {
-//        BarrierArray[row][column] = false;
-//        BarrierArray[row][NUM_COLS - column - 1] = false;
-//      }
-//    }
   }
 
   /**
@@ -146,10 +120,8 @@ public class Barrier extends Sprite {
     for (int counter = 0; counter < 10; counter++) {
       if (row - counter >= 0) {
         BarrierArray[row - counter][column] = false;
-        BarrierArray[row - counter][column + 1] = false;
-        if (column < NUM_COLS - 3) {
-          BarrierArray[row - counter][column + 2] = false;
-          BarrierArray[row - counter][column + 3] = false;
+        if (column < NUM_COLS - 1) {
+          BarrierArray[row - counter][column + 1] = false;
         }
       }
     }
@@ -193,10 +165,8 @@ public class Barrier extends Sprite {
     for (int i = 0; i < 10; i++) {
       if (row + i < NUM_ROWS && column != -1) {
         BarrierArray[row + i][column] = false;
-        BarrierArray[row + i][column + 1] = false;
         if (column < NUM_COLS - 3) {
-          BarrierArray[row + i][column + 2] = false;
-          BarrierArray[row + i][column + 3] = false;
+          BarrierArray[row + i][column + 1] = false;
         }
       }
     }

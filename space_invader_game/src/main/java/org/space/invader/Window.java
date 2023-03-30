@@ -112,8 +112,6 @@ public class Window extends JPanel {
     });
 
 
-
-
     // Initialize the game loop and start it
     gameLoop = new Timer(1000 / 60, new ActionListener() {
       @Override
@@ -125,6 +123,7 @@ public class Window extends JPanel {
 
     // Instantiation of Barrier Array
     for (int column = 0; column < NUMBER_COLUMN; column++) {
+//      this.BarrierArray[column] = new Barrier(Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER));
       this.BarrierArray[column] = new Barrier(Constant.WINDOW_MARGIN +
               Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER));
     }
@@ -243,7 +242,7 @@ public class Window extends JPanel {
       }
 
       if (this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {
-        this.player.destructionPlayer();
+        this.player.destructPlayer();
       }
 // Display the player's name
       g.setFont(DisplayScore);
