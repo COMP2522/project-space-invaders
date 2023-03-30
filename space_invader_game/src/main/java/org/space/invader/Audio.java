@@ -1,8 +1,13 @@
 package org.space.invader;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+
+import javax.sound.sampled.*;
+import java.io.IOException;
+import java.net.URL;
+
+
+
+
 
 /**
  * Represents an audio clip that can be played.
@@ -24,6 +29,7 @@ public class Audio {
       clip.open(audio);
     } catch (Exception e) {}
   }
+
 
   /**
    * Gets the clip associated with this Audio object.
@@ -54,8 +60,20 @@ public class Audio {
    * @param song the path to the sound file
    */
 
-  public static void playSound(String song){
-    Audio s = new Audio(song);
-    s.play();
+//  public static void playSound(String song){
+//    Audio s = new Audio(song);
+//    s.play();
+//  }
+
+  public static void playSound(String song) {
+    try {
+      Audio s = new Audio(song);
+      s.play();
+    } catch (Exception e) {
+      System.err.println("Error playing sound: " + song);
+      e.printStackTrace();
+    }
   }
+
+
 }
