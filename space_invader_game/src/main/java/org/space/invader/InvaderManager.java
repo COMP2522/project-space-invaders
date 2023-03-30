@@ -1,10 +1,11 @@
 package org.space.invader;
 
 import java.awt.Graphics;
+import java.util.Iterator;
 import java.util.Random;
 
 
-public class InvaderManager {
+public class InvaderManager implements Iterable<Invader> {
   final int NUM_ROWS = 5;
   final int NUM_COLS = 10;
 
@@ -303,6 +304,11 @@ public void drawInvader(Graphics g){
       if(posBas > posBasFinal) {posBasFinal = posBas;}
     }
     return posBasFinal;
+  }
+
+  @Override
+  public Iterator<Invader> iterator() {
+    return new InvaderIterator(NUM_ROWS , NUM_COLS, tabInvader);
   }
 }
 
