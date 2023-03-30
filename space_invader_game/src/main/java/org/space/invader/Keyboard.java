@@ -27,9 +27,9 @@ public class Keyboard implements KeyListener {
   public void keyPressed(KeyEvent e) {
     if (window.player != null && window.player.isAlive()) {
       if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        window.player.setDx(Constant.DX_PLAYER);
+        window.player.setXspeed(Constant.DX_PLAYER);
       } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-        window.player.setDx(-Constant.DX_PLAYER);
+        window.player.setXspeed(-Constant.DX_PLAYER);
       } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
         if (!Window.missilePlayer.isPlayerShoot()) {
 //          Audio.playSound("/missile_player.wav");
@@ -49,7 +49,7 @@ public class Keyboard implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
     if (window.player != null) {
-      window.player.setDx(0);
+      window.player.setXspeed(0);
     }
   }
   /**

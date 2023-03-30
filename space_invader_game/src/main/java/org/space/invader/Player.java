@@ -70,7 +70,7 @@ public class Player extends Sprite {
      */
     public void drawPlayer(Graphics g) {
         if (!this.alive) {
-            this.destructionPlayer();
+            this.destructPlayer();
         }
         g.drawImage(this.img, this.playerLimit(), this.yPos, null);
     }
@@ -80,7 +80,7 @@ public class Player extends Sprite {
      *  player to create a blinking effect. Once the animation is complete, it sets the
      *  game variable to 'false' to end the game.
      */
-    public void destructionPlayer() {
+    public void destructPlayer() {
         if (counter < PLAYER_DESTRUCTION_DURATION) {
             if (Stopwatch.count % EVEN_IMAGE_INDEX == ZERO) {
                 super.ico = new ImageIcon(getClass().getResource(super.strImg2));

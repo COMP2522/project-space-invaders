@@ -1,6 +1,7 @@
 package org.space.invader;
 
 import java.awt.Graphics;
+import java.awt.image.ImageObserver;
 
 import javax.swing.ImageIcon;
 public class MissilePlayer extends Sprite {
@@ -8,6 +9,8 @@ public class MissilePlayer extends Sprite {
   final int NUMBER_COLUMN = 4;
   final int ZERO = 0;
   final int ONE = 1;
+
+  final ImageObserver NONE = null;
 
 
 
@@ -74,7 +77,7 @@ public class MissilePlayer extends Sprite {
    */
   public void drawPlayerMissile(Graphics g) {
     if (this.playerShoot) {
-      g.drawImage(this.img, this.xPos, this.moveMissilePlayer(), null);
+      g.drawImage(this.img, this.xPos, this.moveMissilePlayer(), NONE);
     }
   }
 
