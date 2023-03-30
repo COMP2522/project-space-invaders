@@ -219,12 +219,15 @@ public void drawInvader(Graphics g){
             this.tabInvaderDead[0] = row;
             this.tabInvaderDead[1] = column;
             if(row == 0) {
-              //Don't know what to modify
+
               Window.score = Window.score + Constant.HIGH_VALUE_INVADER;}
             else if(row>0 && row<3) {
+
               Window.score = Window.score + Constant.MIDDLE_VALUE_INVADER;}
             else {
+
               Window.score = Window.score + Constant.LOW_VALUE_INVADER;}
+
             break;
           }
         }
