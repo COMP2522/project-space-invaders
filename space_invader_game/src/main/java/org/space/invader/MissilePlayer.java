@@ -191,6 +191,7 @@ public class MissilePlayer extends Sprite {
       if (BarrierArray[array[ZERO]].findBrick(BarrierArray[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID) {
         BarrierArray[array[ZERO]].breakBricks(array[ONE]);
         this.yPos = INVALID;
+        Audio.playSound("/attacked_barrier.wav");
       }
     }
   }

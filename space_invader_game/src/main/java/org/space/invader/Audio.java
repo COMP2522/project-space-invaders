@@ -6,15 +6,11 @@ import java.io.IOException;
 import java.net.URL;
 
 
-
-
-
 /**
  * Represents an audio clip that can be played.
  */
 public class Audio {
 
-  // VARIABLES
   private Clip clip;
 
   /**
@@ -22,12 +18,18 @@ public class Audio {
    *
    * @param song the path to the sound file
    */
-  private Audio(String song){
+  private Audio(String song) {
     try {
       AudioInputStream audio = AudioSystem.getAudioInputStream(getClass().getResource(song));
+      AudioFormat baseFormat = audio.getFormat();
+      AudioFormat targetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16,
+          baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(), false);
+      AudioInputStream decodedAudio = AudioSystem.getAudioInputStream(targetFormat, audio);
       clip = AudioSystem.getClip();
-      clip.open(audio);
-    } catch (Exception e) {}
+      clip.open(decodedAudio);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
 
@@ -36,34 +38,48 @@ public class Audio {
    *
    * @return the Clip object
    */
-  public Clip getClip(){
+  public Clip getClip() {
     return clip;
   }
 
   /**
    * Starts playing the audio clip.
+   *
+   * @param loop whether the clip should be looped or not
    */
-  public void play(){
-    clip.start();
+  public void play(boolean loop) {
+    if (loop) {
+      clip.loop(Clip.LOOP_CONTINUOUSLY);
+    } else {
+      clip.start();
+    }
   }
 
   /**
    * Stops playing the audio clip.
    */
-  public void stop(){
+  public void stop() {
     clip.stop();
   }
 
   /**
-   * Plays the specified sound file.
+   * Plays the specified sound file once.
    *
    * @param song the path to the sound file
    */
+  public static void playSound(String song) {
+    Audio s = new Audio(song);
+    s.play(false);
+  }
 
-//  public static void playSound(String song){
-//    Audio s = new Audio(song);
-//    s.play();
-//  }
+  /**
+   * Plays the specified sound file in a loop.
+   *
+   * @param song the path to the sound file
+   */
+  public static void playLoop(String song) {
+    Audio s = new Audio(song);
+    s.play(true);
 
   public static void playSound(String song) {
     try {
@@ -74,6 +90,5 @@ public class Audio {
       e.printStackTrace();
     }
   }
-
 
 }

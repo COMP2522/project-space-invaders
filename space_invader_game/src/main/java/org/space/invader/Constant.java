@@ -8,7 +8,7 @@ public class Constant {
 //window
   public static final int WINDOW_SIZE = 600;
   public static final int WINDOW_HEIGHT = 600;
-  public static final int WINDOW_MARGIN = 40;
+  public static final int WINDOW_MARGIN = 50;
 
   /************************************* PLAYER *************************************/
   public static final int PLAYER_SIZE = 39;
@@ -49,11 +49,11 @@ public class Constant {
 
   /************************************* BARRIER *************************************/
   public static final int DIMENSION_BARRIER = 2;
-  public static final int SIZE_BARRIER = 90;
-  public static final int HEIGHT_BARRIER = 46;
-  public final static int Y_POS_BARRIER = 420;
-  public final static int X_POS_INIT_BARRIER = 0;
-  public final static int GAP_BARRIER = 50;
+  public static final int SIZE_BARRIER = 72;
+  public static final int HEIGHT_BARRIER = 50;
+  public final static int Y_POS_BARRIER = 400;
+  public final static int X_POS_INIT_BARRIER = 39;
+  public final static int GAP_BARRIER = 42;
 
   /************************************ MISSILE INVADER ************************************/
   public static final int SIZE_MISSILE_INVADER = 5;
