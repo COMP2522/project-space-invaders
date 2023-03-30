@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="Took care of some issues, and fixed IndexOutofBound error for Barrier">
+    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="Put in background music, and attacked barrier sound.">
       <change afterPath="$PROJECT_DIR$/space_invader_game/src/main/resources/attacked_barrier.wav" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/space_invader_game/src/main/resources/background_music.mp3" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/space_invader_game/src/main/resources/background_music.wav" afterDir="false" />
@@ -143,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679549057674</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Put in background music, and attacked barrier sound.">
+      <created>1680159960219</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680159960219</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +169,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed the barrier array null issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the barrier array null issue" />
+    <MESSAGE value="Put in background music, and attacked barrier sound." />
+    <option name="LAST_COMMIT_MESSAGE" value="Put in background music, and attacked barrier sound." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
