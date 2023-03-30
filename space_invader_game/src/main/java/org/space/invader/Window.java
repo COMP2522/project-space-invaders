@@ -68,6 +68,8 @@ public class Window extends JPanel {
    */
   public Window() {
     super();
+    Audio.playLoop("/background_music_cut.wav");
+
     // Add the name input panel
     JPanel namePanel = new JPanel();
     namePanel.setBounds(0, 0, 200, 50);
@@ -93,6 +95,8 @@ public class Window extends JPanel {
         String playerName = nameField.getText();
         remove(namePanel);
         window.repaint();
+
+
 
         // Initialize the game with the player's name
         initializePlayer(playerName);
@@ -123,7 +127,6 @@ public class Window extends JPanel {
 
     // Instantiation of Barrier Array
     for (int column = 0; column < NUMBER_COLUMN; column++) {
-//      this.BarrierArray[column] = new Barrier(Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER));
       this.BarrierArray[column] = new Barrier(Constant.WINDOW_MARGIN +
               Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER));
     }
@@ -156,6 +159,8 @@ public class Window extends JPanel {
     super.paintComponent(g);
     Graphics g2 = (Graphics2D) g;
     if (gameStarted) {
+
+
       //Draw the window frame
       g2.setColor(Color.BLACK);
       g2.fillRect(0, 0, Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);

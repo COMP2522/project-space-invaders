@@ -111,12 +111,12 @@ public class MissileInvader extends Sprite {
    * @return the x-coordinate of the contact point, or -1 if there is no contact
    */
   private int xContactMisInvaderBarrier(Barrier barrier) {
-    int xPosTirAlien = INVALID;
+    int xPosMissileInvader = INVALID;
     if (this.xPos + this.size > barrier.getxPos()
             && this.xPos < barrier.getxPos() + Constant.SIZE_BARRIER) {
-      xPosTirAlien = this.xPos;
+      xPosMissileInvader = this.xPos;
     }
-    return xPosTirAlien;
+    return xPosMissileInvader;
   }
 
   /**
@@ -152,6 +152,7 @@ public class MissileInvader extends Sprite {
           && arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != BARRIER_HEIGHT) {
         arrayBarriers[array[ZERO]].breakTopBricks(array[ONE]);
         this.yPos = SCREEN_HEIGHT;
+        Audio.playSound("/attacked_barrier.wav");
       }
     }
   }
