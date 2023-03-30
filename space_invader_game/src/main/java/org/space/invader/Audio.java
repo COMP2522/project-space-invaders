@@ -2,13 +2,15 @@ package org.space.invader;
 
 
 import javax.sound.sampled.*;
+import java.io.IOException;
+import java.net.URL;
+
 
 /**
  * Represents an audio clip that can be played.
  */
 public class Audio {
 
-  // VARIABLES
   private Clip clip;
 
   /**
@@ -29,6 +31,7 @@ public class Audio {
       e.printStackTrace();
     }
   }
+
 
   /**
    * Gets the clip associated with this Audio object.
@@ -77,5 +80,15 @@ public class Audio {
   public static void playLoop(String song) {
     Audio s = new Audio(song);
     s.play(true);
+
+  public static void playSound(String song) {
+    try {
+      Audio s = new Audio(song);
+      s.play();
+    } catch (Exception e) {
+      System.err.println("Error playing sound: " + song);
+      e.printStackTrace();
+    }
   }
+
 }

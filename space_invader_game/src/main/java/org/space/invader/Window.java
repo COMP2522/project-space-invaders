@@ -1,11 +1,14 @@
 package org.space.invader;
 import org.bson.Document;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyListener;
+import java.io.IOException;
+
+
 /**
  * The Window class extends JPanel and is responsible for painting the game
  * window with its graphical components, including the player, the invaders,
@@ -52,13 +55,14 @@ public class Window extends JPanel {
   /** The font used to display text. */
   private Font Displaytext = new Font("Arial", Font.PLAIN, Displaytext_size);
   /** The score of the game. */
-  public static int score = 0;
+  public static int score;
 
   private Timer gameLoop;
   private boolean gameStarted = false;
 
   private String playerName = "";
-  public static boolean scoreSaved = false;
+  private boolean isGameOverHandled = false;
+
 
 
 
@@ -106,14 +110,14 @@ public class Window extends JPanel {
       private void initializePlayer(String playerName) {
         Window.this.playerName = playerName; // Add this line to set the playerName
         player = new Player(playerName);
-        // At the end of the game, or whenever you need to save the player's data:
-        DatabaseHandler dbHandler = new DatabaseHandler("test", "players");
-        Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), player.getScore());
-        dbHandler.insertDocument(playerDoc);
+
       }
 
 
     });
+
+
+
 
 
     // Initialize the game loop and start it
@@ -137,9 +141,9 @@ public class Window extends JPanel {
   }
 
 
-  private void savePlayerScore() {
+  private void savePlayerData() {
     DatabaseHandler dbHandler = new DatabaseHandler("test", "players");
-    Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), player.getScore());
+    Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), window.score);
     dbHandler.insertDocument(playerDoc);
   }
 
@@ -169,7 +173,7 @@ public class Window extends JPanel {
       g2.setColor(Color.GREEN);
       g2.fillRect(30, 530, 535, 5);
 
-      // Display the screen
+      // Display the score
       g.setFont(DisplayScore);
       g.drawString("SCORE : " + score, 400, 25);
 
@@ -251,27 +255,28 @@ public class Window extends JPanel {
       }
 // Display the player's name
       g.setFont(DisplayScore);
-      g.drawString("Player: " + playerName, 30, 25);
+      g.drawString("PLAYER: " + playerName, 30, 25);
 
       // Game over message
-      if (!player.isAlive()) {
+      if (!player.isAlive() && !isGameOverHandled) {
         g.setFont(Displaytext);
         g.drawString("GAME OVER", 50, 100);
-        if (!scoreSaved) {
-          savePlayerScore();
-          scoreSaved = true;
-        }
+        savePlayerData();
+        isGameOverHandled = true;
       }
+
+    }
     }
 
-  }
+
 
   /**
    *  Creates a JFrame and adds a custom JPanel that handles the game logic and rendering.
    *
    *  @param args The command line arguments.
    */
-  public static void main(String[] args) {
+  public static void main(String[] args)  {
+
     JFrame frame = new JFrame("Space Invaders");
     frame.setSize(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
     frame.setResizable(false);
