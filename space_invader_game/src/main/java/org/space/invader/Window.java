@@ -196,7 +196,7 @@ public class Window extends JPanel {
       }
 
       // Game over message
-      if (this.player.isAlive() == false) {
+      if (!this.player.isAlive()) {
         g.setFont(Displaytext);
         g.drawString("GAME OVER", 50, 100);
       }
