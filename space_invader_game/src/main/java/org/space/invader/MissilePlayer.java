@@ -23,17 +23,17 @@ public class MissilePlayer extends Sprite {
    */
   public MissilePlayer() {
 
-    super.xPos = ZERO;
-    super.yPos = Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER;
-    super.size = Constant.SIZE_MISSILE_PLAYER;
-    super.height = Constant.HEIGHT_MISSILE_PLAYER;
-    super.dx = ZERO;
-    super.dy = Constant.DY_MISSILE_PLAYER;  // the speed of missile
-    super.strImg1 = "/misPlayer.png";
+    this.xPos = ZERO;
+    this.yPos = Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER;
+    this.size = Constant.SIZE_MISSILE_PLAYER;
+    this.height = Constant.HEIGHT_MISSILE_PLAYER;
+    this.dx = ZERO;
+    this.dy = Constant.DY_MISSILE_PLAYER;  // the speed of missile
+    this.strImg1 = "/misPlayer.png";
 //    super.strImg2 = "";
 //    super.strImg3 = "";
-    super.ico = new ImageIcon(getClass().getResource(super.strImg1));
-    super.img = this.ico.getImage();
+    this.ico = new ImageIcon(getClass().getResource(this.strImg1));
+    this.img = this.ico.getImage();
   }
 
   /**
@@ -81,6 +81,11 @@ public class MissilePlayer extends Sprite {
     }
   }
 
+  public void playInvaderDeadSound() {
+    Audio.playSound("/InvaderDead.wav");
+  }
+
+
   /**
    * Checks whether the current spaceship's shot is hitting
    * the given invader object, and if so, it returns true.
@@ -95,7 +100,8 @@ public class MissilePlayer extends Sprite {
         && this.yPos + this.height > invader.getyPos()
         && this.xPos + this.size > invader.getxPos()
         && this.xPos < invader.getxPos() + invader.getSize()) {
-      Audio.playSound("/InvaderDead.wav");
+//      Audio.playSound("/InvaderDead.wav");
+      playInvaderDeadSound();
       return true;
     } else {
       return false;
