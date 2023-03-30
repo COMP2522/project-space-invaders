@@ -17,7 +17,7 @@ public class Audio {
    *
    * @param song the path to the sound file
    */
-  public Audio(String song){
+  private Audio(String song){
     try {
       AudioInputStream audio = AudioSystem.getAudioInputStream(getClass().getResource(song));
       clip = AudioSystem.getClip();
