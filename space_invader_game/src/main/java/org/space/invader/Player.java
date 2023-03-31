@@ -1,5 +1,7 @@
 package org.space.invader;
 
+import org.bson.Document;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -120,4 +122,20 @@ public class Player extends Sprite {
     public void setXPos(int i) {
         this.xPos = i;
     }
+    public Document getState() {
+        Document state = new Document();
+        state.put("xPos", xPos);
+        state.put("yPos", yPos);
+        state.put("alive", alive);
+        return state;
+    }
+    public void loadState(Document playerState) {
+        if (playerState != null) {
+            xPos = playerState.getInteger("xPos");
+            yPos = playerState.getInteger("yPos");
+            alive = playerState.getBoolean("alive");
+        }
+    }
+
+
 }

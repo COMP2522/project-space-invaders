@@ -1,5 +1,7 @@
 package org.space.invader;
 
+import org.bson.Document;
+
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
@@ -11,7 +13,6 @@ public class MissilePlayer extends Sprite {
   final int ONE = 1;
 
   final ImageObserver NONE = null;
-
 
 
   private boolean playerShoot = false;
@@ -97,9 +98,9 @@ public class MissilePlayer extends Sprite {
   public boolean killInvader(Invader invader) {
     // the player's shot destroys an alien
     if (this.yPos < invader.getyPos() + invader.getHeight()
-        && this.yPos + this.height > invader.getyPos()
-        && this.xPos + this.size > invader.getxPos()
-        && this.xPos < invader.getxPos() + invader.getSize()) {
+            && this.yPos + this.height > invader.getyPos()
+            && this.xPos + this.size > invader.getxPos()
+            && this.xPos < invader.getxPos() + invader.getSize()) {
 //      Audio.playSound("/InvaderDead.wav");
       playInvaderDeadSound();
       return true;
@@ -117,12 +118,13 @@ public class MissilePlayer extends Sprite {
   private boolean missilePlayerFireAtBarrier() {
     // Returns true if the ship's shot is at the height of the barriers
     return this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
-        && this.yPos + this.height > Constant.Y_POS_BARRIER;
+            && this.yPos + this.height > Constant.Y_POS_BARRIER;
   }
 
   /**
    * Calculates and returns the number of the barrier (0, 1, 2, or 3) in the
    * firing zone of the player.
+   *
    * @return number of the barrier
    */
   private int numberBarrier() {
@@ -131,9 +133,9 @@ public class MissilePlayer extends Sprite {
     while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
       if (this.xPos + this.size > Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + column *
-          (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)
-          && this.xPos < Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + Constant.SIZE_BARRIER + column *
-          (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)) {
+              (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)
+              && this.xPos < Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + Constant.SIZE_BARRIER + column *
+              (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)) {
         numBarrier = column;
       }
     }
@@ -193,6 +195,20 @@ public class MissilePlayer extends Sprite {
         this.yPos = INVALID;
         Audio.playSound("/attacked_barrier.wav");
       }
+    }
+  }
+  public Document getState() {
+    Document missileState = new Document();
+    missileState.put("xPos", xPos);
+    missileState.put("yPos", yPos);
+    return missileState;
+  }
+
+  public void loadState(Document missilePlayerState) {
+    if (missilePlayerState != null) {
+      xPos = missilePlayerState.getInteger("xPos");
+      yPos = missilePlayerState.getInteger("yPos");
+
     }
   }
 }

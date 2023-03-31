@@ -1,5 +1,6 @@
 package org.space.invader;
 import org.bson.Document;
+import java.util.List;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -62,6 +63,9 @@ public class Window extends JPanel {
 
   private String playerName = "";
   private boolean isGameOverHandled = false;
+
+  private boolean isPaused = false;
+
 
 
 
@@ -147,7 +151,57 @@ public class Window extends JPanel {
     dbHandler.insertDocument(playerDoc);
   }
 
+  private void saveGameState() {
+    DatabaseHandler dbHandler = new DatabaseHandler("space_invaders", "game_state");
 
+    // Save the current state of the game
+    Document gameStateDoc = new Document();
+    gameStateDoc.put("playerName", playerName);
+    gameStateDoc.put("player", player.getState());
+    gameStateDoc.put("groupInvaders", groupInvaders.getState());
+    gameStateDoc.put("missilePlayer", missilePlayer.getState());
+    gameStateDoc.put("barriers", Barrier.getState());
+    gameStateDoc.put("score", score);
+
+    // Clear the previous state
+    dbHandler.deleteAllDocuments();
+
+    // Insert the new state
+    dbHandler.insertDocument(gameStateDoc);
+  }
+
+  private void loadGameState() {
+    DatabaseHandler dbHandler = new DatabaseHandler("space_invaders", "game_state");
+
+    Document gameStateDoc = dbHandler.getLatest();
+
+    if (gameStateDoc != null) {
+      playerName = gameStateDoc.getString("playerName");
+      player.loadState((Document) gameStateDoc.get("player"));
+      groupInvaders.loadState((Document) gameStateDoc.get("groupInvaders"));
+      missilePlayer.loadState((Document) gameStateDoc.get("missilePlayer"));
+      List<Document> barrierDocs = (List<Document>) gameStateDoc.get("barriers");
+      for (int i = 0; i < BarrierArray.length; i++) {
+        BarrierArray[i].loadBarriersState(barrierDocs.get(i));
+      }
+
+
+      score = gameStateDoc.getInteger("score");
+    } else {
+      System.out.println("No saved game state found.");
+    }
+  }
+
+  public void togglePause() {
+    isPaused = !isPaused;
+    if (isPaused) {
+      saveGameState();
+      gameLoop.stop();
+    } else {
+      loadGameState();
+      gameLoop.start();
+    }
+  }
 
 
   /**
@@ -163,108 +217,114 @@ public class Window extends JPanel {
     super.paintComponent(g);
     Graphics g2 = (Graphics2D) g;
     if (gameStarted) {
-
-
-      //Draw the window frame
-      g2.setColor(Color.BLACK);
-      g2.fillRect(0, 0, Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
-
-      //Draw the green line on the bottom of the window
-      g2.setColor(Color.GREEN);
-      g2.fillRect(30, 530, 535, 5);
-
-      // Display the score
-      g.setFont(DisplayScore);
-      g.drawString("SCORE : " + score, 400, 25);
-
-      // Draw the player
-//    this.player.drawPlayer(g2);
-      if (this.player != null) {
-        this.player.drawPlayer(g2);
+// Pause message
+      if (isPaused) {
+        g.setFont(Displaytext);
+        g.drawString("PAUSED", 135, 100);
       }
+      // Only update the game state if the game is not paused
+      if (!isPaused) {
+
+        //Draw the window frame
+        g2.setColor(Color.BLACK);
+        g2.fillRect(0, 0, Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
+
+        //Draw the green line on the bottom of the window
+        g2.setColor(Color.GREEN);
+        g2.fillRect(30, 530, 535, 5);
+
+        // Display the score
+        g.setFont(DisplayScore);
+        g.drawString("SCORE : " + score, 400, 25);
+
+        // Draw the player
+//    this.player.drawPlayer(g2);
+        if (this.player != null) {
+          this.player.drawPlayer(g2);
+        }
 
 
-      //Draw the invaders
-      this.groupInvaders.drawInvader(g2);
+        //Draw the invaders
+        this.groupInvaders.drawInvader(g2);
 
-      // Drawing of the spaceship shot
-      this.missilePlayer.drawPlayerMissile(g2);
+        // Drawing of the spaceship shot
+        this.missilePlayer.drawPlayerMissile(g2);
 
 //    // draw player
 //    g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
 
-    // Draw the barriers
-    for (int column = 0; column < NUMBER_COLUMN; column++) {
-      this.BarrierArray[column].drawBarrier(g2);
-    }
-
-      // Start message
-      if (Stopwatch.count < 500) {
-        g.setFont(Displaytext);
-        g.drawString("Good luck!", 95, 100);
-      }
-
-      // Game over message
-      if (!this.player.isAlive()) {
-        g.setFont(Displaytext);
-        g.drawString("GAME OVER", 50, 100);
-      }
-
-      this.groupInvaders.misslePlayerTouchInvader(this.missilePlayer);
-      // Direction of spaceship's contact with the castle
-      this.missilePlayer.misPlayerDestroyBarrier(BarrierArray);
-
-      // Drawing of the aliens' Missile
-      if (Stopwatch.count % 500 == 0) {
-        missileInvader1 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());
-      }
-      if (this.missileInvader1 != null) {
-        this.missileInvader1.drawInvaderMissile(g2);
-        this.missileInvader1.misInvaderDestroyBarrier(BarrierArray);
-        if (this.missileInvader1.touchPlayer(player) == true) {
-          this.player.setAlive(false);
+        // Draw the barriers
+        for (int column = 0; column < NUMBER_COLUMN; column++) {
+          this.BarrierArray[column].drawBarrier(g2);
         }
-      }
-      if (Stopwatch.count % 750 == 0) {
-        missileInvader2 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());
-      }
-      if (this.missileInvader2 != null) {
-        this.missileInvader2.drawInvaderMissile(g2);
-        this.missileInvader2.misInvaderDestroyBarrier(BarrierArray);
-        if (this.missileInvader2.touchPlayer(player) == true) {
-          this.player.setAlive(false);
-        }
-      }
-      if (Stopwatch.count % 900 == 0) {
-        missileInvader3 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());
-      }
-      if (this.missileInvader3 != null) {
-        this.missileInvader3.drawInvaderMissile(g2);
-        this.missileInvader3.misInvaderDestroyBarrier(BarrierArray);
-        if (this.missileInvader3.touchPlayer(player) == true) {
-          this.player.setAlive(false);
-        }
-      }
 
-      if (this.groupInvaders.getInvaderNum() == 0) {
-        groupInvaders = new InvaderManager();
-      }
+        // Start message
+        if (Stopwatch.count < 500) {
+          g.setFont(Displaytext);
+          g.drawString("Good luck!", 95, 100);
+        }
 
-      if (this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {
-        this.player.destructPlayer();
-      }
+        // Game over message
+        if (!this.player.isAlive()) {
+          g.setFont(Displaytext);
+          g.drawString("GAME OVER", 50, 100);
+        }
+
+        this.groupInvaders.misslePlayerTouchInvader(this.missilePlayer);
+        // Direction of spaceship's contact with the castle
+        this.missilePlayer.misPlayerDestroyBarrier(BarrierArray);
+
+        // Drawing of the aliens' Missile
+        if (Stopwatch.count % 500 == 0) {
+          missileInvader1 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());
+        }
+        if (this.missileInvader1 != null) {
+          this.missileInvader1.drawInvaderMissile(g2);
+          this.missileInvader1.misInvaderDestroyBarrier(BarrierArray);
+          if (this.missileInvader1.touchPlayer(player) == true) {
+            this.player.setAlive(false);
+          }
+        }
+        if (Stopwatch.count % 750 == 0) {
+          missileInvader2 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());
+        }
+        if (this.missileInvader2 != null) {
+          this.missileInvader2.drawInvaderMissile(g2);
+          this.missileInvader2.misInvaderDestroyBarrier(BarrierArray);
+          if (this.missileInvader2.touchPlayer(player) == true) {
+            this.player.setAlive(false);
+          }
+        }
+        if (Stopwatch.count % 900 == 0) {
+          missileInvader3 = new MissileInvader(this.groupInvaders.chooseInvaderToDraw());
+        }
+        if (this.missileInvader3 != null) {
+          this.missileInvader3.drawInvaderMissile(g2);
+          this.missileInvader3.misInvaderDestroyBarrier(BarrierArray);
+          if (this.missileInvader3.touchPlayer(player) == true) {
+            this.player.setAlive(false);
+          }
+        }
+
+        if (this.groupInvaders.getInvaderNum() == 0) {
+          groupInvaders = new InvaderManager();
+        }
+
+        if (this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {
+          this.player.destructPlayer();
+        }
 // Display the player's name
-      g.setFont(DisplayScore);
-      g.drawString("PLAYER: " + playerName, 30, 25);
+        g.setFont(DisplayScore);
+        g.drawString("PLAYER: " + playerName, 30, 25);
 
-      // Game over message
-      if (!player.isAlive() && !isGameOverHandled) {
-        g.setFont(Displaytext);
-        g.drawString("GAME OVER", 50, 100);
-        savePlayerData();
-        isGameOverHandled = true;
+        // Game over message
+        if (!player.isAlive() && !isGameOverHandled) {
+          g.setFont(Displaytext);
+          g.drawString("GAME OVER", 50, 100);
+          savePlayerData();
+          isGameOverHandled = true;
+        }
       }
-
     }
     }
 
