@@ -103,13 +103,15 @@ public class Window extends JPanel {
         remove(namePanel);
         window.repaint();
 
+        startTimer();
+
         // Initialize the game with the player's name
         initializePlayer(playerName);
         // Set the game to start
         gameStarted = true;
 
         // Starts the timer for saving player's data
-        startTimer();
+//        startTimer();
       }
       private void initializePlayer(String playerName) {
         Window.this.playerName = playerName; // Add this line to set the playerName
@@ -129,7 +131,6 @@ public class Window extends JPanel {
       repaint();
     });
     gameLoop.start();
-
 
     // Instantiation of Barrier Array
     for (int column = 0; column < NUMBER_COLUMN; column++) {
@@ -152,6 +153,7 @@ public class Window extends JPanel {
   }
 
   private void startTimer() {
+    // some delay in game, might be because of the line below.
     Timer playerDataTimer = new Timer(1000, e -> {
       savePlayerData();
     });
@@ -174,7 +176,6 @@ public class Window extends JPanel {
     g.drawString("SCORE : " + score, 400, 25);
 
     // Draw the player
-//    this.player.drawPlayer(g2);
     if (this.player != null) {
       this.player.drawPlayer(g2);
     }
@@ -184,9 +185,6 @@ public class Window extends JPanel {
 
     // Drawing of the spaceship shot
     this.missilePlayer.drawPlayerMissile(g2);
-
-//    // draw player
-//    g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
 
     // Draw the barriers
     for (int column = 0; column < NUMBER_COLUMN; column++) {
@@ -241,6 +239,13 @@ public class Window extends JPanel {
     g.setFont(DisplayScore);
     g.drawString("PLAYER: " + playerName, 30, 25);
 
+    // Game over message
+    if (!player.isAlive() && !isGameOverHandled) {
+      g.setFont(Displaytext);
+      g.drawString("GAME OVER", 50, 100);
+      playerDataTimer.stop();
+      isGameOverHandled = true;
+    }
   }
 
 
@@ -258,20 +263,11 @@ public class Window extends JPanel {
     Graphics g2 = (Graphics2D) g;
     if (gameStarted) {
       draw(g);
-      // Start timer to save player data every 1 second
-//      startTimer();
 
-      // Game over message
-      if (!player.isAlive() && !isGameOverHandled) {
-        g.setFont(Displaytext);
-        g.drawString("GAME OVER", 50, 100);
-        playerDataTimer.stop();
-        isGameOverHandled = true;
-      }
+
 
     }
   }
-
 
 
   /**

@@ -21,6 +21,7 @@ public class Stopwatch implements Runnable {
     while (Window.window.game == true) {
       count++;
       Window.window.repaint(); // Call the PaintComponent method of the window object
+
     }
   }
 }
