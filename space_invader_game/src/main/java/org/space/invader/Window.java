@@ -1,5 +1,6 @@
 package org.space.invader;
 import org.bson.Document;
+import java.util.List;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -68,6 +69,8 @@ public class Window extends JPanel {
 
   private String playerName = "";
   private boolean isGameOverHandled = false;
+
+  private boolean isPaused = false;
 
   /**
    * The constructor of the Window class. Sets up the graphical components,
@@ -148,8 +151,62 @@ public class Window extends JPanel {
     Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), window.score);
     dbHandler.insertDocument(playerDoc);
 
+
     // Check if it's saved every 1s
     System.out.println("Player score saved at " + LocalDateTime.now());
+
+  }
+
+  private void saveGameState() {
+    DatabaseHandler dbHandler = new DatabaseHandler("space_invaders", "game_state");
+
+    // Save the current state of the game
+    Document gameStateDoc = new Document();
+    gameStateDoc.put("playerName", playerName);
+    gameStateDoc.put("player", player.getState());
+    gameStateDoc.put("groupInvaders", groupInvaders.getState());
+    gameStateDoc.put("missilePlayer", missilePlayer.getState());
+    gameStateDoc.put("barriers", Barrier.getState());
+    gameStateDoc.put("score", score);
+
+    // Clear the previous state
+    dbHandler.deleteAllDocuments();
+
+    // Insert the new state
+    dbHandler.insertDocument(gameStateDoc);
+  }
+
+  private void loadGameState() {
+    DatabaseHandler dbHandler = new DatabaseHandler("space_invaders", "game_state");
+
+    Document gameStateDoc = dbHandler.getLatest();
+
+    if (gameStateDoc != null) {
+      playerName = gameStateDoc.getString("playerName");
+      player.loadState((Document) gameStateDoc.get("player"));
+      groupInvaders.loadState((Document) gameStateDoc.get("groupInvaders"));
+      missilePlayer.loadState((Document) gameStateDoc.get("missilePlayer"));
+      List<Document> barrierDocs = (List<Document>) gameStateDoc.get("barriers");
+      for (int i = 0; i < BarrierArray.length; i++) {
+        BarrierArray[i].loadBarriersState(barrierDocs.get(i));
+      }
+
+
+      score = gameStateDoc.getInteger("score");
+    } else {
+      System.out.println("No saved game state found.");
+    }
+  }
+
+  public void togglePause() {
+    isPaused = !isPaused;
+    if (isPaused) {
+      saveGameState();
+      gameLoop.stop();
+    } else {
+      loadGameState();
+      gameLoop.start();
+    }
   }
 
   private void startTimer() {
@@ -182,13 +239,13 @@ public class Window extends JPanel {
 
     //Draw the invaders
     this.groupInvaders.drawInvader(g2);
-
+    
     // Drawing of the spaceship shot
     this.missilePlayer.drawPlayerMissile(g2);
 
     // Draw the barriers
     for (int column = 0; column < NUMBER_COLUMN; column++) {
-      this.BarrierArray[column].drawBarrier(g2);
+       this.BarrierArray[column].drawBarrier(g2);
     }
 
     this.groupInvaders.missilePlayerTouchInvader(this.missilePlayer);
@@ -234,7 +291,7 @@ public class Window extends JPanel {
 
     if (this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {
       this.player.destructPlayer();
-    }
+
 // Display the player's name
     g.setFont(DisplayScore);
     g.drawString("PLAYER: " + playerName, 30, 25);
@@ -243,9 +300,9 @@ public class Window extends JPanel {
     if (!player.isAlive() && !isGameOverHandled) {
       g.setFont(Displaytext);
       g.drawString("GAME OVER", 50, 100);
-      playerDataTimer.stop();
       isGameOverHandled = true;
     }
+     
   }
 
 
@@ -260,14 +317,15 @@ public class Window extends JPanel {
    */
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
-    Graphics g2 = (Graphics2D) g;
-    if (gameStarted) {
-      draw(g);
-
-
-
-    }
+    // Only update the game state if the game is not paused
   }
+    if (gameStarted || !isPaused) {
+      draw(g);
+    if (isPaused) {
+      g.setFont(Displaytext);
+      g.drawString("PAUSED", 135, 100);
+    }
+    
 
 
   /**

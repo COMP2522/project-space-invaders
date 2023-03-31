@@ -1,13 +1,19 @@
 package org.space.invader;
 
+import org.bson.Document;
+
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 
 public class InvaderManager implements Iterable<Invader> {
   final int NUM_ROWS = 5;
   final int NUM_COLS = 10;
+  protected List<Invader> invaders;
+
 
   /** A 2D array representing the current position of each invader in the group. */
   private Invader[][] tabInvader = new Invader[NUM_ROWS][NUM_COLS];
@@ -304,6 +310,26 @@ public void drawInvader(Graphics g){
     }
     return posBasFinal;
   }
+
+  public Document getState() {
+    List<Document> invaderStates = new ArrayList<>();
+    for (Invader invader : invaders) {
+      invaderStates.add(invader.getState());
+    }
+    Document state = new Document();
+    state.put("invaders", invaderStates);
+    return state;
+  }
+  public void loadState(Document invaderManagerState) {
+    if (invaderManagerState != null) {
+      List<Document> invaderStates = (List<Document>) invaderManagerState.get("invaders");
+      for (int i = 0; i < invaders.size(); i++) {
+        invaders.get(i).loadState(invaderStates.get(i));
+      }
+    }
+  }
+
+
 
   @Override
   public Iterator<Invader> iterator() {

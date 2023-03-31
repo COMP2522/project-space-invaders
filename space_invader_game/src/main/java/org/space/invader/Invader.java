@@ -1,5 +1,7 @@
 package org.space.invader;
 
+import org.bson.Document;
+
 import javax.swing.*;
 
 /**
@@ -49,5 +51,16 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
     }
     else {super.ico = new ImageIcon(getClass().getResource(strImg3));}
     super.img = this.ico.getImage(); // Change of image
+  }
+
+  public Document getState() {
+    Document state = new Document();
+    state.put("xPos", xPos);
+    state.put("yPos", yPos);
+    state.put("alive", alive);
+    return state;
+  }
+
+  public void loadState(Document document) {
   }
 }
