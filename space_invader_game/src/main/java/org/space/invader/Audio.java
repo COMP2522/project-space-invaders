@@ -63,16 +63,6 @@ public class Audio {
   }
 
   /**
-   * Plays the specified sound file once.
-   *
-   * @param song the path to the sound file
-   */
-  public static void playSound(String song) {
-    Audio s = new Audio(song);
-    s.play(false);
-  }
-
-  /**
    * Plays the specified sound file in a loop.
    *
    * @param song the path to the sound file
@@ -80,11 +70,17 @@ public class Audio {
   public static void playLoop(String song) {
     Audio s = new Audio(song);
     s.play(true);
+  }
 
+  /**
+   * Plays the specified sound file once.
+   *
+   * @param song the path to the sound file
+   */
   public static void playSound(String song) {
     try {
       Audio s = new Audio(song);
-      s.play();
+      s.play(false);
     } catch (Exception e) {
       System.err.println("Error playing sound: " + song);
       e.printStackTrace();
