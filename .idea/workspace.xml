@@ -12,10 +12,9 @@
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Audio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Stopwatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Stopwatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +34,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="src" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -55,6 +49,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="check_yeju" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -107,6 +106,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Window" />
+        <item itemvalue="Application.Window" />
+        <item itemvalue="Application.Window" />
         <item itemvalue="Application.Window" />
       </list>
     </recent_temporary>
