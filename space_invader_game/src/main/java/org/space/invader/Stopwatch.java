@@ -11,8 +11,6 @@ public class Stopwatch implements Runnable {
   /** The count of time elapsed. */
   public static int count = 0;
 
-  /** The window object that the stopwatch is updating. */
-  Window window;
 
   /**
    *  Runs the Stopwatch in a loop while the game is running. Increments the count and repaints the window
@@ -20,14 +18,9 @@ public class Stopwatch implements Runnable {
    */
   @Override
   public void run() {
-    while (window.game == true) {
+    while (Window.window.game == true) {
       count++;
       Window.window.repaint(); // Call the PaintComponent method of the window object
-      try {
-        Thread.sleep(PAUSE);
-      } // pause for some time (5 ms)
-      catch (InterruptedException e) {
-      }
     }
   }
 }

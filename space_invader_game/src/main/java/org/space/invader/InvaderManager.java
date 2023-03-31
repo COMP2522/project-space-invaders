@@ -198,7 +198,6 @@ public void drawInvader(Graphics g){
     if(this.pos1 == true) {this.pos1 = false;}
     else {this.pos1 = true;}
     //Changer the direction if the invader hit the window border
-
     this.invaderTurnAndLower();
   }
 
@@ -208,7 +207,7 @@ public void drawInvader(Graphics g){
    *
    * @param missilePlayer The missile fired by the player to check for hits.
    */
-  public void misslePlayerTouchInvader(MissilePlayer missilePlayer) {
+  public void missilePlayerTouchInvader(MissilePlayer missilePlayer) {
     //Missile contact with invader
     for(int column=0; column<10; column++) {
       for(int row=0; row<5; row++) {
