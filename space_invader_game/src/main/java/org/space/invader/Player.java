@@ -109,5 +109,15 @@ public class Player extends Sprite {
     }
 
 
+    public int getXspeed() {
+        return dx;
+    }
 
+    public void setDx(int i) {
+        this.dx = i;
+    }
+
+    public void setXPos(int i) {
+        this.xPos = i;
+    }
 }
