@@ -50,4 +50,6 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
     else {super.ico = new ImageIcon(getClass().getResource(strImg3));}
     super.img = this.ico.getImage(); // Change of image
   }
+
+
 }
