@@ -16,7 +16,7 @@ public class InvaderManager implements Iterable<Invader> {
 
 
   /** A 2D array representing the current position of each invader in the group. */
-  private Invader[][] tabInvader = new Invader[NUM_ROWS][NUM_COLS];
+  protected Invader[][] tabInvader = new Invader[NUM_ROWS][NUM_COLS];
 
   /** A boolean representing whether the invaders are currently moving to the right. */
   private boolean goToRight;
@@ -53,7 +53,7 @@ public class InvaderManager implements Iterable<Invader> {
   /**
    * Initializes the invader table.
    */
-private void initTableInvaders(){
+public void initTableInvaders(){
     //create the invader table
   for(int column = 0; column < 10; column++){
     this.tabInvader[0][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER) * column,
@@ -94,7 +94,7 @@ public void drawInvader(Graphics g){
    *
    * @return true if the invaders touch the left border, false otherwise.
    */
-  private boolean touchLeftBorder() {
+  public boolean touchLeftBorder() {
     //Method of detecting the left border of the window
     boolean response = false;
     for (int column = 0; column < 10; column++) {
@@ -115,7 +115,7 @@ public void drawInvader(Graphics g){
    *
    * @return True if any invader has touched the right border, false otherwise.
    */
-  private boolean touchRightBorder() {
+  public boolean touchRightBorder() {
     //Method of detecting the right border of the window
 
     boolean response = false;
@@ -311,6 +311,8 @@ public void drawInvader(Graphics g){
     return posBasFinal;
   }
 
+
+  public boolean getGoToRight() {return this.goToRight;}
   public Document getState() {
     List<Document> invaderStates = new ArrayList<>();
     for (Invader invader : invaders) {
@@ -328,6 +330,7 @@ public void drawInvader(Graphics g){
       }
     }
   }
+
 
 
 
