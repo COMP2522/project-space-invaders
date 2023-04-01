@@ -41,7 +41,14 @@ public class Keyboard implements KeyListener {
             Window.missilePlayer.setPlayerShoot(true);
           }
         }
+      } else if (e.getKeyCode() == KeyEvent.VK_P) {
+        // Pause the game
+        window.gamePaused = true;
+      } else if (e.getKeyCode() == KeyEvent.VK_R) {
+        // Resume the game
+        window.gamePaused = false;
       }
+
     }
   }
   /**
