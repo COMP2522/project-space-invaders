@@ -10,7 +10,7 @@ public class InvaderManager implements Iterable<Invader> {
   final int NUM_COLS = 10;
 
   /** A 2D array representing the current position of each invader in the group. */
-  private Invader[][] tabInvader = new Invader[NUM_ROWS][NUM_COLS];
+  protected Invader[][] tabInvader = new Invader[NUM_ROWS][NUM_COLS];
 
   /** A boolean representing whether the invaders are currently moving to the right. */
   private boolean goToRight;

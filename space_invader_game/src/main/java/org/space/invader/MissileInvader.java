@@ -184,5 +184,9 @@ public class MissileInvader extends Sprite {
       return false;
     }
   }
+
+  public int getYPos() {
+    return yPos;
+  }
 }
 
