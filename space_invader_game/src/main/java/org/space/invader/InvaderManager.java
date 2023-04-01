@@ -1,13 +1,19 @@
 package org.space.invader;
 
+import org.bson.Document;
+
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 
 public class InvaderManager implements Iterable<Invader> {
   final int NUM_ROWS = 5;
   final int NUM_COLS = 10;
+  protected List<Invader> invaders;
+
 
   /** A 2D array representing the current position of each invader in the group. */
   protected Invader[][] tabInvader = new Invader[NUM_ROWS][NUM_COLS];
@@ -198,7 +204,6 @@ public void drawInvader(Graphics g){
     if(this.pos1 == true) {this.pos1 = false;}
     else {this.pos1 = true;}
     //Changer the direction if the invader hit the window border
-
     this.invaderTurnAndLower();
   }
 
@@ -208,7 +213,7 @@ public void drawInvader(Graphics g){
    *
    * @param missilePlayer The missile fired by the player to check for hits.
    */
-  public void misslePlayerTouchInvader(MissilePlayer missilePlayer) {
+  public void missilePlayerTouchInvader(MissilePlayer missilePlayer) {
     //Missile contact with invader
     for(int column=0; column<10; column++) {
       for(int row=0; row<5; row++) {
@@ -306,7 +311,26 @@ public void drawInvader(Graphics g){
     return posBasFinal;
   }
 
+
   public boolean getGoToRight() {return this.goToRight;}
+  public Document getState() {
+    List<Document> invaderStates = new ArrayList<>();
+    for (Invader invader : invaders) {
+      invaderStates.add(invader.getState());
+    }
+    Document state = new Document();
+    state.put("invaders", invaderStates);
+    return state;
+  }
+  public void loadState(Document invaderManagerState) {
+    if (invaderManagerState != null) {
+      List<Document> invaderStates = (List<Document>) invaderManagerState.get("invaders");
+      for (int i = 0; i < invaders.size(); i++) {
+        invaders.get(i).loadState(invaderStates.get(i));
+      }
+    }
+  }
+
 
 
 

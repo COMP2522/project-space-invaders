@@ -25,22 +25,32 @@ public class Keyboard implements KeyListener {
    */
   @Override
   public void keyPressed(KeyEvent e) {
-    if (window.player != null && window.player.isAlive()) {
-      if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-        window.player.setXspeed(Constant.DX_PLAYER);
-      } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-        window.player.setXspeed(-Constant.DX_PLAYER);
-      } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-        if (!Window.missilePlayer.isPlayerShoot()) {
-          Audio.playSound("/missile_player.wav");
-          Window.missilePlayer.setyPos(Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER);
-          Window.missilePlayer.setxPos(window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
-          Window.missilePlayer.setPlayerShoot(true);
+    if (e.getKeyCode() == KeyEvent.VK_P) {
+      window.togglePause();
+    } else {
+      if (window.player != null && window.player.isAlive()) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+          window.player.setXspeed(Constant.DX_PLAYER);
+        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+          window.player.setXspeed(-Constant.DX_PLAYER);
+        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+          if (!Window.missilePlayer.isPlayerShoot()) {
+            Audio.playSound("/missile_player.wav");
+            Window.missilePlayer.setyPos(Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER);
+            Window.missilePlayer.setxPos(window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
+            Window.missilePlayer.setPlayerShoot(true);
+          }
         }
+      } else if (e.getKeyCode() == KeyEvent.VK_P) {
+        // Pause the game
+//        window.gamePaused = true;
+      } else if (e.getKeyCode() == KeyEvent.VK_R) {
+        // Resume the game
+//        window.gamePaused = false;
       }
+
     }
   }
-
   /**
    *  Overrides the keyReleased method from KeyListener interface to set player's horizontal speed to 0 when the key is released.
    *

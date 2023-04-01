@@ -1,5 +1,7 @@
 package org.space.invader;
 
+import org.bson.Document;
+
 import java.awt.*;
 
 /**
@@ -12,11 +14,11 @@ import java.awt.*;
 public class Barrier extends Sprite {
 
  /** The number of rows in the barrier. */
-  private final int NUM_ROWS = Constant.HEIGHT_BARRIER / Constant.DIMENSION_BARRIER;
+  private static final int NUM_ROWS = Constant.HEIGHT_BARRIER / Constant.DIMENSION_BARRIER;
   /** The number of columns in the barrier */
-  private final int NUM_COLS = Constant.SIZE_BARRIER / Constant.DIMENSION_BARRIER;
+  private static final int NUM_COLS = Constant.SIZE_BARRIER / Constant.DIMENSION_BARRIER;
   /** An array representing the bricks in the barrier */
-  boolean BarrierArray[][] = new boolean[NUM_ROWS][NUM_COLS];
+  static boolean[][] BarrierArray = new boolean[NUM_ROWS][NUM_COLS];
 
   /**
    * Constructs a Barrier object with the given x-position.
@@ -181,6 +183,22 @@ public class Barrier extends Sprite {
 //    Audio.playSound("/sounds/soundBrickBreak.wav");
     int column = this.findBarrierColumn(xShot);
     this.removeTopBricks(findTopBrick(column), column);
+  }
+  public void loadBarriersState(Document barrierDoc) {
+    for (int row = 0; row < NUM_ROWS; row++) {
+      for (int col = 0; col < NUM_COLS; col++) {
+        BarrierArray[row][col] = barrierDoc.getBoolean("barrier_" + row + "_" + col);
+      }
+    }
+  }
+  public static Document getState() {
+    Document barrierState = new Document();
+    for (int row = 0; row < NUM_ROWS; row++) {
+      for (int col = 0; col < NUM_COLS; col++) {
+        barrierState.put("barrier_" + row + "_" + col, BarrierArray[row][col]);
+      }
+    }
+    return barrierState;
   }
 
 }
