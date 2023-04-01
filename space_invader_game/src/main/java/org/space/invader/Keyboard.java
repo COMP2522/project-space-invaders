@@ -43,10 +43,10 @@ public class Keyboard implements KeyListener {
         }
       } else if (e.getKeyCode() == KeyEvent.VK_P) {
         // Pause the game
-        window.gamePaused = true;
+//        window.gamePaused = true;
       } else if (e.getKeyCode() == KeyEvent.VK_R) {
         // Resume the game
-        window.gamePaused = false;
+//        window.gamePaused = false;
       }
 
     }
