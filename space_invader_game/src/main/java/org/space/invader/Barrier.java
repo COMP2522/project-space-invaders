@@ -18,7 +18,7 @@ public class Barrier extends Sprite {
   /** The number of columns in the barrier */
   private static final int NUM_COLS = Constant.SIZE_BARRIER / Constant.DIMENSION_BARRIER;
   /** An array representing the bricks in the barrier */
-  private boolean[][] BarrierArray = new boolean[NUM_ROWS][NUM_COLS];
+  public static boolean[][] BarrierArray = new boolean[NUM_ROWS][NUM_COLS];
 
   /**
    * Constructs a Barrier object with the given x-position.
@@ -118,7 +118,7 @@ public class Barrier extends Sprite {
    * @param row the row number of the brick to start removing
    * @param column the column number of the brick to start removing
    */
-  private void removeBricks(int row, int column) {
+  protected void removeBricks(int row, int column) {
     for (int counter = 0; counter < 10; counter++) {
       if (row - counter >= 0) {
         BarrierArray[row - counter][column] = false;
