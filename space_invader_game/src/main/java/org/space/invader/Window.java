@@ -72,6 +72,7 @@ public class Window extends JPanel {
   protected boolean isPaused = false;
 
   private DatabaseHandler gameStateDbHandler;
+  private DatabaseHandler dbHandler;
 
 
 
@@ -83,6 +84,9 @@ public class Window extends JPanel {
     super();
     Audio.playLoop("/background_music_cut.wav");
     gameStateDbHandler = new DatabaseHandler("test", "game_state");
+    dbHandler = new DatabaseHandler("test", "players");
+
+
     // Add the name input panel
     JPanel namePanel = new JPanel();
     namePanel.setBounds(0, 0, 200, 50);
@@ -141,7 +145,7 @@ public class Window extends JPanel {
   }
 
   private void savePlayerData() {
-    DatabaseHandler dbHandler = new DatabaseHandler("test", "players");
+
     Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), window.score);
     dbHandler.insertDocument(playerDoc);
 
@@ -243,6 +247,32 @@ public class Window extends JPanel {
       this.missileInvader3.drawInvaderMissile(g);
     }
   }
+
+
+  private void displayRankingBoard(Graphics g) {
+    DatabaseHandler dbHandler = new DatabaseHandler("test", "players");
+    List<Document> topPlayers = dbHandler.getTopPlayers(10); // Retrieve the top 10 players
+
+    g.setColor(Color.WHITE);
+    g.setFont(Displaytext);
+    g.drawString("Ranking Board", 50, 100);
+
+    int rank = 1;
+    int yPos = 150;
+
+    for (Document playerDoc : topPlayers) {
+      String playerName = playerDoc.getString("playerName");
+      int playerScore = playerDoc.getInteger("score");
+
+      g.setFont(DisplayScore);
+      g.drawString(rank + ". " + playerName + ": " + playerScore, 50, yPos);
+      yPos += 30;
+      rank++;
+    }
+  }
+
+
+
 
 
   /**
@@ -347,6 +377,7 @@ public class Window extends JPanel {
 
         if (this.groupInvaders.positionInvaderLowest() > Constant.Y_POS_PLAYER) {
           this.player.destructPlayer();
+          this.player.setAlive(false);
         }
 // Display the player's name
         g.setFont(DisplayScore);
@@ -358,7 +389,18 @@ public class Window extends JPanel {
           g.drawString("GAME OVER", 50, 100);
           savePlayerData();
           isGameOverHandled = true;
+
         }
+// Add this block at the end of paintComponent method
+        if (!player.isAlive() && isGameOverHandled) {
+          g.setColor(Color.BLACK);
+          g.fillRect(0, 0, Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
+
+          isGameOverHandled = true;
+          displayRankingBoard(g);
+        }
+
+
       }
     }
   }

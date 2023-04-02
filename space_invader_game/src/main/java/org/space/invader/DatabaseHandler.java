@@ -7,7 +7,12 @@ import com.mongodb.ServerApi;
 import com.mongodb.ServerApiVersion;
 import com.mongodb.client.*;
 
+import com.mongodb.client.model.Sorts;
 import org.bson.Document;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.mongodb.client.model.Filters.eq;
 
 
@@ -65,6 +70,18 @@ public class DatabaseHandler {
     return latestGameState;
   }
 
+  public List<Document> getTopPlayers(int limit) {
+    String collectionName = "players";
+    List<Document> topPlayers = new ArrayList<>();
+    MongoCollection<Document> collection = database.getCollection(collectionName);
+    FindIterable<Document> documents = collection.find().sort(Sorts.descending("score")).limit(limit);
+
+    for (Document document : documents) {
+      topPlayers.add(document);
+    }
+
+    return topPlayers;
+  }
 
   public void deleteAllDocuments() {
     collection.deleteMany(new Document());
