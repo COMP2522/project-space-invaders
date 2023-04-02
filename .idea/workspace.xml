@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="Fixed the barrier array null issue">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Keyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" afterDir="false" />
-    </list>
+    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="fixed some errors from merging" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
