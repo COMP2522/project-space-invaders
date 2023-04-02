@@ -71,7 +71,7 @@ public class Window extends JPanel {
 
   protected boolean isPaused = false;
 
-
+  private DatabaseHandler gameStateDbHandler;
 
 
 
@@ -82,7 +82,7 @@ public class Window extends JPanel {
   public Window() {
     super();
     Audio.playLoop("/background_music_cut.wav");
-
+    gameStateDbHandler = new DatabaseHandler("test", "game_state");
     // Add the name input panel
     JPanel namePanel = new JPanel();
     namePanel.setBounds(0, 0, 200, 50);
@@ -149,7 +149,7 @@ public class Window extends JPanel {
   }
 
   private void saveGameState() {
-    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
+//    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
 
     // Save the current state of the game
     Document gameStateDoc = new Document();
@@ -166,16 +166,17 @@ public class Window extends JPanel {
     gameStateDoc.put("score", window.score);
 
     // Clear the previous state
-    dbHandler.deleteAllDocuments();
+    gameStateDbHandler.deleteAllDocuments();
 
     // Insert the new state
-    dbHandler.insertDocument(gameStateDoc);
+    gameStateDbHandler.insertDocument(gameStateDoc);
+
   }
 
   private void loadGameState() {
-    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
+//    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
 
-    Document gameStateDoc = dbHandler.getLatest();
+    Document gameStateDoc = gameStateDbHandler.getLatest();
 
     if (gameStateDoc != null) {
       playerName = gameStateDoc.getString("playerName");
@@ -197,9 +198,11 @@ public class Window extends JPanel {
   public void togglePause() {
     isPaused = !isPaused;
     if (isPaused) {
+      System.out.println("Saving game state..."); // Add this line
       saveGameState();
       gameLoop.stop();
     } else {
+      System.out.println("Loading game state..."); // Add this line
       loadGameState();
       gameLoop.start();
     }
