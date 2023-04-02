@@ -163,7 +163,7 @@ public class Window extends JPanel {
     }
     gameStateDoc.put("barriers", barrierDocs);
 
-    gameStateDoc.put("score", score);
+    gameStateDoc.put("score", window.score);
 
     // Clear the previous state
     dbHandler.deleteAllDocuments();
