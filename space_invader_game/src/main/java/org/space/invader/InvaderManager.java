@@ -4,12 +4,11 @@ import org.bson.Document;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
 
-public class InvaderManager implements Iterable<Invader> {
+public class InvaderManager {
   final int NUM_ROWS = 5;
   final int NUM_COLS = 10;
   protected List<Invader> invaders;
@@ -317,7 +316,12 @@ public void drawInvader(Graphics g, boolean isPaused){
 
 
   public boolean getGoToRight() {return this.goToRight;}
+
+
   public Document getState() {
+    if (this.invaders == null) {
+      this.invaders = new ArrayList<>();
+    }
     List<Document> invaderStates = new ArrayList<>();
     for (Invader invader : invaders) {
       invaderStates.add(invader.getState());
@@ -326,6 +330,7 @@ public void drawInvader(Graphics g, boolean isPaused){
     state.put("invaders", invaderStates);
     return state;
   }
+
   public void loadState(Document invaderManagerState) {
     if (invaderManagerState != null) {
       List<Document> invaderStates = (List<Document>) invaderManagerState.get("invaders");
@@ -338,10 +343,10 @@ public void drawInvader(Graphics g, boolean isPaused){
 
 
 
-  @Override
-  public Iterator<Invader> iterator() {
-    return new InvaderIterator(NUM_ROWS , NUM_COLS, tabInvader);
-  }
+//  @Override
+//  public Iterator<Invader> iterator() {
+//    return new InvaderIterator(NUM_ROWS , NUM_COLS, tabInvader);
+//  }
 }
 
 
