@@ -76,7 +76,11 @@ public class MissilePlayer extends Sprite {
    *
    * @param g the Graphics object to use for drawing.
    */
-  public void drawPlayerMissile(Graphics g) {
+  public void drawPlayerMissile(Graphics g, boolean isPaused) {
+    if (isPaused) {
+      return;
+    }
+
     if (this.playerShoot) {
       g.drawImage(this.img, this.xPos, this.moveMissilePlayer(), NONE);
     }

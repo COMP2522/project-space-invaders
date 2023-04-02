@@ -1,7 +1,11 @@
 package org.space.invader;
 import org.bson.Document;
 
+
+import java.util.ArrayList;
+
 import java.time.LocalDateTime;
+
 import java.util.List;
 
 import javax.sound.sampled.*;
@@ -65,7 +69,7 @@ public class Window extends JPanel {
   private String playerName = "";
   private boolean isGameOverHandled = false;
 
-  private boolean isPaused = false;
+  protected boolean isPaused = false;
 
 
 
@@ -145,7 +149,7 @@ public class Window extends JPanel {
   }
 
   private void saveGameState() {
-    DatabaseHandler dbHandler = new DatabaseHandler("space_invaders", "game_state");
+    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
 
     // Save the current state of the game
     Document gameStateDoc = new Document();
@@ -153,7 +157,12 @@ public class Window extends JPanel {
     gameStateDoc.put("player", player.getState());
     gameStateDoc.put("groupInvaders", groupInvaders.getState());
     gameStateDoc.put("missilePlayer", missilePlayer.getState());
-    gameStateDoc.put("barriers", Barrier.getState());
+    List<Document> barrierDocs = new ArrayList<>();
+    for (Barrier barrier : BarrierArray) {
+      barrierDocs.add(barrier.getState());
+    }
+    gameStateDoc.put("barriers", barrierDocs);
+
     gameStateDoc.put("score", score);
 
     // Clear the previous state
@@ -164,7 +173,7 @@ public class Window extends JPanel {
   }
 
   private void loadGameState() {
-    DatabaseHandler dbHandler = new DatabaseHandler("space_invaders", "game_state");
+    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
 
     Document gameStateDoc = dbHandler.getLatest();
 
@@ -195,6 +204,42 @@ public class Window extends JPanel {
       gameLoop.start();
     }
   }
+  public void drawPausedScreen(Graphics g) {
+    g.setColor(Color.BLACK);
+    g.fillRect(0, 0, Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
+
+    g.setColor(Color.WHITE);
+    g.setFont(Displaytext);
+    g.drawString("PAUSED", 135, 100);
+
+    // Repaint the game objects while paused
+    // Draw the player
+    if (this.player != null) {
+      this.player.drawPlayer(g);
+    }
+
+    // Draw the invaders
+    this.groupInvaders.drawInvader(g, isPaused);
+
+    // Draw the player's missile
+    this.missilePlayer.drawPlayerMissile(g, isPaused);
+
+    // Draw the barriers
+    for (int column = 0; column < NUMBER_COLUMN; column++) {
+      this.BarrierArray[column].drawBarrier(g);
+    }
+
+    // Draw the invaders' missiles
+    if (this.missileInvader1 != null) {
+      this.missileInvader1.drawInvaderMissile(g);
+    }
+    if (this.missileInvader2 != null) {
+      this.missileInvader2.drawInvaderMissile(g);
+    }
+    if (this.missileInvader3 != null) {
+      this.missileInvader3.drawInvaderMissile(g);
+    }
+  }
 
 
   /**
@@ -212,8 +257,7 @@ public class Window extends JPanel {
     if (gameStarted) {
 // Pause message
       if (isPaused) {
-        g.setFont(Displaytext);
-        g.drawString("PAUSED", 135, 100);
+        drawPausedScreen(g);
       }
       // Only update the game state if the game is not paused
       if (!isPaused) {
@@ -236,10 +280,10 @@ public class Window extends JPanel {
 
 
         //Draw the invaders
-        this.groupInvaders.drawInvader(g2);
+        this.groupInvaders.drawInvader(g2, isPaused);
 
         // Drawing of the spaceship shot
-        this.missilePlayer.drawPlayerMissile(g2);
+        this.missilePlayer.drawPlayerMissile(g2, isPaused);
 
         // Draw the barriers
         for (int column = 0; column < NUMBER_COLUMN; column++) {
