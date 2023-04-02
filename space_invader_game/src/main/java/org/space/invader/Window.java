@@ -1,7 +1,11 @@
 package org.space.invader;
 import org.bson.Document;
 
+
 import java.util.ArrayList;
+
+import java.time.LocalDateTime;
+
 import java.util.List;
 
 import javax.sound.sampled.*;
@@ -36,7 +40,6 @@ public class Window extends JPanel {
    * The player object.
    */
   protected Player player; // Declare the player object
-//  static Player player = new Player();
   /**
    * The manager for the invaders.
    */
@@ -105,9 +108,6 @@ public class Window extends JPanel {
         String playerName = nameField.getText();
         remove(namePanel);
         window.repaint();
-
-
-
         // Initialize the game with the player's name
         initializePlayer(playerName);
         // Set the game to start
@@ -116,14 +116,8 @@ public class Window extends JPanel {
       private void initializePlayer(String playerName) {
         Window.this.playerName = playerName; // Add this line to set the playerName
         player = new Player(playerName);
-
       }
-
-
     });
-
-
-
 
 
     // Initialize the game loop and start it
@@ -146,11 +140,12 @@ public class Window extends JPanel {
     stopwatch.start();
   }
 
-
   private void savePlayerData() {
     DatabaseHandler dbHandler = new DatabaseHandler("test", "players");
     Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), window.score);
     dbHandler.insertDocument(playerDoc);
+
+    System.out.println("Player score saved at " + LocalDateTime.now());
   }
 
   private void saveGameState() {
@@ -279,8 +274,6 @@ public class Window extends JPanel {
         g.setFont(DisplayScore);
         g.drawString("SCORE : " + score, 400, 25);
 
-        // Draw the player
-//    this.player.drawPlayer(g2);
         if (this.player != null) {
           this.player.drawPlayer(g2);
         }
@@ -291,9 +284,6 @@ public class Window extends JPanel {
 
         // Drawing of the spaceship shot
         this.missilePlayer.drawPlayerMissile(g2, isPaused);
-
-//    // draw player
-//    g2.drawImage(this.player.getImg(),this.player.getxPos(),this.player.getyPos(),null);
 
         // Draw the barriers
         for (int column = 0; column < NUMBER_COLUMN; column++) {
@@ -312,7 +302,7 @@ public class Window extends JPanel {
           g.drawString("GAME OVER", 50, 100);
         }
 
-        this.groupInvaders.misslePlayerTouchInvader(this.missilePlayer);
+        this.groupInvaders.missilePlayerTouchInvader(this.missilePlayer);
         // Direction of spaceship's contact with the castle
         this.missilePlayer.misPlayerDestroyBarrier(BarrierArray);
 
@@ -368,7 +358,7 @@ public class Window extends JPanel {
         }
       }
     }
-    }
+  }
 
 
 

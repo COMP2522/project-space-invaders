@@ -53,6 +53,9 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
     super.img = this.ico.getImage(); // Change of image
   }
 
+
+
+
   public Document getState() {
     Document state = new Document();
     state.put("xPos", xPos);
@@ -63,4 +66,5 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
 
   public void loadState(Document document) {
   }
+
 }
