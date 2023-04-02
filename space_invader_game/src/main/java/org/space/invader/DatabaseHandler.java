@@ -11,12 +11,13 @@ import com.mongodb.client.model.Sorts;
 import org.bson.Document;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
 
 
-public class DatabaseHandler {
+public class DatabaseHandler implements Iterable<Document> {
   private MongoDatabase database;
   private MongoCollection<Document> collection;
 
@@ -70,14 +71,29 @@ public class DatabaseHandler {
     return latestGameState;
   }
 
+//  public List<Document> getTopPlayers(int limit) {
+//    String collectionName = "players";
+//    List<Document> topPlayers = new ArrayList<>();
+//    MongoCollection<Document> collection = database.getCollection(collectionName);
+//    FindIterable<Document> documents = collection.find().sort(Sorts.descending("score")).limit(limit);
+//
+//    for (Document document : documents) {
+//      topPlayers.add(document);
+//    }
+//
+//    return topPlayers;
+//  }
+
+
+
   public List<Document> getTopPlayers(int limit) {
     String collectionName = "players";
     List<Document> topPlayers = new ArrayList<>();
     MongoCollection<Document> collection = database.getCollection(collectionName);
-    FindIterable<Document> documents = collection.find().sort(Sorts.descending("score")).limit(limit);
+    Iterator<Document> iterator = collection.find().sort(Sorts.descending("score")).limit(limit).iterator();
 
-    for (Document document : documents) {
-      topPlayers.add(document);
+    while(iterator.hasNext()) {
+      topPlayers.add(iterator.next());
     }
 
     return topPlayers;
@@ -85,6 +101,11 @@ public class DatabaseHandler {
 
   public void deleteAllDocuments() {
     collection.deleteMany(new Document());
+  }
+
+  @Override
+  public Iterator<Document> iterator() {
+    return collection.find().iterator();
   }
 
 }
