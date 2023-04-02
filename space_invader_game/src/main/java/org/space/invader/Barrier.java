@@ -18,7 +18,7 @@ public class Barrier extends Sprite {
   /** The number of columns in the barrier */
   private static final int NUM_COLS = Constant.SIZE_BARRIER / Constant.DIMENSION_BARRIER;
   /** An array representing the bricks in the barrier */
-  static boolean[][] BarrierArray = new boolean[NUM_ROWS][NUM_COLS];
+  private boolean[][] BarrierArray = new boolean[NUM_ROWS][NUM_COLS];
 
   /**
    * Constructs a Barrier object with the given x-position.
@@ -191,7 +191,7 @@ public class Barrier extends Sprite {
       }
     }
   }
-  public static Document getState() {
+  public Document getState() {
     Document barrierState = new Document();
     for (int row = 0; row < NUM_ROWS; row++) {
       for (int col = 0; col < NUM_COLS; col++) {

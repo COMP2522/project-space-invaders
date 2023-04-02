@@ -28,7 +28,7 @@ public class Keyboard implements KeyListener {
     if (e.getKeyCode() == KeyEvent.VK_P) {
       window.togglePause();
     } else {
-      if (window.player != null && window.player.isAlive()) {
+      if (!window.isPaused &&window.player != null && window.player.isAlive()) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
           window.player.setXspeed(Constant.DX_PLAYER);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -51,8 +51,10 @@ public class Keyboard implements KeyListener {
    */
   @Override
   public void keyReleased(KeyEvent e) {
-    if (window.player != null) {
-      window.player.setXspeed(0);
+    if (window.player != null && window.player.isAlive()) {
+      if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT) {
+        window.player.setXspeed(0);
+      }
     }
   }
   /**

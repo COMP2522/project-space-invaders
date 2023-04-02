@@ -29,8 +29,14 @@ public class DatabaseHandler {
   }
 
   public void insertDocument(Document document) {
-    collection.insertOne(document);
+    try {
+      collection.insertOne(document);
+      System.out.println("Document inserted successfully.");
+    } catch (Exception e) {
+      System.err.println("Error while inserting document: " + e.getMessage());
+    }
   }
+
 
   public Document findDocument(String key, String value) {
     return collection.find(eq(key, value)).first();
@@ -45,7 +51,7 @@ public class DatabaseHandler {
   public Document getLatest() {
     Document latestGameState = null;
     String mongoDBUri = "mongodb+srv://bzhou26:" + Password.password + "@cluster0.scdg1au.mongodb.net/?retryWrites=true&w=majority";
-    String databaseName = "space_invaders";
+    String databaseName = "test";
     String collectionName = "game_state";
     try (MongoClient mongoClient = MongoClients.create(mongoDBUri)) {
       MongoDatabase database = mongoClient.getDatabase(databaseName);

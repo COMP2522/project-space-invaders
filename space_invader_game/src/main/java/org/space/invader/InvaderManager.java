@@ -75,8 +75,8 @@ private void initTableInvaders(){
    *
    * @param g Graphics object to draw the invaders.
    */
-public void drawInvader(Graphics g){
-  if(Stopwatch.count % (100 - 10 * this.speed) == 0) {this.moveInvader();}
+public void drawInvader(Graphics g, boolean isPaused){
+  if(Stopwatch.count % (100 - 10 * this.speed) == 0) {this.moveInvader(isPaused);}
     //Draw the invaders in the invader table
   for(int column = 0; column < 10; column++){
     for(int row = 0; row < 5; row++){
@@ -173,7 +173,11 @@ public void drawInvader(Graphics g){
   /**
    * Moves the invaders in the group by a certain amount based on their current direction of movement.
    */
-  public void moveInvader() {
+  public void moveInvader(boolean isPaused) {
+    if (isPaused) {
+      return;
+    }
+
     //Method of moving the invaders
 
     if(this.tabInvaderDead[0] != -1) { // Eliminate the invader if necessary
