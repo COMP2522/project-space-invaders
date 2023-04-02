@@ -13,12 +13,12 @@ import java.awt.*;
 
 public class Barrier extends Sprite {
 
- /** The number of rows in the barrier. */
+  /** The number of rows in the barrier. */
   private static final int NUM_ROWS = Constant.HEIGHT_BARRIER / Constant.DIMENSION_BARRIER;
   /** The number of columns in the barrier */
   private static final int NUM_COLS = Constant.SIZE_BARRIER / Constant.DIMENSION_BARRIER;
   /** An array representing the bricks in the barrier */
-  public static boolean[][] BarrierArray = new boolean[NUM_ROWS][NUM_COLS];
+  public boolean[][] BarrierArray = new boolean[NUM_ROWS][NUM_COLS];
 
   /**
    * Constructs a Barrier object with the given x-position.
@@ -118,7 +118,7 @@ public class Barrier extends Sprite {
    * @param row the row number of the brick to start removing
    * @param column the column number of the brick to start removing
    */
-  protected void removeBricks(int row, int column) {
+  public void removeBricks(int row, int column) {
     for (int counter = 0; counter < 10; counter++) {
       if (row - counter >= 0) {
         BarrierArray[row - counter][column] = false;
@@ -191,7 +191,6 @@ public class Barrier extends Sprite {
       }
     }
   }
- //get game state of barrier
   public Document getState() {
     Document barrierState = new Document();
     for (int row = 0; row < NUM_ROWS; row++) {
