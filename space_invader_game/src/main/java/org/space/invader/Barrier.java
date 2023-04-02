@@ -191,6 +191,7 @@ public class Barrier extends Sprite {
       }
     }
   }
+ //get game state of barrier
   public Document getState() {
     Document barrierState = new Document();
     for (int row = 0; row < NUM_ROWS; row++) {
