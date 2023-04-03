@@ -1,0 +1,1236 @@
+[33mcommit 6ca31e7d25ba869e7cf72b937efc51006909bde8[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 5df9792 f42286a
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Sat Apr 1 23:29:30 2023 -0700
+
+    Merge pull request #142 from COMP2522/Bingdi
+    
+    Implemented a ranking board fetching the data from mongodb and fixed …
+
+[33mcommit f42286a741d422b750e4477a0999fcdbb0c1b620[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Sat Apr 1 23:27:33 2023 -0700
+
+    Implemented a ranking board fetching the data from mongodb and fixed the bug of moving after collision with invaders
+
+[33mcommit 5df9792324feecbb9fb614dd3c11ca92982741fd[m
+Merge: a8949b8 def582f
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Sat Apr 1 22:04:11 2023 -0700
+
+    Merge pull request #141 from COMP2522/Bingdi
+    
+    Fixed the game state storage bug
+
+[33mcommit def582fe7eedcb3317edab91f082ef71a787501b[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Sat Apr 1 22:01:53 2023 -0700
+
+    Fixed the game state storage bug
+
+[33mcommit a8949b8d566b3aba7051f50e7933778221820119[m
+Merge: 554a05b 38b3820
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Sat Apr 1 20:23:29 2023 -0700
+
+    Merge pull request #140 from COMP2522/Bingdi
+    
+    Stored the game state in the Mongodb
+
+[33mcommit 38b3820a832128ef7edc60e0728db867b94370c7[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Sat Apr 1 20:21:29 2023 -0700
+
+    Stored the game state in the Mongodb
+
+[33mcommit 554a05b18dea4d25e321b4eb709f45d9cdcc3e49[m
+Merge: f97f229 0974af1
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Sat Apr 1 19:44:00 2023 -0700
+
+    Merge pull request #139 from COMP2522/Bingdi
+    
+    Fixed the problem
+
+[33mcommit 0974af151e82630529a215794ae032bb509603a2[m
+Merge: 28ab2f5 f97f229
+Author: Bingdididi <bzhou26@my.bcit.ca>
+Date:   Sat Apr 1 19:43:28 2023 -0700
+
+    Merge branch 'main' into Bingdi
+
+[33mcommit 28ab2f5b58340007c84ee0dd26af253f39148f28[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Sat Apr 1 19:22:29 2023 -0700
+
+    Fixed the problem
+    2. barrier problem
+    3. player can move after dead
+    4. when pushes 'P' button, it works, but there are some error messages.
+
+[33mcommit f97f2292f4d4c136bb5bed97c4b5f525f8c1864e[m
+Merge: 60fa4ac 33bfb8f
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Fri Mar 31 20:03:03 2023 -0700
+
+    Merge pull request #137 from COMP2522/Testing
+    
+    Testing
+
+[33mcommit 33bfb8f8880d9ae8c28b096e646249d5332d1f39[m[33m ([m[1;31morigin/Testing[m[33m)[m
+Merge: 058575b 60fa4ac
+Author: teihyung <98484650+teihyung@users.noreply.github.com>
+Date:   Fri Mar 31 20:02:08 2023 -0700
+
+    Merge branch 'main' into Testing
+
+[33mcommit 60fa4ac4513024d667fbf964a5f399d6afe6fe00[m
+Merge: 3002dfa ce2ab95
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Fri Mar 31 19:59:37 2023 -0700
+
+    Merge remote-tracking branch 'origin/main'
+    
+    # Conflicts:
+    #       .idea/workspace.xml
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock
+    #       space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin
+    #       space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+    #       space_invader_game/build/tmp/compileJava/previous-compilation-data.bin
+
+[33mcommit 3002dfaa961b6068f65cebb37b9d4e34175eedac[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Fri Mar 31 19:59:21 2023 -0700
+
+    fixed some errors from merging
+
+[33mcommit ce2ab9532cee358b2508eda34c75f76f358807ea[m
+Merge: d481c8e d609a44
+Author: teihyung <98484650+teihyung@users.noreply.github.com>
+Date:   Fri Mar 31 19:52:52 2023 -0700
+
+    Merge pull request #138 from COMP2522/fixerror_Yeju
+    
+    Went back to previous commit
+
+[33mcommit d609a446afb0bcc8142ebfc7de2dd00cbcdb280b[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Fri Mar 31 19:52:28 2023 -0700
+
+    stashed some files
+
+[33mcommit fb57bd274e5a567665c20651b979230af46db878[m
+Merge: a6388c5 d481c8e
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Fri Mar 31 19:31:59 2023 -0700
+
+    Merge branch 'main' into fixerror_Yeju
+    
+    # Conflicts:
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock
+    #       space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin
+    #       space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+    #       space_invader_game/build/tmp/compileJava/previous-compilation-data.bin
+
+[33mcommit 058575bc7f0b324cde66d21b8dfe03b8c9a58430[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Fri Mar 31 19:00:36 2023 -0700
+
+    finished implementing testing for invader and inserted comments inside the both of the test
+
+[33mcommit a6388c573e0adafd4131bcab48754388a95f158b[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Fri Mar 31 16:31:21 2023 -0700
+
+    Went back to previous commit
+
+[33mcommit d481c8e217987f38439cb2ef48539800112f7ad8[m
+Merge: 8f1c4af a29d4ff
+Author: Bingdididi <bzhou26@my.bcit.ca>
+Date:   Fri Mar 31 16:01:05 2023 -0700
+
+    Merge pull request #136 from COMP2522/saveScore_Yeju
+    
+    Refactored the code, and saved the score to db
+
+[33mcommit a29d4ff553d4822654c612a92c68c813ef6a710f[m
+Merge: e0683a8 8f1c4af
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Fri Mar 31 16:00:00 2023 -0700
+
+    Merge branch 'main' into saveScore_Yeju
+
+[33mcommit e0683a81df8f07fd04613cead0002bb6555aab25[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Fri Mar 31 01:33:27 2023 -0700
+
+    Refactored, and tried saving player's score data
+
+[33mcommit 15cacdecadeb762d2efa967489c8b36dc36b5cb8[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Fri Mar 31 00:08:49 2023 -0700
+
+    Refactored, and tried saving player's score data
+
+[33mcommit 8f1c4af0890f1dc53215a849edb0f38b1fea0377[m
+Merge: 1056ff4 aaeb5b6
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Fri Mar 31 00:03:11 2023 -0700
+
+    Merge pull request #135 from COMP2522/Bingdi
+    
+    Implemented the Pause and resume feature
+
+[33mcommit aaeb5b6371aefd6ac3d1a0d8a1f47b05d8ff17f0[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Thu Mar 30 23:59:16 2023 -0700
+
+    Implemented the Pause and resume feature
+
+[33mcommit 6789373f376e0338cb0cbcc56e07ee91fc31421a[m
+Merge: d57d5de 1056ff4
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Thu Mar 30 21:37:44 2023 -0700
+
+    Merge branch 'main' into Testing
+
+[33mcommit d57d5de0475f33b7cec2d7afdeb5baecca650ac0[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Thu Mar 30 21:36:30 2023 -0700
+
+    added test for invader(Incomplete)
+
+[33mcommit 1056ff42af7721fcde68dc065f323bbb4aa6b705[m
+Merge: 0f270f1 65a38b6
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Thu Mar 30 21:14:31 2023 -0700
+
+    Merge pull request #134 from COMP2522/Testing
+    
+    added test for player
+
+[33mcommit 65a38b6dade664d019d92989c50d20b53e81a706[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Thu Mar 30 21:12:30 2023 -0700
+
+    added test for player
+
+[33mcommit 0f270f1afd3bba42a3e57f5b35c8c8a0f6a6a53e[m
+Merge: 4316360 466585a
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Thu Mar 30 17:35:08 2023 -0700
+
+    Merge pull request #133 from COMP2522/bug_song_taehyuk
+    
+    fixed minor error and put missile sound
+
+[33mcommit 466585ab6dca125ef486af26ace7e39e2ec81eb9[m[33m ([m[1;31morigin/bug_song_taehyuk[m[33m)[m
+Author: Taehyuk <7374179@gmail.com>
+Date:   Thu Mar 30 17:19:40 2023 -0700
+
+    fixed minor error and put missile sound
+
+[33mcommit 431636092824eec44f3e3b8d41c210627e1ed21b[m
+Merge: 3c8577d 8aadfa6
+Author: Bingdididi <bzhou26@my.bcit.ca>
+Date:   Thu Mar 30 00:15:08 2023 -0700
+
+    Merge pull request #132 from COMP2522/Yeju
+    
+    Put in background music, and attacked barrier sound.
+
+[33mcommit 8aadfa630bcee08e95bbe7ba119cb45b634d78b1[m
+Merge: 43d59c0 3c8577d
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Thu Mar 30 00:14:28 2023 -0700
+
+    Merge branch 'main' into Yeju
+
+[33mcommit 43d59c0ced41eb947cbbffd1e4483db0cd1cd13f[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Thu Mar 30 00:07:05 2023 -0700
+
+    Got rid of wrong code
+
+[33mcommit 71fb00011c86cfc09154c1796be0156e3f96018e[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Thu Mar 30 00:05:58 2023 -0700
+
+    Put in background music, and attacked barrier sound.
+
+[33mcommit 3c8577d789eb637a0e4f094193c3510c53b50b55[m
+Merge: 1b1d28d 2910460
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 29 23:59:57 2023 -0700
+
+    Merge pull request #131 from COMP2522/Bingdi
+    
+    Implemented the InvaderIterator class
+
+[33mcommit 29104605db64f9bba82271039553bf7debef3392[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 29 23:51:22 2023 -0700
+
+    Implemented the InvaderIterator class
+
+[33mcommit 1b1d28dde5bc444f0211c69132662b22f9f62af7[m
+Merge: e0cff74 fd7292d
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Wed Mar 29 22:42:20 2023 -0700
+
+    Merge pull request #130 from COMP2522/Bingdi
+    
+    Fixed the problem of storing the score in Mongodb
+
+[33mcommit fd7292de2f868a0c82ef173a6db86c6b74ad376c[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 29 22:40:01 2023 -0700
+
+    Fixed the problem of storing the score in Mongodb
+
+[33mcommit e0cff746b8c1f4b4ebf9c3bc2bcd88481c02a5db[m
+Merge: c28bf37 b245a33
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Wed Mar 29 19:58:11 2023 -0700
+
+    Merge pull request #129 from COMP2522/Chris_fixIssue
+    
+    Chris fix issue
+
+[33mcommit b245a3352d8fa7396179a5408f792e5eabba809f[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Wed Mar 29 19:56:50 2023 -0700
+
+    added additional fix from the issues
+
+[33mcommit 2ba97b495c1330797aa95e137c9fba53843eb05a[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Wed Mar 29 19:53:17 2023 -0700
+
+    applied some of the issues on github
+
+[33mcommit c28bf37fe044771aca99bbfd675eb9d242be788b[m
+Merge: bf95760 ad7d9d3
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 29 19:15:52 2023 -0700
+
+    Merge pull request #128 from COMP2522/killIssues_Taehyuk
+    
+    removed some issues
+
+[33mcommit ad7d9d33ce18db4b28416488a30538384e2d1f31[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Wed Mar 29 19:14:12 2023 -0700
+
+    removed some issues
+
+[33mcommit bf95760e38ab7b734921ce236db4e4e130b84b1e[m
+Merge: 9a8023c 7e945b9
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Wed Mar 29 18:24:55 2023 -0700
+
+    Merge pull request #127 from COMP2522/Yeju
+    
+    Took care of some issues, and fixed IndexOutofBound error for Barrier
+
+[33mcommit 7e945b9457b1ff6f086d2462a844282c35362119[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 29 18:22:18 2023 -0700
+
+    Took care of some issues, and fixed IndexOutofBound error for Barrier
+
+[33mcommit 9a8023c93a3f239b3415b48312fa6e6d2adbcdf8[m
+Merge: f4a9c68 3208e8b
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Wed Mar 29 10:37:14 2023 -0700
+
+    Merge pull request #124 from COMP2522/issue_fix_taehyuk
+    
+    solved some issues
+
+[33mcommit 3208e8b5df9d006c28721eb764e332ab63599d45[m
+Merge: d001442 f4a9c68
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Wed Mar 29 10:37:03 2023 -0700
+
+    Merge branch 'main' into issue_fix_taehyuk
+
+[33mcommit f4a9c68910f150a2b586e1f9ae98612db73da5f6[m
+Merge: 64aff84 8c17218
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Wed Mar 29 01:04:34 2023 -0700
+
+    Merge pull request #125 from COMP2522/Bingdi
+    
+    Implemented the user name screen and the Game Over screen. Successful…
+
+[33mcommit 8c172187e28d081b70cc1649b45cd6d0d97bff34[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 29 00:55:43 2023 -0700
+
+    Implemented the user name screen and the Game Over screen. Successfully stored the user name and score into the Mongodb
+
+[33mcommit d0014420dd282d2b674a78d80e9b8fa8efa5859a[m[33m ([m[1;31morigin/issue_fix_taehyuk[m[33m)[m
+Author: Taehyuk <7374179@gmail.com>
+Date:   Tue Mar 28 23:26:45 2023 -0700
+
+    solved some issues
+
+[33mcommit 64aff847dc407d16d30a4e6ba63832af808fb876[m
+Merge: 1f6fec7 e7af52f
+Author: teihyung <98484650+teihyung@users.noreply.github.com>
+Date:   Tue Mar 28 20:32:26 2023 -0700
+
+    Merge pull request #123 from COMP2522/issued_taehyuk
+    
+    trying to solve issues
+
+[33mcommit e7af52f46eab06cc15363c99a502f5a1929fa841[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 28 20:27:23 2023 -0700
+
+    trying to solve issues
+
+[33mcommit 1f6fec75e6cf3f634caba548d8e86b58ac1cc525[m
+Merge: c6f19b2 f3bc871
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Tue Mar 28 14:05:31 2023 -0700
+
+    Merge pull request #122 from COMP2522/Bingdi
+    
+    Created the DatabaseHandler class to use Mongodb
+
+[33mcommit f3bc87192814310f934e546eccfac39c28e5a62d[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 28 13:58:00 2023 -0700
+
+    Created the DatabaseHandler class to use Mongodb
+
+[33mcommit c6f19b2131e73dd52b2f1ef2a2200902a7f8e7bf[m
+Merge: 86036f8 5f54171
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Mon Mar 27 10:36:35 2023 -0700
+
+    Merge pull request #49 from COMP2522/minor_taehyuk
+    
+    removed useless code and input sounds
+
+[33mcommit 5f541715404b091bf3e1d2ec5c0327dec04e3e48[m[33m ([m[1;31morigin/minor_taehyuk[m[33m)[m
+Author: Taehyuk <7374179@gmail.com>
+Date:   Mon Mar 27 00:01:29 2023 -0700
+
+    removed useless code and input sounds
+
+[33mcommit 86036f85bf86cb8c01d7fc431ee169b6a883c5a1[m
+Merge: 7eb4850 2f7623e
+Author: Bingdididi <bzhou26@my.bcit.ca>
+Date:   Thu Mar 23 20:13:25 2023 -0700
+
+    Merge pull request #48 from COMP2522/Yeju
+    
+    Expanded damage area of barrier when it get hits, and added Java doc
+
+[33mcommit 2f7623e4100c3c38e3dd3992688d572027a296ad[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Thu Mar 23 20:09:07 2023 -0700
+
+    Expanded the damage area for barrier when it get hits, and added Java doc comments
+
+[33mcommit 7eb4850a69ad0cf24b024e3c3058d941cf09684b[m
+Merge: bd540e1 92c8133
+Author: teihyung <98484650+teihyung@users.noreply.github.com>
+Date:   Thu Mar 23 11:44:34 2023 -0700
+
+    Merge pull request #47 from COMP2522/misPlayer_taehyuk
+    
+    fixed dead player, enemies' speed. player can destroy barries
+
+[33mcommit 92c8133729455fd192337287994bc4bca8808872[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Thu Mar 23 11:42:01 2023 -0700
+
+    fixed dead player, enemies' speed. player can destroy barries
+
+[33mcommit bd540e1ea3a7f598a759f37025f2f19b09186cd5[m
+Author: teihyung <98484650+teihyung@users.noreply.github.com>
+Date:   Thu Mar 23 10:41:46 2023 -0700
+
+    Delete src/build/tmp/compileJava directory
+
+[33mcommit 8fa0f97725a5c916d9f669767e5c8cafb1f3f6b8[m
+Merge: 108255e d04e0f7
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 22 23:29:52 2023 -0700
+
+    Merge pull request #46 from COMP2522/Bingdi
+    
+    Bingdi
+
+[33mcommit d04e0f744cc41bfd01450f2dee568051ecd7b695[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 23:23:35 2023 -0700
+
+    Updated the dead mode image
+
+[33mcommit 61efff4fee27f02f68f758794ef207f43d43bcc9[m
+Merge: 0e6296b 108255e
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 23:17:13 2023 -0700
+
+    Merge branch 'main' of https://github.com/COMP2522/project-space-invaders into Bingdi
+
+[33mcommit 0e6296b335597e5ce61fa30bf37f6d2f1a61cdbc[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 23:16:50 2023 -0700
+
+    commit to Bingdi
+
+[33mcommit 108255e24f9fd0a3331bee2fe3266fc1904cfc9f[m
+Merge: b26d7ed 11c144c
+Author: teihyung <98484650+teihyung@users.noreply.github.com>
+Date:   Wed Mar 22 23:14:48 2023 -0700
+
+    Merge pull request #45 from COMP2522/missile_taehyuk
+    
+    can use missile and remove enemies
+
+[33mcommit 11c144cf9fc37c19ab44f3860c8b38ea2b5e0462[m[33m ([m[1;31morigin/missile_taehyuk[m[33m)[m
+Author: Taehyuk <7374179@gmail.com>
+Date:   Wed Mar 22 23:10:19 2023 -0700
+
+    can use missile and remove enemies
+
+[33mcommit b26d7ed9ebfe3c70c2f8fa4b45aabab5b9b8efe9[m
+Merge: b71ebee aac9826
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 22 23:04:34 2023 -0700
+
+    Merge pull request #44 from COMP2522/Bingdi
+    
+    Bingdi
+
+[33mcommit aac9826439930c51ba477fc53de82bafda17fe06[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 22:57:25 2023 -0700
+
+    commit to Bingdi
+
+[33mcommit 06b5481f5a7d70c6c752accd801d23740cc4067d[m
+Merge: dc880b5 b71ebee
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 22:38:59 2023 -0700
+
+    Merge branch 'main' of https://github.com/COMP2522/project-space-invaders into Bingdi
+
+[33mcommit dc880b52a3389cd492b9aa8e5f2e3584b0c764bc[m[33m ([m[1;31morigin/Bingdi[m[33m)[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 22:38:41 2023 -0700
+
+    commit to Bingdi
+
+[33mcommit b71ebee0478737e8df3afe3d03d2716cc1052a5c[m
+Merge: 179ba7a d191155
+Author: Bingdididi <bzhou26@my.bcit.ca>
+Date:   Wed Mar 22 22:33:48 2023 -0700
+
+    Merge pull request #43 from COMP2522/Yeju
+    
+    Fixed the invaders to move left once it hits the right border of the screen
+
+[33mcommit d191155a88abfa208d5c04e3d3166dfe7ef94380[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 22 22:28:31 2023 -0700
+
+    Fixed the invaders to move left once it hits the right border of the screen
+
+[33mcommit 179ba7a97b3d0b52ce1154d9eab1e47f555c0d23[m
+Merge: 4ab7b0e 0f13864
+Author: Bingdididi <bzhou26@my.bcit.ca>
+Date:   Wed Mar 22 22:28:12 2023 -0700
+
+    Merge pull request #42 from COMP2522/Yeju
+    
+    Fixed the barrier array null issue
+
+[33mcommit 0f138641188253f2fff73d5eccd41b85b0951e19[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 22 22:24:10 2023 -0700
+
+    Fixed the barrier array null issue
+
+[33mcommit 4ab7b0e8efe3e184c7a7af71a795c06d45544c39[m
+Merge: a38fb02 225142b
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 22 21:58:48 2023 -0700
+
+    Merge pull request #40 from COMP2522/Bingdi
+    
+    Changed images of invaders
+
+[33mcommit 225142bc8f8e30f2bd00c82c0fb993115ddde4fb[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 21:51:54 2023 -0700
+
+    Updated the invader class
+
+[33mcommit 104955c5aed18e6dc61c1a82c68d3674aca4aa18[m
+Merge: beccfa3 a38fb02
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 21:30:34 2023 -0700
+
+    Merge branch 'main' of https://github.com/COMP2522/project-space-invaders into Bingdi
+
+[33mcommit beccfa365cce76ca9d1eab1e0186a37b97daa02c[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 21:30:11 2023 -0700
+
+    Updated the alien image and some codes in InvaderManager and invader
+
+[33mcommit a38fb027f5d78600282dd0922d1fbe29ac7a06a1[m
+Merge: 9dce045 053ea20
+Author: taehyuk <7374179@gmail.com>
+Date:   Wed Mar 22 21:09:51 2023 -0700
+
+    merge taehyuk branch
+
+[33mcommit 053ea202d795fee5a7f0f2ca9fc3cb3a901e8ad7[m
+Merge: 508a0c0 062ffb9
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Wed Mar 22 20:54:19 2023 -0700
+
+    Merge pull request #39 from COMP2522/Bingdi
+    
+    Updated the alien image and some codes in InvaderManager and invader
+
+[33mcommit 9dce0458a84ed2b85eb1be439d34dec7247d32f8[m[33m ([m[1;31morigin/taehyuk[m[33m)[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Wed Mar 22 20:53:04 2023 -0700
+
+    minor things changed
+
+[33mcommit 062ffb97f9e0a1a8426ce61870a7768c7629c419[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Wed Mar 22 20:43:23 2023 -0700
+
+    Updated the alien image and some codes in InvaderManager and invader
+
+[33mcommit 4691428672bffb50097cc7703eb803959c53f2d3[m
+Author: Taehyuk <7374179@gmail.com>
+Date:   Wed Mar 22 17:53:05 2023 -0700
+
+    changed typo from Window class, but the shooting skill is not working
+
+[33mcommit cf814809382960d9e35eb6cd69fa10bd9645d53d[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Wed Mar 22 15:37:29 2023 -0700
+
+    modifying Player class
+
+[33mcommit a83de288bddcb350bfb9a6fbb09e08742ec937e6[m
+Merge: 5a4983b 508a0c0
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Wed Mar 22 11:17:24 2023 -0700
+
+    Merge branch 'main' into taehyuk
+    
+    # Conflicts:
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin
+    #       space_invader_game/.gradle/buildOutputCleanup/outputFiles.bin
+    #       space_invader_game/.gradle/file-system.probe
+    #       space_invader_game/src/main/java/org/space/invader/MissilePlayer.java
+    #       src/.gradle/7.5.1/executionHistory/executionHistory.lock
+    #       src/.gradle/7.5.1/fileHashes/fileHashes.lock
+    #       src/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+
+[33mcommit 508a0c05adf94193727495c0fdf3eed6464f7543[m[33m ([m[1;31morigin/Yeju[m[33m, [m[1;31morigin/Chris[m[33m)[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Wed Mar 22 11:08:11 2023 -0700
+
+    Updated some class
+
+[33mcommit 815a5c1306b355a6a3e9ee41ec22de0ff32bbb66[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Wed Mar 22 09:59:07 2023 -0700
+
+    added some codes in window class
+
+[33mcommit 14ca812e97a6dd1ce62bb259bfb59a1b86d762e3[m
+Merge: 752bd4e 6b260a9
+Author: Bingdididi <bzhou26@my.bcit.ca>
+Date:   Tue Mar 21 21:42:49 2023 -0700
+
+    Merge pull request #37 from COMP2522/Bingdi
+    
+    Merge invader class
+
+[33mcommit 6b260a9d273d4f9565e1ac0ee50d2ede954dcda6[m
+Merge: b0b7287 752bd4e
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 21:41:24 2023 -0700
+
+    Update
+
+[33mcommit b0b7287fb1e112a20f45b73e1ecbb801adc88d03[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 21:02:24 2023 -0700
+
+    Updated the invader class
+
+[33mcommit 752bd4ecc5ece9122446c4d67a73a994b5bc2e17[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 20:58:38 2023 -0700
+
+    fixing the Window & InvaderManager class
+
+[33mcommit 73f6ce09b1ef48d1affb6b4755cfbba72e510f0a[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 20:49:07 2023 -0700
+
+    commit test
+
+[33mcommit fcdf3921736e3ff1c04e82d246ec8acd2787fcec[m
+Author: teihyung <98484650+teihyung@users.noreply.github.com>
+Date:   Tue Mar 21 20:47:39 2023 -0700
+
+    Delete src directory
+
+[33mcommit b293dd8841a0c1ac945e8e34a700f62d4e4c3cbd[m
+Merge: 7f55f97 41a9d0a
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 20:46:26 2023 -0700
+
+    update branch
+
+[33mcommit 7f55f97101574e954060c64494855a2ea6105d56[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 20:44:36 2023 -0700
+
+    changed xml file
+
+[33mcommit 41a9d0aa331d88a2ca42317ca36df3f1ccb968e7[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 20:24:56 2023 -0700
+
+    Implemented the invader movement in InvaderManager class
+
+[33mcommit 4e79518a8d0647fcbcedd89c36372f5b27b336ea[m
+Merge: 470c7a5 ccafb6a
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 20:15:24 2023 -0700
+
+    Merge remote-tracking branch 'origin/main'
+    
+    # Conflicts:
+    #       space_invader_game/.gradle/file-system.probe
+
+[33mcommit 470c7a5c2b8461388cc19e7abbb2bc3bcae0d901[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 20:14:53 2023 -0700
+
+    Implemented the invader movement in InvaderManager class
+
+[33mcommit 1bc203731360520a7e428677ccd5341f55e3c7c6[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 20:13:50 2023 -0700
+
+    Implemented the invader movement in InvaderManager class
+
+[33mcommit 8c87f8916134c0e2924b2f77d9cbee18a40d8954[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 19:58:43 2023 -0700
+
+    Implemented the invader movement in InvaderManager class
+
+[33mcommit ccafb6a57ec7b55b612d98e64183ece5fdf5cd5b[m
+Merge: 38cb400 1bea453
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 18:55:42 2023 -0700
+
+    Merge branch 'Chris'
+
+[33mcommit 1bea453ffaa3b492994b00842763ad72cf9c92a8[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 18:55:13 2023 -0700
+
+    changed window.java
+
+[33mcommit f2bcb05379fd5cbc4dffd5dc1f35dfe6c63559c6[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 18:52:35 2023 -0700
+
+    allow player to move within the boundary
+
+[33mcommit 38cb40014ae5ac65219d7898cbba25ac24ba6f8d[m
+Merge: 10743e4 d28a23e
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 18:35:44 2023 -0700
+
+    Merge remote-tracking branch 'origin/main' into Yeju
+
+[33mcommit 10743e42c0ecf20a0ee67fe44ead29f586ac07c4[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 18:34:15 2023 -0700
+
+    Added lines to Window to display the score
+
+[33mcommit d28a23e906c8f84dfcf06a1c6a25605757f7fad9[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 18:08:52 2023 -0700
+
+    fixed a minor error
+
+[33mcommit 0c5ccd33f3435c3be42dd9ab6051d9e5befee10d[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 18:06:44 2023 -0700
+
+    Updated the method detail for the barrier in MissileInvader.java
+
+[33mcommit 38a216e09d9c1fddc4283b90b650d3ed6ebb3ba9[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 18:02:35 2023 -0700
+
+    Updated the method detail for the barrier in MissilePlayer.java
+
+[33mcommit 6617d1fa99b33f67bb4bd512c3ef2b505818add1[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 17:57:24 2023 -0700
+
+    modified missile classes
+
+[33mcommit f8bc3c7a8bcaf06cb24f7e86e2bc90934f7d8add[m
+Merge: 8881d0e 2e4aa87
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 17:51:01 2023 -0700
+
+    Merge remote-tracking branch 'origin/main' into Yeju
+
+[33mcommit 8881d0e97c110c87bd11f74ad2c55c79f76ce0ac[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 17:45:16 2023 -0700
+
+    Added game starting message on Window class
+
+[33mcommit 2e4aa8745602376aa710262f2ef21b23e425d8c9[m
+Merge: a113972 6f9f0ad
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 17:25:18 2023 -0700
+
+    Merge branch 'main' of https://github.com/COMP2522/project-space-invaders
+
+[33mcommit a11397209682372a61556a3edd4d94961e858116[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 17:25:06 2023 -0700
+
+    created missile classes
+
+[33mcommit 6f9f0adebf169dc550c8816c70d9086dd7d02dc5[m
+Merge: efefe9b aea05d3
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 17:23:11 2023 -0700
+
+    Merge remote-tracking branch 'origin/main' into Yeju
+    
+    # Conflicts:
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock
+    #       space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin
+    #       space_invader_game/.gradle/file-system.probe
+    #       space_invader_game/build/tmp/compileJava/previous-compilation-data.bin
+
+[33mcommit efefe9b940a127381642bf08124adac5f8e5ff16[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 17:21:07 2023 -0700
+
+    Added Stopwatch class
+
+[33mcommit 7744a65cf329b05c3daffad212345a7a5848c21e[m
+Merge: cc28333 aea05d3
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 16:01:28 2023 -0700
+
+    Merge changes from main branch into Chris branch
+
+[33mcommit aea05d3bad55f1433733913f52bb2034e88c23cd[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 15:50:51 2023 -0700
+
+    updated main
+
+[33mcommit cc28333e44c2a853d14c42b9a1c7801f5392df5d[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 15:48:30 2023 -0700
+
+    hello
+
+[33mcommit ff43bfa8761529e2cd318eb485aa71d6844fb60f[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 15:46:18 2023 -0700
+
+    Keyboard class added
+
+[33mcommit 11ec6f288eb2abbb6d1d4528a199a4fdc44617b3[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 15:21:24 2023 -0700
+
+    Edited the structure of the module
+
+[33mcommit d670f2f6e37afd8cfa4e882c73d20a8da5811110[m
+Merge: 2daeb1b ef7d900
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 15:20:00 2023 -0700
+
+    Merge remote-tracking branch 'origin/main' into Yeju
+    
+    # Conflicts:
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin
+    #       space_invader_game/.gradle/buildOutputCleanup/outputFiles.bin
+    #       src/.gradle/7.5.1/executionHistory/executionHistory.lock
+    #       src/.gradle/7.5.1/fileHashes/fileHashes.lock
+    #       src/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+    #       src/.gradle/file-system.probe
+    #       src/build/tmp/compileJava/previous-compilation-data.bin
+    #       src/src/main/java/org/space/invader/MissilePlayer.java
+
+[33mcommit 2daeb1ba4bed8aa13904df0ea7ad6bee3a32d93d[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 15:18:34 2023 -0700
+
+    Edited the Window class to add Barrier array
+
+[33mcommit 87585687e325230ec9fd8b3a20e30e47935e3d60[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 15:14:20 2023 -0700
+
+    trying to make player move
+
+[33mcommit ef7d900bc772f750725d883ae71af3cfc6afa6c2[m
+Author: teihyung <98484650+teihyung@users.noreply.github.com>
+Date:   Tue Mar 21 14:35:56 2023 -0700
+
+    Delete src/image directory
+
+[33mcommit 3ef4f846d4fd20fd53d009c0b0da8509574e0c47[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 14:35:07 2023 -0700
+
+    implemented Player.java, Window.java properly to display the sprites
+
+[33mcommit ada48d7f09c40296d6b04710822091cc5fe66eac[m
+Merge: e7e1391 692c3a4
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 14:31:03 2023 -0700
+
+    Merge branch 'main' of https://github.com/COMP2522/project-space-invaders
+    
+    # Conflicts:
+    #       space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin
+    #       space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin
+    #       space_invader_game/.gradle/buildOutputCleanup/outputFiles.bin
+    #       space_invader_game/src/image/alien11.png
+    #       space_invader_game/src/image/alien22.png
+    #       space_invader_game/src/image/alien33.png
+    #       space_invader_game/src/main/java/org/space/invader/Audio.java
+    #       space_invader_game/src/main/java/org/space/invader/Barrier.java
+    #       space_invader_game/src/main/java/org/space/invader/Window.java
+    #       src/.gradle/7.5.1/executionHistory/executionHistory.lock
+    #       src/.gradle/7.5.1/fileHashes/fileHashes.lock
+    #       src/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+    #       src/build/tmp/compileJava/previous-compilation-data.bin
+    #       src/src/main/java/org/space/invader/MissilePlayer.java
+
+[33mcommit e7e13911078c6bb028ace5f54bb3c741c0cc704f[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 14:30:28 2023 -0700
+
+    implemented Player.java
+
+[33mcommit 692c3a446fe0297a45d4b92c377a3897383a2cc3[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 14:28:29 2023 -0700
+
+    Changed path of the file properly
+
+[33mcommit eef6125e940f743c0d88dfe8791436efad926e09[m
+Merge: 34896d8 020bfd8
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 14:24:01 2023 -0700
+
+    upload image to the game
+
+[33mcommit 3d4b63446a0317e3da53fea90e77c676ababb20e[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 14:23:14 2023 -0700
+
+    able to upload img properly in the Enemy class
+
+[33mcommit 020bfd8355bb8b48a5240c837d9c87ca6569cc72[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 13:43:41 2023 -0700
+
+    Created Barrier and Audio classes
+
+[33mcommit a252bb5a5b03457f01f18bcdc7c08914ef33278f[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Tue Mar 21 13:43:01 2023 -0700
+
+    Created the individual pitch
+
+[33mcommit a5202e1f5cba1c904ceb4f9a41d5f92d89b1c0f0[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 13:18:38 2023 -0700
+
+     completed Constant
+
+[33mcommit 34896d811bfff54a477c95ede50c4caef59a704a[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 12:56:19 2023 -0700
+
+    Modified the code
+
+[33mcommit df95d1d8072d43491debbfc5b492044fd606f77f[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 12:52:32 2023 -0700
+
+    updated the images and code
+
+[33mcommit 668305b369f7556f34a1afe9195a724db6e85920[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 12:51:12 2023 -0700
+
+    Constant updating
+
+[33mcommit f82b52a11845e49c10886eb5f34bd54a6c49a2d6[m
+Merge: 83bf85f ff98d34
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 12:34:12 2023 -0700
+
+    Merge branch 'main' of https://github.com/COMP2522/project-space-invaders
+    
+    # Conflicts:
+    #       src/.gradle/7.5.1/executionHistory/executionHistory.bin
+    #       src/.gradle/7.5.1/fileHashes/fileHashes.bin
+    #       src/.gradle/7.5.1/fileHashes/resourceHashesCache.bin
+    #       src/.gradle/buildOutputCleanup/outputFiles.bin
+    #       src/.gradle/file-system.probe
+    #       src/build/tmp/compileJava/previous-compilation-data.bin
+
+[33mcommit 5a4983b78bbd296a789d4aa8740a11baea6e6268[m
+Author: taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 12:27:29 2023 -0700
+
+    created 'MissilePlayer'
+
+[33mcommit e3f4d1dcba850460dbe5e5ed7d230fa8d479a529[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 12:26:59 2023 -0700
+
+    Test commit
+
+[33mcommit ff98d343322291b4efe51b828c193f678c74f859[m
+Merge: 9046864 9e7b6e2
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 12:24:28 2023 -0700
+
+    Merge branch 'main' of https://github.com/COMP2522/project-space-invaders
+    
+    # Conflicts:
+    #       .idea/misc.xml
+    #       src/.gradle/7.5.1/checksums/checksums.lock
+    #       src/.gradle/7.5.1/dependencies-accessors/dependencies-accessors.lock
+    #       src/.gradle/7.5.1/executionHistory/executionHistory.lock
+    #       src/.gradle/7.5.1/fileHashes/fileHashes.lock
+    #       src/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+    #       src/.gradle/buildOutputCleanup/cache.properties
+
+[33mcommit 90468649cb4508257f1beed1a020c795abaff910[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Tue Mar 21 12:23:39 2023 -0700
+
+    added player
+
+[33mcommit 83bf85f3b61a67c4516e377faccd15db2f89f5d4[m
+Merge: 2eb119e 9e7b6e2
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 02:35:30 2023 -0700
+
+    Merge branch 'main' of https://github.com/COMP2522/project-space-invaders
+    
+    # Conflicts:
+    #       src/.gradle/7.5.1/checksums/checksums.lock
+    #       src/.gradle/7.5.1/dependencies-accessors/dependencies-accessors.lock
+    #       src/.gradle/7.5.1/executionHistory/executionHistory.lock
+    #       src/.gradle/7.5.1/fileHashes/fileHashes.lock
+    #       src/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+    #       src/.gradle/buildOutputCleanup/cache.properties
+
+[33mcommit 2eb119e3b04ae487d9a2dd9c15eaff6fcb98af9b[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Tue Mar 21 02:34:57 2023 -0700
+
+    Untracked files
+
+[33mcommit 9e7b6e2566fb538c7082bc85eed42cbc9d6b6ae7[m
+Author: Taehyuk <7374179@gmail.com>
+Date:   Tue Mar 21 00:31:54 2023 -0700
+
+    delete 'ArrowEnemy'
+
+[33mcommit 7894d8140a83c54820c773bf0c3f779b045ccb54[m
+Merge: bd0e976 b703008
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Mon Mar 20 23:24:04 2023 -0700
+
+    Merge pull request #34 from COMP2522/taehyuk
+    
+    created 'ArrowEnemy'
+
+[33mcommit b7030080812cd0b17b359fba1f51daad6144ee1e[m
+Author: Taehyuk <7374179@gmail.com>
+Date:   Mon Mar 20 23:20:36 2023 -0700
+
+    created 'ArrowEnemy'
+
+[33mcommit d7a453c4f69ad733c75fbd635e42680c768a8fcb[m
+Author: Tae Hyung Lee <teihyung@naver.com>
+Date:   Mon Mar 20 21:42:52 2023 -0700
+
+    added player.class
+
+[33mcommit 51f69a49462fdb88b6ee63bb94978a1f4fa5903b[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Mon Mar 20 21:41:34 2023 -0700
+
+    Completed the Invader class and InvaderManager class
+
+[33mcommit bd0e976bf8ae25b4702ae960db53302435bfbf7b[m
+Merge: 04732a9 c50eb8c
+Author: Bingdididi <bzhou26@my.bcit.ca>
+Date:   Mon Mar 20 21:35:21 2023 -0700
+
+    Merge pull request #33 from COMP2522/Bingdi
+    
+    Bingdi
+
+[33mcommit c50eb8cbf77beabf2929ec7d77823a934d9cdec8[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Mon Mar 20 21:33:50 2023 -0700
+
+    Created the Constant class and updated the Window class
+
+[33mcommit a63e0231889199ac0bf246c62212a0281cbddfec[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Mon Mar 20 20:18:06 2023 -0700
+
+    Modified the name of the constant
+
+[33mcommit 5fb7a464dd7ac90c850cf40e9beeffc339aaea47[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Mon Mar 20 20:00:04 2023 -0700
+
+    Created the Sprite and Window class
+
+[33mcommit 8b8580bd47c58083ffbc32f21b578cd2d8a6f73e[m
+Author: Bingdididi <zhoubingdica@gmail.com>
+Date:   Mon Mar 20 19:56:09 2023 -0700
+
+    Created the invader class and uploaded the alien images
+
+[33mcommit 04732a9076dd3dba9ab9f6ef2920bc1600f2a356[m
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Mon Mar 6 14:58:01 2023 -0800
+
+    Update INDIVIDUAL_PITCH.md
+
+[33mcommit d98a8beea8713fb3ebf332277b69f9863bc5c3c2[m
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Mon Mar 6 14:56:35 2023 -0800
+
+    Update INDIVIDUAL_PITCH.md
+
+[33mcommit 402d70169b87ecf44288cf9ae1ebf77e7824aa6a[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Mon Mar 6 14:55:44 2023 -0800
+
+    Update INDIVIDUAL_PITCH.md
+
+[33mcommit 7666cdd15a29e3e8d4955e23f5c367c42c2a0c19[m
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Mon Mar 6 14:54:30 2023 -0800
+
+    Update INDIVIDUAL_PITCH.md
+
+[33mcommit 51c29486ae982cf1add64def013665f0673e4730[m
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Mon Mar 6 14:51:42 2023 -0800
+
+    Update INDIVIDUAL_PITCH.md
+
+[33mcommit 7e62dc2d0409846e76a12c7532db0a1a2e61f4c6[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Mon Mar 6 14:48:42 2023 -0800
+
+    Created the individual pitch
+
+[33mcommit 21a3897c4e5f392b6644eca4d1e8fe618b2905bf[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Mon Jan 30 11:28:46 2023 -0800
+
+    Edited a project pitch
+
+[33mcommit ac0747c64b8641c529ea3305aff8c1e126f32e76[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Sun Jan 29 21:48:46 2023 -0800
+
+    Wrote a project pitch
+
+[33mcommit f535037b0f9fd321df0165309d5607b49c8b5078[m
+Author: Taehyuk <7374179@gmail.com>
+Date:   Sat Jan 28 22:18:33 2023 -0800
+
+    uploaded UML of Space Invader
+
+[33mcommit 7b3fce7479e268492805924f8d3155e04e7b890d[m
+Merge: 747d6e9 339637a
+Author: 7374179 <108831857+7374179@users.noreply.github.com>
+Date:   Mon Jan 23 14:57:16 2023 -0800
+
+    Merge pull request #4 from COMP2522/yj_0_demo
+    
+    added hi
+
+[33mcommit 339637a784550faef0dcefd10b43183918d6fc8b[m
+Author: YejuJ <113398044+YejuJ@users.noreply.github.com>
+Date:   Mon Jan 23 14:55:18 2023 -0800
+
+    added hi
+
+[33mcommit 747d6e93882790d1a2153308c8bb5f3b80125830[m
+Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+Date:   Mon Jan 23 21:25:44 2023 +0000
+
+    Setting up GitHub Classroom Feedback
+
+[33mcommit 0b9c78324d8b30d2c23e426211eb324a3a989beb[m
+Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+Date:   Mon Jan 23 21:25:43 2023 +0000
+
+    GitHub Classroom Feedback
+
+[33mcommit cc0697fca76e7d7455b0f1c0c64c8b03d77b0729[m
+Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+Date:   Mon Jan 23 21:25:41 2023 +0000
+
+    Initial commit
