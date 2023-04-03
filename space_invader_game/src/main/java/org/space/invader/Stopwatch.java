@@ -29,7 +29,4 @@ public class Stopwatch implements Runnable {
     }
   }
 
-  public void stop() {
-    count = 0;
-  }
 }
