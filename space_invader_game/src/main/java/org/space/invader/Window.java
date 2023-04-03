@@ -308,9 +308,6 @@ public class Window extends JPanel {
     paintComponent(g);
   }
 
-  private void displayScore(Graphics g) {
-
-  }
   private void displayRankingBoard(Graphics g) {
     DatabaseHandler dbHandler = new DatabaseHandler("test", "players");
     List<Document> topPlayers = dbHandler.getTopPlayers(10); // Retrieve the top 10 players
