@@ -23,9 +23,10 @@ public class Stopwatch implements Runnable {
       Window.window.repaint(); // Call the PaintComponent method of the window object
       try {
         Thread.sleep(PAUSE);
-      } // pause for some time (5 ms)
+      } // Pause the thread execution for 5ms. It's used to control the frame rate of the game loop.
       catch (InterruptedException e) {
       }
     }
   }
+
 }

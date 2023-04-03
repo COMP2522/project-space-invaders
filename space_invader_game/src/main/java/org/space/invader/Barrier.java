@@ -106,7 +106,7 @@ public class Barrier extends Sprite {
    */
   public int findBrick(int column) {
     int row = NUM_ROWS - 1;
-    while (row >= 0 && BarrierArray[row][column] == false) {
+    while (row > 0 && BarrierArray[row][column] == false) {
       row--;
     }
     return row;
