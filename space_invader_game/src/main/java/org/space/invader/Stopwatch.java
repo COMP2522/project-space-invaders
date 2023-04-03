@@ -21,7 +21,11 @@ public class Stopwatch implements Runnable {
     while (Window.window.game == true) {
       count++;
       Window.window.repaint(); // Call the PaintComponent method of the window object
-
+      try {
+        Thread.sleep(PAUSE);
+      } // pause for some time (5 ms)
+      catch (InterruptedException e) {
+      }
     }
   }
 }
