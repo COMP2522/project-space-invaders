@@ -73,6 +73,10 @@ public class Window extends JPanel {
 
   private DatabaseHandler gameStateDbHandler;
   private DatabaseHandler dbHandler;
+  private Timer rankingBoardDelay;
+  boolean isRankingBoardDisplayed = false;
+
+
 
 
 
@@ -389,14 +393,25 @@ public class Window extends JPanel {
           g.drawString("GAME OVER", 50, 100);
           savePlayerData();
           isGameOverHandled = true;
+          // Delay the display of the ranking board
+          int delay = 6000; // delay in milliseconds (3000 ms = 3 seconds)
+          rankingBoardDelay = new Timer(delay, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              rankingBoardDelay.stop(); // Stop the timer after it has been triggered once
+              isRankingBoardDisplayed = true;
+              window.repaint(); // Repaint the window to display the ranking board
+            }
+          });
+          rankingBoardDelay.start();
 
         }
 // Add this block at the end of paintComponent method
-        if (!player.isAlive() && isGameOverHandled) {
+        if (!player.isAlive() && isGameOverHandled && isRankingBoardDisplayed) {
           g.setColor(Color.BLACK);
           g.fillRect(0, 0, Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
 
-          isGameOverHandled = true;
+//          isGameOverHandled = true;
           displayRankingBoard(g);
         }
 
