@@ -4,7 +4,9 @@ import org.bson.Document;
 
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
+import java.io.FileNotFoundException;
 
+import javax.sound.sampled.LineUnavailableException;
 import javax.swing.ImageIcon;
 public class MissilePlayer extends Sprite {
   final int INVALID = -1;
@@ -87,11 +89,6 @@ public class MissilePlayer extends Sprite {
     }
   }
 
-  public void playInvaderDeadSound() {
-    Audio.playSound("/InvaderDead.wav");
-  }
-
-
   /**
    * Checks whether the current spaceship's shot is hitting
    * the given invader object, and if so, it returns true.
@@ -106,8 +103,12 @@ public class MissilePlayer extends Sprite {
             && this.yPos + this.height > invader.getyPos()
             && this.xPos + this.size > invader.getxPos()
             && this.xPos < invader.getxPos() + invader.getSize()) {
-//      Audio.playSound("/InvaderDead.wav");
-      playInvaderDeadSound();
+      try {
+        Audio audio = Audio.getInstance();
+        audio.playDeadInvader();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
       return true;
     } else {
       return false;
@@ -198,7 +199,12 @@ public class MissilePlayer extends Sprite {
       if (BarrierArray[array[ZERO]].findBrick(BarrierArray[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID) {
         BarrierArray[array[ZERO]].breakBricks(array[ONE]);
         this.yPos = INVALID;
-        Audio.playSound("/attacked_barrier.wav");
+        try {
+          Audio audio = Audio.getInstance();
+          audio.playBarrier();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
       }
     }
   }

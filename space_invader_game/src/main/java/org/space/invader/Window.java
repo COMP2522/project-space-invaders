@@ -6,16 +6,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import java.time.LocalDateTime;
-
 import java.util.List;
 
-import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.IOException;
 
 
 /**
@@ -89,7 +85,12 @@ public class Window extends JPanel {
    */
   public Window() {
     super();
-    Audio.playLoop("/background_music_cut.wav");
+    try {
+      Audio soundManager = Audio.getInstance();
+      soundManager.playBgm();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     gameStateDbHandler = new DatabaseHandler("test", "game_state");
     dbHandler = new DatabaseHandler("test", "players");
 
@@ -156,7 +157,6 @@ public class Window extends JPanel {
     Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), window.score);
     dbHandler.insertDocument(playerDoc);
 
-    System.out.println("Player score saved at " + LocalDateTime.now());
   }
 
   private void saveGameState() {
@@ -198,7 +198,6 @@ public class Window extends JPanel {
       for (int i = 0; i < BarrierArray.length; i++) {
         BarrierArray[i].loadBarriersState(barrierDocs.get(i));
       }
-
       score = gameStateDoc.getInteger("score");
     } else {
       System.out.println("No saved game state found.");
@@ -268,6 +267,7 @@ public class Window extends JPanel {
   public void restartGame(Graphics g) {
     // Stop the game loop
     gameLoop.stop();
+    gameLoop = null;
     game = false;
     Stopwatch.count = 0;
 
@@ -295,12 +295,7 @@ public class Window extends JPanel {
     isGameOverHandled = false;
 
     // Start the game loop
-    gameLoop = new Timer(1000 / 60, new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        repaint();
-      }
-    });
+    gameLoop = new Timer(1000 / 60, e -> repaint());
     gameLoop.start();
     Thread stopwatch = new Thread(new Stopwatch());
     stopwatch.start();
@@ -340,7 +335,6 @@ public class Window extends JPanel {
         int mouseX = e.getX();
         int mouseY = e.getY();
         if (buttonBounds.contains(mouseX, mouseY)) {
-          repaint();
           restartGame(g);
         }
       }
@@ -410,7 +404,7 @@ public class Window extends JPanel {
         }
 
         this.groupInvaders.missilePlayerTouchInvader(this.missilePlayer);
-        // Direction of spaceship's contact with the castle
+        // Direction of spaceship's contact with the barrier
         this.missilePlayer.misPlayerDestroyBarrier(BarrierArray);
 
         // Drawing of the aliens' Missile
@@ -497,7 +491,7 @@ public class Window extends JPanel {
    *
    *  @param args The command line arguments.
    */
-  public static void main(String[] args)  {
+  public static void main(String[] args) {
 
     JFrame frame = new JFrame("Space Invaders");
     frame.setSize(Constant.WINDOW_SIZE, Constant.WINDOW_HEIGHT);
@@ -514,3 +508,8 @@ public class Window extends JPanel {
 
   }
 }
+
+
+
+
+

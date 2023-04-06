@@ -1,8 +1,10 @@
 package org.space.invader;
 
 import java.awt.Graphics;
+import java.io.FileNotFoundException;
 import java.util.Random;
 
+import javax.sound.sampled.LineUnavailableException;
 import javax.swing.ImageIcon;
 
 /**
@@ -20,7 +22,6 @@ public class MissileInvader extends Sprite {
   final int BARRIER_HEIGHT = 27;
   final int MISSILE_MOVE_INTERVAL = 4;
 
-  /**** VARIABLES ****/
   Random rand = new Random();
 
   /**
@@ -145,14 +146,19 @@ public class MissileInvader extends Sprite {
    *
    * @param arrayBarriers an array of Barrier objects to check for collision
    */
-  public void misInvaderDestroyBarrier(Barrier arrayBarriers[]) {
+  public void misInvaderDestroyBarrier(Barrier arrayBarriers[])  {
     int[] array = this.missileInvaderTouchBarrier();
     if (array[ZERO] != INVALID) {
       if (arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID
           && arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != BARRIER_HEIGHT) {
         arrayBarriers[array[ZERO]].breakTopBricks(array[ONE]);
         this.yPos = SCREEN_HEIGHT;
-        Audio.playSound("/attacked_barrier.wav");
+        try {
+          Audio audio = Audio.getInstance();
+          audio.playBarrier();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
       }
     }
   }
@@ -178,7 +184,12 @@ public class MissileInvader extends Sprite {
   public boolean touchPlayer(Player player) {
     if (this.intersects(player)) {
       this.yPos = SCREEN_HEIGHT;
-      Audio.playSound("/player_dead.wav");
+      try {
+        Audio audio = Audio.getInstance();
+        audio.playDeadPlayer();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
       return true;
     } else {
       return false;

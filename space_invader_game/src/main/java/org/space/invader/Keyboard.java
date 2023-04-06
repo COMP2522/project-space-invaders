@@ -35,7 +35,12 @@ public class Keyboard implements KeyListener {
           window.player.setXspeed(-Constant.DX_PLAYER);
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
           if (!Window.missilePlayer.isPlayerShoot()) {
-            Audio.playSound("/missile_player.wav");
+            try {
+              Audio audio = Audio.getInstance();
+              audio.playMissilePlayer();
+            } catch (Exception a) {
+              a.printStackTrace();
+            }
             Window.missilePlayer.setyPos(Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER);
             Window.missilePlayer.setxPos(window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
             Window.missilePlayer.setPlayerShoot(true);
