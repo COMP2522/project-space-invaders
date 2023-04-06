@@ -1,18 +1,14 @@
 package org.space.invader;
-import org.bson.Document;
 
+import org.bson.Document;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-
 import java.util.List;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
 
 
 /**
@@ -26,7 +22,6 @@ public class Window extends JPanel {
   public static final int WINDOW_HEIGHT = 600;
   public static final int WINDOW_MARGIN = 50;
   final int DisplayScore_size = 20;
-
   /**
    * Font size of the text displayed.
    */
@@ -35,9 +30,7 @@ public class Window extends JPanel {
    * Number of the columns of the
    */
   final int NUMBER_BARRIER = 4;
-
   final int button_text_size = 30;
-
   /**
    * The game window.
    */
@@ -66,33 +59,31 @@ public class Window extends JPanel {
    * An array of barrier objects.
    */
   public static Barrier[] BarrierArray = new Barrier[4];
-  /** The font used to display the score. */
+  /**
+   * The font used to display the score.
+   */
   private Font DisplayScore = new Font("Arial", Font.PLAIN, DisplayScore_size);
-  /** The font used to display text. */
+  /**
+   * The font used to display text.
+   */
   private Font Displaytext = new Font("Arial", Font.PLAIN, Displaytext_size);
   private Font ButtonText = new Font("Arial", Font.PLAIN, button_text_size);
-  /** The score of the game. */
+  /**
+   * The score of the game.
+   */
   public static int score;
-
   private Timer gameLoop;
   private boolean gameStarted = false;
-
   private String playerName = "";
   private boolean isGameOverHandled = false;
-
   protected boolean isPaused = false;
-
   private DatabaseHandler gameStateHandler;
   private DatabaseHandler playerDataHandler;
-
   // Add this field to the Window class
   private GameStateManager gameStateManager;
-
   private Timer rankingBoardDelay;
   boolean isRankingBoardDisplayed = false;
-
   Rectangle buttonBounds = new Rectangle(300, 300, 200, 60);
-
 
   /**
    * The constructor of the Window class. Sets up the graphical components,
@@ -110,15 +101,12 @@ public class Window extends JPanel {
     playerDataHandler = new DatabaseHandler("test", "players");
     gameStateManager = new GameStateManager(gameStateHandler, playerDataHandler);
 
-
-
     // Add the name input panel
     JPanel namePanel = new JPanel();
     namePanel.setBounds(0, 0, 200, 50);
     namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
     namePanel.setBounds((WINDOW_SIZE - 200) / 2, (WINDOW_HEIGHT - 50) / 2, 200, 50);
     namePanel.setOpaque(false);
-
 
     JLabel nameLabel = new JLabel("Enter your name: ");
     JTextField nameField = new JTextField(10);
@@ -142,12 +130,12 @@ public class Window extends JPanel {
         // Set the game to start
         gameStarted = true;
       }
+
       private void initializePlayer(String playerName) {
         Window.this.playerName = playerName; // Add this line to set the playerName
         player = new Player(playerName);
       }
     });
-
 
     // Initialize the game loop and start it
     gameLoop = new Timer(1000 / 60, new ActionListener() {
@@ -161,14 +149,13 @@ public class Window extends JPanel {
     // Instantiation of Barrier Array
     for (int column = 0; column < NUMBER_BARRIER; column++) {
       this.BarrierArray[column] = new Barrier(WINDOW_MARGIN +
-          Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
+              Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
     }
 
     // Instantiation of the stopwatch (at the end of the constructor)
     Thread stopwatch = new Thread(new Stopwatch());
     stopwatch.start();
   }
-
 
   public void togglePause() {
     isPaused = !isPaused;
@@ -185,6 +172,7 @@ public class Window extends JPanel {
       }
     }
   }
+
   public void drawPausedScreen(Graphics g) {
     g.setColor(Color.BLACK);
     g.fillRect(0, 0, WINDOW_SIZE, WINDOW_HEIGHT);
@@ -221,7 +209,6 @@ public class Window extends JPanel {
       this.missileInvader3.drawInvaderMissile(g);
     }
   }
-
 
   public void drawInvaderMissile1(Graphics g) {
     if (Stopwatch.count % 500 == 0) {
@@ -264,6 +251,7 @@ public class Window extends JPanel {
 
   /**
    * Draws the 'Play Again' button.
+   *
    * @param g
    */
   private void drawPlayAgain(Graphics g) {
@@ -276,10 +264,9 @@ public class Window extends JPanel {
     g.drawString("PLAY AGAIN", 310, yPos + 40); // add text to button
   }
 
-
-
   /**
    * Restarts the game.
+   *
    * @param g
    */
   public void restartGame(Graphics g) {
@@ -305,7 +292,7 @@ public class Window extends JPanel {
     // Reset the barrier objects
     for (int column = 0; column < NUMBER_BARRIER; column++) {
       BarrierArray[column] = new Barrier(WINDOW_MARGIN +
-          Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
+              Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
     }
 
     // Reset the game over flag and handle flag
@@ -328,6 +315,7 @@ public class Window extends JPanel {
 
   /**
    * Displays the ranking board after the player dies.
+   *
    * @param g
    */
   private void displayRankingBoard(Graphics g) {
@@ -367,18 +355,16 @@ public class Window extends JPanel {
         }
       }
     });
-
-
   }
 
   /**
-   *  Paints all the components of the game. It draws the window frame, green line at the bottom,
-   *  score display, player, invaders, player missiles, barriers and game messages. It also checks
-   *  for collisions between the missiles and the barriers and the player and the missiles. Finally,
-   *  it checks for game over and end of game conditions, and restarts the game if all invaders are
-   *  destroyed.
+   * Paints all the components of the game. It draws the window frame, green line at the bottom,
+   * score display, player, invaders, player missiles, barriers and game messages. It also checks
+   * for collisions between the missiles and the barriers and the player and the missiles. Finally,
+   * it checks for game over and end of game conditions, and restarts the game if all invaders are
+   * destroyed.
    *
-   *  @param g the Graphics object used to draw the components of the game.
+   * @param g the Graphics object used to draw the components of the game.
    */
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
@@ -406,7 +392,6 @@ public class Window extends JPanel {
         if (this.player != null) {
           this.player.drawPlayer(g2);
         }
-
 
         //Draw the invaders
         this.groupInvaders.drawInvader(g2, isPaused);
@@ -470,26 +455,20 @@ public class Window extends JPanel {
           rankingBoardDelay.start();
 
         }
-// Add this block at the end of paintComponent method
+        // Add this block at the end of paintComponent method
         if (!player.isAlive() && isGameOverHandled && isRankingBoardDisplayed) {
           g.setColor(Color.BLACK);
           g.fillRect(0, 0, WINDOW_SIZE, WINDOW_HEIGHT);
-
-//          isGameOverHandled = true;
           displayRankingBoard(g);
         }
-
-
       }
     }
   }
 
-
-
   /**
-   *  Creates a JFrame and adds a custom JPanel that handles the game logic and rendering.
+   * Creates a JFrame and adds a custom JPanel that handles the game logic and rendering.
    *
-   *  @param args The command line arguments.
+   * @param args The command line arguments.
    */
   public static void main(String[] args) {
 
@@ -505,7 +484,6 @@ public class Window extends JPanel {
     frame.add(window);
     frame.pack();
     frame.setVisible(true);
-
   }
 }
 
