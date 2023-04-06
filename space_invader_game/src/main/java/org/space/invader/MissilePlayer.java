@@ -7,6 +7,9 @@ import java.awt.image.ImageObserver;
 
 import javax.swing.ImageIcon;
 public class MissilePlayer extends Sprite {
+  public static final int SIZE_MISSILE_PLAYER = 3;
+  public static final int HEIGHT_MISSILE_PLAYER = 13;
+  public final static int DY_MISSILE_PLAYER = 2;
   final int INVALID = -1;
   final int NUMBER_COLUMN = 4;
   final int ZERO = 0;
@@ -26,11 +29,11 @@ public class MissilePlayer extends Sprite {
   public MissilePlayer() {
 
     this.xPos = ZERO;
-    this.yPos = Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER;
-    this.size = Constant.SIZE_MISSILE_PLAYER;
-    this.height = Constant.HEIGHT_MISSILE_PLAYER;
+    this.yPos = Player.Y_POS_PLAYER - HEIGHT_MISSILE_PLAYER;
+    this.size = SIZE_MISSILE_PLAYER;
+    this.height = HEIGHT_MISSILE_PLAYER;
     this.dx = ZERO;
-    this.dy = Constant.DY_MISSILE_PLAYER;  // the speed of missile
+    this.dy = DY_MISSILE_PLAYER;  // the speed of missile
     this.strImg1 = "/misPlayer.png";
 //    super.strImg2 = "";
 //    super.strImg3 = "";
@@ -64,7 +67,7 @@ public class MissilePlayer extends Sprite {
   public int moveMissilePlayer() {
     if (this.playerShoot) {
       if (this.yPos > ZERO) {
-        this.yPos = this.yPos - Constant.DY_MISSILE_PLAYER;
+        this.yPos = this.yPos - DY_MISSILE_PLAYER;
       } else {
         this.playerShoot = false;
       }
@@ -87,11 +90,6 @@ public class MissilePlayer extends Sprite {
     }
   }
 
-  public void playInvaderDeadSound() {
-    Audio.playSound("/InvaderDead.wav");
-  }
-
-
   /**
    * Checks whether the current spaceship's shot is hitting
    * the given invader object, and if so, it returns true.
@@ -106,8 +104,12 @@ public class MissilePlayer extends Sprite {
             && this.yPos + this.height > invader.getyPos()
             && this.xPos + this.size > invader.getxPos()
             && this.xPos < invader.getxPos() + invader.getSize()) {
-//      Audio.playSound("/InvaderDead.wav");
-      playInvaderDeadSound();
+      try {
+        Audio audio = Audio.getInstance();
+        audio.playDeadInvader();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
       return true;
     } else {
       return false;
@@ -122,8 +124,8 @@ public class MissilePlayer extends Sprite {
    */
   private boolean missilePlayerFireAtBarrier() {
     // Returns true if the ship's shot is at the height of the barriers
-    return this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
-            && this.yPos + this.height > Constant.Y_POS_BARRIER;
+    return this.yPos < Barrier.Y_POS_BARRIER + Barrier.HEIGHT_BARRIER
+            && this.yPos + this.height > Barrier.Y_POS_BARRIER;
   }
 
   /**
@@ -137,10 +139,10 @@ public class MissilePlayer extends Sprite {
     int column = INVALID;
     while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
-      if (this.xPos + this.size > Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + column *
-              (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)
-              && this.xPos < Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + Constant.SIZE_BARRIER + column *
-              (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)) {
+      if (this.xPos + this.size > Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + column *
+              (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)
+              && this.xPos < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + Barrier.SIZE_BARRIER + column *
+              (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
         numBarrier = column;
       }
     }
@@ -156,7 +158,7 @@ public class MissilePlayer extends Sprite {
    */
   private int xContactMisBarrier(Barrier barrier) {
     int xPosMisPlayer = INVALID;
-    if (this.xPos + this.size > barrier.getxPos() && this.xPos < barrier.getxPos() + Constant.SIZE_BARRIER) {
+    if (this.xPos + this.size > barrier.getxPos() && this.xPos < barrier.getxPos() + Barrier.SIZE_BARRIER) {
       xPosMisPlayer = this.xPos;
     }
     return xPosMisPlayer;
@@ -198,7 +200,12 @@ public class MissilePlayer extends Sprite {
       if (BarrierArray[array[ZERO]].findBrick(BarrierArray[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID) {
         BarrierArray[array[ZERO]].breakBricks(array[ONE]);
         this.yPos = INVALID;
-        Audio.playSound("/attacked_barrier.wav");
+        try {
+          Audio audio = Audio.getInstance();
+          audio.playBarrier();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
       }
     }
   }

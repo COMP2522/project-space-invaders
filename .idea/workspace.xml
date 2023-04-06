@@ -4,7 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="fixed some errors from merging" />
+    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="These two also needed to be included in last commit">
+      <change afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/reports/tests/test/classes/org.space.invader.BarrierTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/reports/tests/test/classes/org.space.invader.InvaderTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/reports/tests/test/packages/org.space.invader.html" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/reports/tests/test/packages/org.space.invader.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien-2-copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/alien33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/test-results/test/TEST-org.space.invader.BarrierTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/test-results/test/TEST-org.space.invader.InvaderTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Barrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Barrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Constant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien-2-copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien111.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/alien111.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien222.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/alien222.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/alien333.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/alien333.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/dead.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/dead.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/misPlayer.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/misPlayer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/missileInvader1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/missileInvader1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/missileInvader2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/missileInvader2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/playerDes1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/playerDes1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/playerDes2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/playerDes2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/spaceship2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/image/spaceship2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/test/java/org/space/invader/BarrierTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/test/java/org/space/invader/BarrierTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/test/java/org/space/invader/InvaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/test/java/org/space/invader/InvaderTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +98,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="check_yeju" />
+        <entry key="$PROJECT_DIR$" value="refactor_yeju" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,11 +133,13 @@
       <recent name="C:\Users\73741\Documents\comp2522\project-space-invaders\space_invader_game\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/image" />
+      <recent name="$PROJECT_DIR$/resources/audio" />
       <recent name="$PROJECT_DIR$/space_invader_game/src/main/resources" />
       <recent name="D:\COMP2522\project-space-invaders\space_invader_game\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Window">
     <configuration name="Window" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.space.invader.Window" />
       <module name="org.space.invader.src.main" />
@@ -93,10 +153,80 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InvaderTest.testInvaderTurnAndLower" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/space_invader_game" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.space.invader.InvaderTest.testInvaderTurnAndLower&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="InvaderTest.testMoveMissileInvader" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/space_invader_game" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.space.invader.InvaderTest.testMoveMissileInvader&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="InvaderTest.testTouchRightBorder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/space_invader_game" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.space.invader.InvaderTest.testTouchRightBorder&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Window" />
-        <item itemvalue="Application.Window" />
+        <item itemvalue="Gradle.InvaderTest.testMoveMissileInvader" />
+        <item itemvalue="Gradle.InvaderTest.testTouchRightBorder" />
+        <item itemvalue="Gradle.InvaderTest.testInvaderTurnAndLower" />
         <item itemvalue="Application.Window" />
         <item itemvalue="Application.Window" />
       </list>
@@ -118,6 +248,8 @@
       <workItem from="1679941876455" duration="15000" />
       <workItem from="1679949177585" duration="3655000" />
       <workItem from="1680056057777" duration="4098000" />
+      <workItem from="1680551819731" duration="18886000" />
+      <workItem from="1680750952154" duration="3288000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed the barrier array null issue">
       <created>1679549057674</created>
@@ -133,7 +265,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680159960219</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactored Audio class to be singleton">
+      <created>1680742143329</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680742143329</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Got rid of Constant class, and made drawInvaderMissile1,2,3 methods by refactoring">
+      <created>1680752475958</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680752475958</updated>
+    </task>
+    <task id="LOCAL-00005" summary="These two also needed to be included in last commit">
+      <created>1680752536813</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680752536813</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +306,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed the barrier array null issue" />
     <MESSAGE value="Put in background music, and attacked barrier sound." />
-    <option name="LAST_COMMIT_MESSAGE" value="Put in background music, and attacked barrier sound." />
+    <MESSAGE value="Refactored Audio class to be singleton" />
+    <MESSAGE value="Got rid of Constant class, and made drawInvaderMissile1,2,3 methods by refactoring" />
+    <MESSAGE value="These two also needed to be included in last commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="These two also needed to be included in last commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -161,6 +317,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="4" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

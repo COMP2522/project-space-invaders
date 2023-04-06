@@ -30,14 +30,19 @@ public class Keyboard implements KeyListener {
     } else {
       if (!window.isPaused &&window.player != null && window.player.isAlive()) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-          window.player.setXspeed(Constant.DX_PLAYER);
+          window.player.setXspeed(Player.DX_PLAYER);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-          window.player.setXspeed(-Constant.DX_PLAYER);
+          window.player.setXspeed(-Player.DX_PLAYER);
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
           if (!Window.missilePlayer.isPlayerShoot()) {
-            Audio.playSound("/missile_player.wav");
-            Window.missilePlayer.setyPos(Constant.Y_POS_PLAYER - Constant.HEIGHT_MISSILE_PLAYER);
-            Window.missilePlayer.setxPos(window.player.getxPos() + Constant.PLAYER_SIZE / 2 - 1);
+            try {
+              Audio audio = Audio.getInstance();
+              audio.playMissilePlayer();
+            } catch (Exception a) {
+              a.printStackTrace();
+            }
+            Window.missilePlayer.setyPos(Player.Y_POS_PLAYER - MissilePlayer.HEIGHT_MISSILE_PLAYER);
+            Window.missilePlayer.setxPos(window.player.getxPos() + Player.PLAYER_SIZE / 2 - 1);
             Window.missilePlayer.setPlayerShoot(true);
           }
         }
