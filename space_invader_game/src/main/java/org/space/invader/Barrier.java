@@ -32,14 +32,12 @@ public class Barrier extends Sprite {
    *
    *  @param xPos The x-coordinate of the leftmost point of the barrier
    */
-
   public Barrier(int xPos) {
     super.xPos = xPos; // The leftmost point of the barrier
     super.yPos = Y_POS_BARRIER; // Ordinate of the top of the barrier
 
     this.initBarrierArray();
   }
-
 
   /**
    * Initializes the BarrierArray with values to represent the undamaged barrier.
@@ -215,7 +213,6 @@ public class Barrier extends Sprite {
     }
     return barrierState;
   }
-
 }
 
 

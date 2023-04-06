@@ -1,20 +1,20 @@
 package org.space.invader;
 
 /**
- *  A Stopwatch class that implements the Runnable interface for timing and updating the game window.
+ * A Stopwatch class that implements the Runnable interface for timing and updating the game window.
  */
 public class Stopwatch implements Runnable {
-
-  /** The pause time between each loop iteration. */
-  private final int PAUSE = 5;
-
-  /** The count of time elapsed. */
-  public static int count = 0;
-
-
   /**
-   *  Runs the Stopwatch in a loop while the game is running. Increments the count and repaints the window
-   *  with each iteration.
+   * The pause time between each loop iteration.
+   */
+  private final int PAUSE = 5;
+  /**
+   * The count of time elapsed.
+   */
+  public static int count = 0;
+  /**
+   * Runs the Stopwatch in a loop while the game is running. Increments the count and repaints the window
+   * with each iteration.
    */
   @Override
   public void run() {
@@ -28,5 +28,4 @@ public class Stopwatch implements Runnable {
       }
     }
   }
-
 }

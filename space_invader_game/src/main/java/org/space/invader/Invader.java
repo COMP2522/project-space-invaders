@@ -10,7 +10,6 @@ import javax.swing.*;
  */
 
 public class Invader extends Sprite {
-
   public static final int INVADER_SIZE = 33;
   public static final int INVADER_HEIGHT = 25;
 
@@ -22,23 +21,23 @@ public class Invader extends Sprite {
    * @param strImg1 The filename of the image for the invader in its first position.
    * @param strImg2 The filename of the image for the invader in its second position.
    */
-public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
-  //Initialize the variables of the super class
-  super.xPos = xPos;
-  super.yPos = yPos;
-  super.size = INVADER_SIZE;
-  super.height = INVADER_HEIGHT;
-  super.dx = 0;
-  super.dy = 0;
-  //Address of the images
-  super.strImg1 = strImg1;
-  super.strImg2 = strImg2;
-  //strImg3 should be the image of dead alien
-  super.strImg3 = "/dead.png";
-  super.ico = new ImageIcon(getClass().getResource(super.strImg1));
-  super.img = this.ico.getImage();
-  super.alive = true;
-}
+  public Invader(int xPos, int yPos, String strImg1, String strImg2) {
+    //Initialize the variables of the super class
+    super.xPos = xPos;
+    super.yPos = yPos;
+    super.size = INVADER_SIZE;
+    super.height = INVADER_HEIGHT;
+    super.dx = 0;
+    super.dy = 0;
+    //Address of the images
+    super.strImg1 = strImg1;
+    super.strImg2 = strImg2;
+    //strImg3 should be the image of dead alien
+    super.strImg3 = "/dead.png";
+    super.ico = new ImageIcon(getClass().getResource(super.strImg1));
+    super.img = this.ico.getImage();
+    super.alive = true;
+  }
 
   /**
    * This method changes the image of the invader according to the sound status and position.
@@ -46,18 +45,18 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
    * @param pos1 A boolean indicating whether the invader is in its first position.
    */
   public void chooseImage(boolean pos1) {
-  //Method of changing the image of invader according to the sound status and position(1,2)
-
-    if(this.alive == true) {
-      if(pos1 == true) {super.ico = new ImageIcon(getClass().getResource(strImg1));}
-      else {super.ico = new ImageIcon(getClass().getResource(strImg2));}
+    //Method of changing the image of invader according to the sound status and position(1,2)
+    if (this.alive == true) {
+      if (pos1 == true) {
+        super.ico = new ImageIcon(getClass().getResource(strImg1));
+      } else {
+        super.ico = new ImageIcon(getClass().getResource(strImg2));
+      }
+    } else {
+      super.ico = new ImageIcon(getClass().getResource(strImg3));
     }
-    else {super.ico = new ImageIcon(getClass().getResource(strImg3));}
     super.img = this.ico.getImage(); // Change of image
   }
-
-
-
 
   public Document getState() {
     Document state = new Document();
@@ -69,5 +68,4 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
 
   public void loadState(Document document) {
   }
-
 }
