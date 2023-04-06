@@ -78,7 +78,6 @@ public class Window extends JPanel {
   boolean isRankingBoardDisplayed = false;
   Rectangle buttonBounds = new Rectangle(300, 300, 200, 60);
 
-
   /**
    * The constructor of the Window class. Sets up the graphical components,
    * including the player, the invaders, missiles, barriers, and game messages.
@@ -102,14 +101,12 @@ public class Window extends JPanel {
     playerDataHandler = new DatabaseHandler("test", "players");
     gameStateManager = new GameStateManager(gameStateHandler, playerDataHandler);
 
-
     // Add the name input panel
     JPanel namePanel = new JPanel();
     namePanel.setBounds(0, 0, 200, 50);
     namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
     namePanel.setBounds((WINDOW_SIZE - 200) / 2, (WINDOW_HEIGHT - 50) / 2, 200, 50);
     namePanel.setOpaque(false);
-
 
     JLabel nameLabel = new JLabel("Enter your name: ");
     JTextField nameField = new JTextField(10);
@@ -139,6 +136,7 @@ public class Window extends JPanel {
         player = new Player(playerName);
       }
     });
+
 
     // Initialize the game loop and start it
     gameLoop = new Timer(1000 / 60, new ActionListener() {
@@ -180,7 +178,6 @@ public class Window extends JPanel {
       }
     }
   }
-
 
   /**
    * Draws the paused screen.
@@ -316,7 +313,7 @@ public class Window extends JPanel {
         int mouseY = e.getY();
         if (buttonBounds.contains(mouseX, mouseY)) {
           repaint();
-          gameRestart.restartGame(g, window);
+          restartGame(g);
         }
       }
     });
@@ -359,7 +356,6 @@ public class Window extends JPanel {
         if (this.player != null) {
           this.player.drawPlayer(g2);
         }
-
 
         //Draw the invaders
         this.groupInvaders.drawInvader(g2, isPaused);
@@ -427,18 +423,16 @@ public class Window extends JPanel {
         if (!player.isAlive() && isGameOverHandled && isRankingBoardDisplayed) {
           g.setColor(Color.BLACK);
           g.fillRect(0, 0, WINDOW_SIZE, WINDOW_HEIGHT);
-
           displayRankingBoard(g);
         }
-
       }
     }
   }
 
   /**
-   *  Creates a JFrame and adds a custom JPanel that handles the game logic and rendering.
+   * Creates a JFrame and adds a custom JPanel that handles the game logic and rendering.
    *
-   *  @param args The command line arguments.
+   * @param args The command line arguments.
    */
   public static void main(String[] args) {
 
@@ -454,7 +448,6 @@ public class Window extends JPanel {
     frame.add(window);
     frame.pack();
     frame.setVisible(true);
-
   }
 }
 

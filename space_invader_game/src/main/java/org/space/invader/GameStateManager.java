@@ -1,4 +1,5 @@
 package org.space.invader;
+
 import org.bson.Document;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,14 +12,13 @@ public class GameStateManager {
   public GameStateManager(DatabaseHandler gameStateHandler, DatabaseHandler playerDataHandler) {
     this.gameStateHandler = gameStateHandler;
     this.playerDataHandler = playerDataHandler;
-
   }
   public void savePlayerData(String playerName, int score) {
     Document playerDoc = DatabaseHandler.createPlayerDocument(playerName, score);
     playerDataHandler.insertDocument(playerDoc);
-
     System.out.println("Player score saved at " + LocalDateTime.now());
   }
+
   public void saveGameState(String playerName, Player player, InvaderManager groupInvaders, MissilePlayer missilePlayer, Barrier[] BarrierArray, int score) {
     Document gameStateDoc = new Document();
     gameStateDoc.put("playerName", playerName);
@@ -48,7 +48,6 @@ public class GameStateManager {
       for (int i = 0; i < BarrierArray.length; i++) {
         BarrierArray[i].loadBarriersState(barrierDocs.get(i));
       }
-
       return true;
     } else {
       return false;

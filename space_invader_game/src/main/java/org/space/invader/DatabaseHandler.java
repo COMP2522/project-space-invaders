@@ -1,21 +1,16 @@
 package org.space.invader;
 
-
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerApi;
 import com.mongodb.ServerApiVersion;
 import com.mongodb.client.*;
-
 import com.mongodb.client.model.Sorts;
 import org.bson.Document;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import static com.mongodb.client.model.Filters.eq;
-
 
 public class DatabaseHandler implements Iterable<Document> {
   private MongoDatabase database;
@@ -43,7 +38,6 @@ public class DatabaseHandler implements Iterable<Document> {
     }
   }
 
-
   public Document findDocument(String key, String value) {
     return collection.find(eq(key, value)).first();
   }
@@ -54,6 +48,7 @@ public class DatabaseHandler implements Iterable<Document> {
     player.append("score", score);
     return player;
   }
+
   public Document getLatest() {
     Document latestGameState = null;
     String mongoDBUri = "mongodb+srv://bzhou26:" + Password.password + "@cluster0.scdg1au.mongodb.net/?retryWrites=true&w=majority";
@@ -71,21 +66,6 @@ public class DatabaseHandler implements Iterable<Document> {
     return latestGameState;
   }
 
-//  public List<Document> getTopPlayers(int limit) {
-//    String collectionName = "players";
-//    List<Document> topPlayers = new ArrayList<>();
-//    MongoCollection<Document> collection = database.getCollection(collectionName);
-//    FindIterable<Document> documents = collection.find().sort(Sorts.descending("score")).limit(limit);
-//
-//    for (Document document : documents) {
-//      topPlayers.add(document);
-//    }
-//
-//    return topPlayers;
-//  }
-
-
-
   public List<Document> getTopPlayers(int limit) {
     String collectionName = "players";
     List<Document> topPlayers = new ArrayList<>();
@@ -95,7 +75,6 @@ public class DatabaseHandler implements Iterable<Document> {
     while(iterator.hasNext()) {
       topPlayers.add(iterator.next());
     }
-
     return topPlayers;
   }
 
@@ -107,5 +86,4 @@ public class DatabaseHandler implements Iterable<Document> {
   public Iterator<Document> iterator() {
     return collection.find().iterator();
   }
-
 }
