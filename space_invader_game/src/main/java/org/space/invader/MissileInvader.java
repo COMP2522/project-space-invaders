@@ -132,7 +132,7 @@ public class MissileInvader extends Sprite {
       tabRep[ZERO] = this.numberBarrier();
       if (tabRep[ZERO] != INVALID) {
         tabRep[ONE] = this.xContactMisInvaderBarrier(
-                Window.BarrierArray[tabRep[ZERO]]);
+                Window.barrierArray[tabRep[ZERO]]);
       }
     }
     return tabRep;
