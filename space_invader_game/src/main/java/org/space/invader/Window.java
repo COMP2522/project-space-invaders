@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import java.io.IOException;
 
 
 /**
@@ -22,11 +22,22 @@ import java.awt.event.ActionEvent;
  * to receive keyboard input events from the user.
  */
 public class Window extends JPanel {
+  /**
+   * Width size of the window.
+   */
   public static final int WINDOW_SIZE = 600;
+  /**
+   * Height of the window.
+   */
   public static final int WINDOW_HEIGHT = 600;
+  /**
+   * Margin on the side of the window.
+   */
   public static final int WINDOW_MARGIN = 50;
+  /**
+   * Font size of the score displayed.
+   */
   final int DisplayScore_size = 20;
-
   /**
    * Font size of the text displayed.
    */
@@ -35,13 +46,14 @@ public class Window extends JPanel {
    * Number of the columns of the
    */
   final int NUMBER_BARRIER = 4;
-
   final int button_text_size = 30;
 
   /**
    * The game window.
    */
   static Window window;
+
+
   /**
    * A boolean that indicates whether the game is still running or not.
    */
@@ -77,16 +89,16 @@ public class Window extends JPanel {
   private Timer gameLoop;
   private boolean gameStarted = false;
 
-  private String playerName = "";
-  private boolean isGameOverHandled = false;
-
-  protected boolean isPaused = false;
-
   private DatabaseHandler gameStateHandler;
   private DatabaseHandler playerDataHandler;
 
   // Add this field to the Window class
   private GameStateManager gameStateManager;
+
+  private String playerName = "";
+  private boolean isGameOverHandled = false;
+
+  protected boolean isPaused = false;
 
   private Timer rankingBoardDelay;
   boolean isRankingBoardDisplayed = false;
@@ -106,11 +118,10 @@ public class Window extends JPanel {
     } catch (Exception e) {
       e.printStackTrace();
     }
+
     gameStateHandler = new DatabaseHandler("test", "game_state");
     playerDataHandler = new DatabaseHandler("test", "players");
     gameStateManager = new GameStateManager(gameStateHandler, playerDataHandler);
-
-
 
     // Add the name input panel
     JPanel namePanel = new JPanel();
@@ -161,7 +172,7 @@ public class Window extends JPanel {
     // Instantiation of Barrier Array
     for (int column = 0; column < NUMBER_BARRIER; column++) {
       this.BarrierArray[column] = new Barrier(WINDOW_MARGIN +
-          Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
+              Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
     }
 
     // Instantiation of the stopwatch (at the end of the constructor)
@@ -169,11 +180,63 @@ public class Window extends JPanel {
     stopwatch.start();
   }
 
+//  private void savePlayerData() {
+//
+//    Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), window.score);
+//    dbHandler.insertDocument(playerDoc);
+//
+//  }
+//  private void saveGameState() {
+////    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
+//
+//    // Save the current state of the game
+//    Document gameStateDoc = new Document();
+//    gameStateDoc.put("playerName", playerName);
+//    gameStateDoc.put("player", player.getState());
+//    gameStateDoc.put("groupInvaders", groupInvaders.getState());
+//    gameStateDoc.put("missilePlayer", missilePlayer.getState());
+//    List<Document> barrierDocs = new ArrayList<>();
+//    for (Barrier barrier : BarrierArray) {
+//      barrierDocs.add(barrier.getState());
+//    }
+//    gameStateDoc.put("barriers", barrierDocs);
+//
+//    gameStateDoc.put("score", window.score);
+//
+//    // Clear the previous state
+//    gameStateDbHandler.deleteAllDocuments();
+//
+//    // Insert the new state
+//    gameStateDbHandler.insertDocument(gameStateDoc);
+//
+//  }
+
+
+
+//  private void loadGameState() {
+////    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
+//
+//    Document gameStateDoc = gameStateDbHandler.getLatest();
+//
+//    if (gameStateDoc != null) {
+//      playerName = gameStateDoc.getString("playerName");
+//      player.loadState((Document) gameStateDoc.get("player"));
+//      groupInvaders.loadState((Document) gameStateDoc.get("groupInvaders"));
+//      missilePlayer.loadState((Document) gameStateDoc.get("missilePlayer"));
+//      List<Document> barrierDocs = (List<Document>) gameStateDoc.get("barriers");
+//      for (int i = 0; i < BarrierArray.length; i++) {
+//        BarrierArray[i].loadBarriersState(barrierDocs.get(i));
+//      }
+//      score = gameStateDoc.getInteger("score");
+//    } else {
+//      System.out.println("No saved game state found.");
+//    }
+//  }
 
   public void togglePause() {
     isPaused = !isPaused;
     if (isPaused) {
-      System.out.println("Saving game state..."); // Add this line
+      System.out.println("Saving game state...");
       gameStateManager.saveGameState(playerName, player, groupInvaders, missilePlayer, BarrierArray, score);
       gameLoop.stop();
     } else {
@@ -185,6 +248,7 @@ public class Window extends JPanel {
       }
     }
   }
+
   public void drawPausedScreen(Graphics g) {
     g.setColor(Color.BLACK);
     g.fillRect(0, 0, WINDOW_SIZE, WINDOW_HEIGHT);
@@ -305,7 +369,7 @@ public class Window extends JPanel {
     // Reset the barrier objects
     for (int column = 0; column < NUMBER_BARRIER; column++) {
       BarrierArray[column] = new Barrier(WINDOW_MARGIN +
-          Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
+              Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
     }
 
     // Reset the game over flag and handle flag
@@ -313,6 +377,7 @@ public class Window extends JPanel {
     isGameOverHandled = false;
 
     // Start the game loop
+//    gameLoop = new Timer(1000 / 60, e -> repaint());
     gameLoop = new Timer(1000 / 60, new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -508,8 +573,3 @@ public class Window extends JPanel {
 
   }
 }
-
-
-
-
-
