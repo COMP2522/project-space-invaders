@@ -77,12 +77,8 @@ public class Window extends JPanel {
 
   protected boolean isPaused = false;
 
-  private DatabaseHandler gameStateHandler;
-  private DatabaseHandler playerDataHandler;
-
-  // Add this field to the Window class
-  private GameStateManager gameStateManager;
-
+  private DatabaseHandler gameStateDbHandler;
+  private DatabaseHandler dbHandler;
   private Timer rankingBoardDelay;
   boolean isRankingBoardDisplayed = false;
 
@@ -162,19 +158,70 @@ public class Window extends JPanel {
     stopwatch.start();
   }
 
+  private void savePlayerData() {
+
+    Document playerDoc = DatabaseHandler.createPlayerDocument(player.getName(), window.score);
+    dbHandler.insertDocument(playerDoc);
+
+  }
+
+  private void saveGameState() {
+//    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
+
+    // Save the current state of the game
+    Document gameStateDoc = new Document();
+    gameStateDoc.put("playerName", playerName);
+    gameStateDoc.put("player", player.getState());
+    gameStateDoc.put("groupInvaders", groupInvaders.getState());
+    gameStateDoc.put("missilePlayer", missilePlayer.getState());
+    List<Document> barrierDocs = new ArrayList<>();
+    for (Barrier barrier : BarrierArray) {
+      barrierDocs.add(barrier.getState());
+    }
+    gameStateDoc.put("barriers", barrierDocs);
+
+    gameStateDoc.put("score", window.score);
+
+    // Clear the previous state
+    gameStateDbHandler.deleteAllDocuments();
+
+    // Insert the new state
+    gameStateDbHandler.insertDocument(gameStateDoc);
+
+  }
+
+
+
+  private void loadGameState() {
+//    DatabaseHandler dbHandler = new DatabaseHandler("test", "game_state");
+
+    Document gameStateDoc = gameStateDbHandler.getLatest();
+
+    if (gameStateDoc != null) {
+      playerName = gameStateDoc.getString("playerName");
+      player.loadState((Document) gameStateDoc.get("player"));
+      groupInvaders.loadState((Document) gameStateDoc.get("groupInvaders"));
+      missilePlayer.loadState((Document) gameStateDoc.get("missilePlayer"));
+      List<Document> barrierDocs = (List<Document>) gameStateDoc.get("barriers");
+      for (int i = 0; i < BarrierArray.length; i++) {
+        BarrierArray[i].loadBarriersState(barrierDocs.get(i));
+      }
+      score = gameStateDoc.getInteger("score");
+    } else {
+      System.out.println("No saved game state found.");
+    }
+  }
+
   public void togglePause() {
     isPaused = !isPaused;
     if (isPaused) {
-      System.out.println("Saving game state...");
-      gameStateManager.saveGameState(playerName, player, groupInvaders, missilePlayer, BarrierArray, score);
+      System.out.println("Saving game state..."); // Add this line
+      saveGameState();
       gameLoop.stop();
     } else {
-      System.out.println("Loading game state...");
-      if (gameStateManager.loadGameState(playerName, player, groupInvaders, missilePlayer, BarrierArray)) {
-        gameLoop.start();
-      } else {
-        System.out.println("No saved game state found.");
-      }
+      System.out.println("Loading game state..."); // Add this line
+      loadGameState();
+      gameLoop.start();
     }
   }
   public void drawPausedScreen(Graphics g) {
@@ -441,7 +488,7 @@ public class Window extends JPanel {
         if (!player.isAlive() && !isGameOverHandled) {
           g.setFont(Displaytext);
           g.drawString("GAME OVER", 100, 100);
-          gameStateManager.savePlayerData(player.getName(), score);
+          savePlayerData();
           isGameOverHandled = true;
           // Delay the display of the ranking board
           int delay = 3000; // delay in milliseconds (3000 ms = 3 seconds)
