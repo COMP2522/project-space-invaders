@@ -22,12 +22,32 @@ import java.awt.event.ActionEvent;
  * to receive keyboard input events from the user.
  */
 public class Window extends JPanel {
+  /**
+   * Width size of the window.
+   */
   public static final int WINDOW_SIZE = 600;
+  /**
+   * Height of the window.
+   */
   public static final int WINDOW_HEIGHT = 600;
+
+  /**
+   * Margin on the side of the window.
+   */
   public static final int WINDOW_MARGIN = 50;
+  /**
+   * Font size of the score displayed.
+   */
   final int DisplayScore_size = 20;
+
+  /**
+   * Font size of the text displayed.
+   */
   final int Displaytext_size = 65;
-  final int NUMBER_COLUMN = 4;
+  /**
+   * Number of the columns of the
+   */
+  final int NUMBER_BARRIER = 4;
 
   final int button_text_size = 30;
 
@@ -148,7 +168,7 @@ public class Window extends JPanel {
     gameLoop.start();
 
     // Instantiation of Barrier Array
-    for (int column = 0; column < NUMBER_COLUMN; column++) {
+    for (int column = 0; column < NUMBER_BARRIER; column++) {
       this.BarrierArray[column] = new Barrier(WINDOW_MARGIN +
           Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
     }
@@ -245,7 +265,7 @@ public class Window extends JPanel {
     this.missilePlayer.drawPlayerMissile(g, isPaused);
 
     // Draw the barriers
-    for (int column = 0; column < NUMBER_COLUMN; column++) {
+    for (int column = 0; column < NUMBER_BARRIER; column++) {
       this.BarrierArray[column].drawBarrier(g);
     }
 
@@ -342,7 +362,7 @@ public class Window extends JPanel {
     missileInvader3 = null;
 
     // Reset the barrier objects
-    for (int column = 0; column < NUMBER_COLUMN; column++) {
+    for (int column = 0; column < NUMBER_BARRIER; column++) {
       BarrierArray[column] = new Barrier(WINDOW_MARGIN +
           Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
     }
@@ -448,7 +468,7 @@ public class Window extends JPanel {
         this.missilePlayer.drawPlayerMissile(g2, isPaused);
 
         // Draw the barriers
-        for (int column = 0; column < NUMBER_COLUMN; column++) {
+        for (int column = 0; column < NUMBER_BARRIER; column++) {
           this.BarrierArray[column].drawBarrier(g2);
         }
 
@@ -480,7 +500,7 @@ public class Window extends JPanel {
           this.player.destructPlayer();
           this.player.setAlive(false);
         }
-// Display the player's name
+        // Display the player's name
         g.setFont(DisplayScore);
         g.drawString("PLAYER: " + playerName, 30, 25);
 

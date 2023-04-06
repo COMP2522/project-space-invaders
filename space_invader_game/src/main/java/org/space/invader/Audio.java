@@ -58,7 +58,7 @@ public class Audio {
     Path barrierP = Paths.get("audio", "attacked_barrier.wav");
     barrier = loadAudio(barrierP);
 
-    Path missilePlayerP = Paths.get("audio", "missilePlayer.wav");
+    Path missilePlayerP = Paths.get("audio", "missile.wav");
     missile_player = loadAudio(missilePlayerP);
 
     Path bgmP = Paths.get("audio","bgm.wav");
