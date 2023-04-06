@@ -197,5 +197,7 @@ public class MissileInvader extends Sprite {
   public int getYPos() {
     return yPos;
   }
+
 }
+
 

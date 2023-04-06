@@ -9,7 +9,6 @@ import java.util.List;
 import javax.swing.*;
 import org.bson.Document;
 
-
 /**
  * The Window class extends JPanel and is responsible for painting the game
  * window with its graphical components, including the player, the invaders,
@@ -62,11 +61,13 @@ public class Window extends JPanel {
   /** The score of the game. */
   public static int score;
 
+
   public Timer gameLoop;
   boolean gameStarted = false;
 
   String playerName = "";
   public boolean isGameOverHandled = false;
+
 
   protected boolean isPaused = false;
 
@@ -100,7 +101,7 @@ public class Window extends JPanel {
     gameStateHandler = new DatabaseHandler("test", "game_state");
     playerDataHandler = new DatabaseHandler("test", "players");
     gameStateManager = new GameStateManager(gameStateHandler, playerDataHandler);
-
+    
     // Add the name input panel
     JPanel namePanel = new JPanel();
     namePanel.setBounds(0, 0, 200, 50);
@@ -226,6 +227,7 @@ public class Window extends JPanel {
    *
    * @param g Graphics
    */
+
   public void drawInvaderMissile1(Graphics g) {
     if (Stopwatch.count % 500 == 0) {
       missileInvader1 = new MissileInvader(groupInvaders.chooseInvaderToDraw());
@@ -313,7 +315,7 @@ public class Window extends JPanel {
         int mouseY = e.getY();
         if (buttonBounds.contains(mouseX, mouseY)) {
           repaint();
-          restartGame(g);
+          gameRestart.restartGame(g, window);
         }
       }
     });

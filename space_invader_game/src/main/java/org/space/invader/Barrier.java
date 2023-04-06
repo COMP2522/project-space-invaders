@@ -27,6 +27,7 @@ public class Barrier extends Sprite {
   /** The initial x position of the left most barrier. */
   public final static int X_POS_INIT_BARRIER = 39;
 
+
   /** The gap between the barriers. */
   public final static int GAP_BARRIER = 42;
 

@@ -1,6 +1,5 @@
 package org.space.invader;
 
-import javax.sound.sampled.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
@@ -45,8 +44,8 @@ public class Audio {
 
   /**
    * Constructs a new Audio object from the specified sound file.
+   *
    * @throws FileNotFoundException if the specified sound file cannot be found.
-   * @throws LineUnavailableException if a Line cannot be opened due to resource restrictions.
    */
   private Audio() throws FileNotFoundException {
     Path invaderP = Paths.get("audio", "InvaderDead.wav");
