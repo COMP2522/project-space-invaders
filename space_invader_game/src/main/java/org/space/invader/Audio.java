@@ -10,7 +10,6 @@ import javax.sound.sampled.*;
  * Singleton Audio class that manages the sound.
  */
 public class Audio {
-
   /**
    * Singleton instance of the audio class.
    */
@@ -40,7 +39,6 @@ public class Audio {
    * The background music.
    */
   private final Clip bgm;
-
 
   /**
    * Constructs a new Audio object from the specified sound file.

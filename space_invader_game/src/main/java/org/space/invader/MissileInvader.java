@@ -2,7 +2,6 @@ package org.space.invader;
 
 import java.awt.Graphics;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
 
 /**
@@ -22,7 +21,6 @@ public class MissileInvader extends Sprite {
   final int SCREEN_HEIGHT = 700;
   final int BARRIER_HEIGHT = 27;
   final int MISSILE_MOVE_INTERVAL = 4;
-
   Random rand = new Random();
 
   /**
@@ -33,7 +31,6 @@ public class MissileInvader extends Sprite {
    *                             coordinates of the invader that fired the missile.
    */
   public MissileInvader(int[] arrayPositionInvader) {
-
     // Initialization of variables in the superclass
     this.xPos = arrayPositionInvader[ZERO] + Invader.INVADER_SIZE / TWO - ONE;
     this.yPos = arrayPositionInvader[ONE] + Invader.INVADER_HEIGHT;
@@ -43,7 +40,6 @@ public class MissileInvader extends Sprite {
     this.dy = DY_MISSILE_INVADER;
     this.strImg1 = "/missileInvader1.png";
     this.strImg2 = "/missileInvader2.png";
-//    super.strImg3 = "";
     if (rand.nextInt(TWO) == ZERO) {
       this.ico = new ImageIcon(getClass().getResource(this.strImg1));
     } else {
@@ -82,13 +78,13 @@ public class MissileInvader extends Sprite {
    */
   private boolean missileInvaderFireAtBarrier() {
     return this.yPos < Barrier.Y_POS_BARRIER + Barrier.HEIGHT_BARRIER
-        && this.yPos + this.height > Barrier.Y_POS_BARRIER;
+            && this.yPos + this.height > Barrier.Y_POS_BARRIER;
   }
 
   /**
    * Determines the number of the barrier that is closest to the invader missile based on its x-coordinate.
    *
-   *  @return the number of the barrier closest to the missile, or -1 if there is no barrier close enough.
+   * @return the number of the barrier closest to the missile, or -1 if there is no barrier close enough.
    */
   private int numberBarrier() {
     int numBarrier = INVALID;
@@ -96,9 +92,9 @@ public class MissileInvader extends Sprite {
     while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
       if (this.xPos + this.size - ONE > Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER +
-          Barrier.GAP_BARRIER)
-          && this.xPos + ONE < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + Barrier.SIZE_BARRIER +
-          column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
+              Barrier.GAP_BARRIER)
+              && this.xPos + ONE < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + Barrier.SIZE_BARRIER +
+              column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
         numBarrier = column;
       }
     }
@@ -147,11 +143,11 @@ public class MissileInvader extends Sprite {
    *
    * @param arrayBarriers an array of Barrier objects to check for collision
    */
-  public void misInvaderDestroyBarrier(Barrier arrayBarriers[])  {
+  public void misInvaderDestroyBarrier(Barrier arrayBarriers[]) {
     int[] array = this.missileInvaderTouchBarrier();
     if (array[ZERO] != INVALID) {
       if (arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID
-          && arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != BARRIER_HEIGHT) {
+              && arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != BARRIER_HEIGHT) {
         arrayBarriers[array[ZERO]].breakTopBricks(array[ONE]);
         this.yPos = SCREEN_HEIGHT;
         try {
@@ -166,6 +162,7 @@ public class MissileInvader extends Sprite {
 
   /**
    * Checks if the current object intersects with a given Player object.
+   *
    * @param player the Player object to check for intersection with
    * @return true if there is an intersection, false otherwise
    */

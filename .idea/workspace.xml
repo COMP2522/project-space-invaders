@@ -6,15 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="Changed the file path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Audio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/InvaderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/InvaderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissileInvader.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissileInvader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissilePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissilePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Stopwatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Stopwatch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +39,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/space_invader_game">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -205,6 +214,7 @@
       <workItem from="1680056057777" duration="4098000" />
       <workItem from="1680551819731" duration="18886000" />
       <workItem from="1680750952154" duration="8017000" />
+      <workItem from="1680811651203" duration="1870000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed the barrier array null issue">
       <created>1679549057674</created>

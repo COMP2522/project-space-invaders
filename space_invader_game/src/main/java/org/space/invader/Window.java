@@ -9,7 +9,6 @@ import java.util.List;
 import javax.swing.*;
 import org.bson.Document;
 
-
 /**
  * The Window class extends JPanel and is responsible for painting the game
  * window with its graphical components, including the player, the invaders,
@@ -61,15 +60,11 @@ public class Window extends JPanel {
 
   /** The score of the game. */
   public static int score;
-
   public Timer gameLoop;
   boolean gameStarted = false;
-
   String playerName = "";
   public boolean isGameOverHandled = false;
-
   protected boolean isPaused = false;
-
   private DatabaseHandler gameStateHandler;
   private DatabaseHandler playerDataHandler;
   private GameStateManager gameStateManager;
@@ -77,7 +72,6 @@ public class Window extends JPanel {
   private Timer rankingBoardDelay;
   boolean isRankingBoardDisplayed = false;
   Rectangle buttonBounds = new Rectangle(300, 300, 200, 60);
-
 
   /**
    * The constructor of the Window class. Sets up the graphical components,
@@ -101,15 +95,13 @@ public class Window extends JPanel {
     gameStateHandler = new DatabaseHandler("test", "game_state");
     playerDataHandler = new DatabaseHandler("test", "players");
     gameStateManager = new GameStateManager(gameStateHandler, playerDataHandler);
-
-
+    
     // Add the name input panel
     JPanel namePanel = new JPanel();
     namePanel.setBounds(0, 0, 200, 50);
     namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
     namePanel.setBounds((WINDOW_SIZE - 200) / 2, (WINDOW_HEIGHT - 50) / 2, 200, 50);
     namePanel.setOpaque(false);
-
 
     JLabel nameLabel = new JLabel("Enter your name: ");
     JTextField nameField = new JTextField(10);
@@ -181,7 +173,6 @@ public class Window extends JPanel {
     }
   }
 
-
   /**
    * Draws the paused screen.
    *
@@ -229,6 +220,7 @@ public class Window extends JPanel {
    *
    * @param g Graphics
    */
+
   public void drawInvaderMissile1(Graphics g) {
     if (Stopwatch.count % 500 == 0) {
       missileInvader1 = new MissileInvader(groupInvaders.chooseInvaderToDraw());
@@ -320,18 +312,16 @@ public class Window extends JPanel {
         }
       }
     });
-
-
   }
 
   /**
-   *  Paints all the components of the game. It draws the window frame, green line at the bottom,
-   *  score display, player, invaders, player missiles, barriers and game messages. It also checks
-   *  for collisions between the missiles and the barriers and the player and the missiles. Finally,
-   *  it checks for game over and end of game conditions, and restarts the game if all invaders are
-   *  destroyed.
+   * Paints all the components of the game. It draws the window frame, green line at the bottom,
+   * score display, player, invaders, player missiles, barriers and game messages. It also checks
+   * for collisions between the missiles and the barriers and the player and the missiles. Finally,
+   * it checks for game over and end of game conditions, and restarts the game if all invaders are
+   * destroyed.
    *
-   *  @param g the Graphics object used to draw the components of the game.
+   * @param g the Graphics object used to draw the components of the game.
    */
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
@@ -359,7 +349,6 @@ public class Window extends JPanel {
         if (this.player != null) {
           this.player.drawPlayer(g2);
         }
-
 
         //Draw the invaders
         this.groupInvaders.drawInvader(g2, isPaused);
@@ -427,18 +416,16 @@ public class Window extends JPanel {
         if (!player.isAlive() && isGameOverHandled && isRankingBoardDisplayed) {
           g.setColor(Color.BLACK);
           g.fillRect(0, 0, WINDOW_SIZE, WINDOW_HEIGHT);
-
           displayRankingBoard(g);
         }
-
       }
     }
   }
 
   /**
-   *  Creates a JFrame and adds a custom JPanel that handles the game logic and rendering.
+   * Creates a JFrame and adds a custom JPanel that handles the game logic and rendering.
    *
-   *  @param args The command line arguments.
+   * @param args The command line arguments.
    */
   public static void main(String[] args) {
 
@@ -454,7 +441,6 @@ public class Window extends JPanel {
     frame.add(window);
     frame.pack();
     frame.setVisible(true);
-
   }
 }
 

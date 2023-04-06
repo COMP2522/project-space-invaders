@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
 import javax.swing.ImageIcon;
+
 public class MissilePlayer extends Sprite {
   public static final int SIZE_MISSILE_PLAYER = 3;
   public static final int HEIGHT_MISSILE_PLAYER = 13;
@@ -14,11 +15,8 @@ public class MissilePlayer extends Sprite {
   final int NUMBER_COLUMN = 4;
   final int ZERO = 0;
   final int ONE = 1;
-
   final ImageObserver NONE = null;
   public int barrierHit = 0;
-
-
   private boolean playerShoot = false;
 
   /**
@@ -27,7 +25,6 @@ public class MissilePlayer extends Sprite {
    * Also sets the image for the missile.
    */
   public MissilePlayer() {
-
     this.xPos = ZERO;
     this.yPos = Player.Y_POS_PLAYER - HEIGHT_MISSILE_PLAYER;
     this.size = SIZE_MISSILE_PLAYER;
@@ -35,8 +32,6 @@ public class MissilePlayer extends Sprite {
     this.dx = ZERO;
     this.dy = DY_MISSILE_PLAYER;  // the speed of missile
     this.strImg1 = "/misPlayer.png";
-//    super.strImg2 = "";
-//    super.strImg3 = "";
     this.ico = new ImageIcon(getClass().getResource(this.strImg1));
     this.img = this.ico.getImage();
   }
@@ -84,7 +79,6 @@ public class MissilePlayer extends Sprite {
     if (isPaused) {
       return;
     }
-
     if (this.playerShoot) {
       g.drawImage(this.img, this.xPos, this.moveMissilePlayer(), NONE);
     }
@@ -209,6 +203,7 @@ public class MissilePlayer extends Sprite {
       }
     }
   }
+
   public Document getState() {
     Document missileState = new Document();
     missileState.put("xPos", xPos);
@@ -220,7 +215,6 @@ public class MissilePlayer extends Sprite {
     if (missilePlayerState != null) {
       xPos = missilePlayerState.getInteger("xPos");
       yPos = missilePlayerState.getInteger("yPos");
-
     }
   }
 }

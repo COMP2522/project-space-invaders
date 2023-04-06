@@ -52,7 +52,6 @@ public class Barrier extends Sprite {
     this.initBarrierArray();
   }
 
-
   /**
    * Initializes the BarrierArray with values to represent the undamaged barrier.
    * The top of the barrier is designed to look like a castle.
@@ -230,7 +229,6 @@ public class Barrier extends Sprite {
     }
     return barrierState;
   }
-
 }
 
 
