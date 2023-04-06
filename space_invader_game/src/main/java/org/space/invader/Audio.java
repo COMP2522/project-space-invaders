@@ -49,19 +49,19 @@ public class Audio {
    * @throws LineUnavailableException if a Line cannot be opened due to resource restrictions.
    */
   private Audio() throws FileNotFoundException {
-    Path invaderP = Paths.get("resources","audio", "InvaderDead.wav");
+    Path invaderP = Paths.get("audio", "InvaderDead.wav");
     dead_invader = loadAudio(invaderP);
 
-    Path playerP = Paths.get("resources","audio", "player_dead.wav");
+    Path playerP = Paths.get("audio", "player_dead.wav");
     dead_player  = loadAudio(playerP);
 
-    Path barrierP = Paths.get("resources","audio", "attacked_barrier.wav");
+    Path barrierP = Paths.get("audio", "attacked_barrier.wav");
     barrier = loadAudio(barrierP);
 
-    Path missilePlayerP = Paths.get("resources","audio", "missile_player.wav");
+    Path missilePlayerP = Paths.get("audio", "missilePlayer.wav");
     missile_player = loadAudio(missilePlayerP);
 
-    Path bgmP = Paths.get("resources","audio","bgm.wav");
+    Path bgmP = Paths.get("audio","bgm.wav");
     bgm = loadAudio(bgmP);
   }
 
