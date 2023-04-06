@@ -101,8 +101,9 @@ public class Window extends JPanel {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    gameStateDbHandler = new DatabaseHandler("test", "game_state");
-    dbHandler = new DatabaseHandler("test", "players");
+    gameStateHandler = new DatabaseHandler("test", "game_state");
+    playerDataHandler = new DatabaseHandler("test", "players");
+    gameStateManager = new GameStateManager(gameStateHandler, playerDataHandler);
 
 
     // Add the name input panel
