@@ -177,7 +177,7 @@ public class MissilePlayer extends Sprite {
     if (this.missilePlayerFireAtBarrier()) {
       arrayRep[ZERO] = this.numberBarrier();
       if (arrayRep[ZERO] != INVALID) {
-        arrayRep[ONE] = this.xContactMisBarrier(Window.BarrierArray[arrayRep[ZERO]]);
+        arrayRep[ONE] = this.xContactMisBarrier(Window.barrierArray[arrayRep[ZERO]]);
       }
     }
     return arrayRep;
