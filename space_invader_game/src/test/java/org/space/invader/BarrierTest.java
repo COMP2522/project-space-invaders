@@ -50,7 +50,7 @@ public class BarrierTest {
       }
     }
 
-    assertArrayEquals(expectedArray, barrier.BarrierArray);
+    assertArrayEquals(expectedArray, barrier.barrierArray);
   }
 
 
@@ -86,7 +86,7 @@ public class BarrierTest {
   public void testRemoveBricks() {
     Barrier barrier = new Barrier(0);
     barrier.removeBricks(4, 1);
-    assertFalse(barrier.BarrierArray[4][1]);
+    assertFalse(barrier.barrierArray[4][1]);
   }
 
   @Test
@@ -97,7 +97,7 @@ public class BarrierTest {
     Keyboard keyboard = new Keyboard(Window.window);
     KeyEvent event = new KeyEvent(Window.window, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_SPACE, KeyEvent.CHAR_UNDEFINED);
     keyboard.keyPressed(event);
-    Window.window.missilePlayer.misPlayerDestroyBarrier(Window.BarrierArray);
+    Window.window.missilePlayer.misPlayerDestroyBarrier(Window.barrierArray);
 
 
 
