@@ -4,7 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="fixed some errors from merging" />
+    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="Refactored Audio class to be singleton">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/InvaderDead.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/attacked_barrier.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/background_music.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/background_music.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/background_music_cut.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/missile.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/missile_player.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/resources/main/player_dead.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Audio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Barrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Barrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissileInvader.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissileInvader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissilePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/MissilePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/InvaderDead.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/audio/InvaderDead.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/attacked_barrier.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/audio/attacked_barrier.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/background_music.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/background_music.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/background_music_cut.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/audio/bgm.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/missile.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/audio/missile.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/missile_player.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/audio/missile_player.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/resources/player_dead.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/audio/player_dead.wav" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +72,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="check_yeju" />
+        <entry key="$PROJECT_DIR$" value="fix-issues_Yeju" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,6 +107,7 @@
       <recent name="C:\Users\73741\Documents\comp2522\project-space-invaders\space_invader_game\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/audio" />
       <recent name="$PROJECT_DIR$/space_invader_game/src/main/resources" />
       <recent name="D:\COMP2522\project-space-invaders\space_invader_game\src\main\resources" />
     </key>
@@ -118,6 +151,7 @@
       <workItem from="1679941876455" duration="15000" />
       <workItem from="1679949177585" duration="3655000" />
       <workItem from="1680056057777" duration="4098000" />
+      <workItem from="1680551819731" duration="10189000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed the barrier array null issue">
       <created>1679549057674</created>
@@ -153,7 +187,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed the barrier array null issue" />
     <MESSAGE value="Put in background music, and attacked barrier sound." />
-    <option name="LAST_COMMIT_MESSAGE" value="Put in background music, and attacked barrier sound." />
+    <MESSAGE value="Refactored Audio class to be singleton" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Audio class to be singleton" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -161,6 +196,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="4" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -10,6 +10,14 @@ import java.awt.*;
  *  It represents a player object in a 2D space invader game.
  */
 public class Player extends Sprite {
+
+    public static final int PLAYER_SIZE = 39;
+    public static final int PLAYER_HEIGHT = 24;
+    public final static int X_POS_INIT_PLAYER = (Window.WINDOW_SIZE - PLAYER_SIZE)/ 2;
+    public final static int Y_POS_PLAYER = 490;
+    public final static int DX_PLAYER = 1;
+    public final static int LIMIT_LEFT_PLAYER = 60;
+    public final static int LIMIT_RIGHT_PLAYER = 500;
     /** An integer that counts the number of times a player is destroyed. */
     private int counter = 0;
     final int PLAYER_DESTRUCTION_DURATION = 300;
@@ -27,10 +35,10 @@ public class Player extends Sprite {
     public Player(String name) {
         this.name = name;
         this.score = 0;
-        super.xPos = Constant.X_POS_INIT_PLAYER;
-        super.yPos = Constant.Y_POS_PLAYER;
-        super.size = Constant.PLAYER_SIZE;
-        super.height = Constant.PLAYER_HEIGHT;
+        super.xPos = X_POS_INIT_PLAYER;
+        super.yPos = Y_POS_PLAYER;
+        super.size = PLAYER_SIZE;
+        super.height = PLAYER_HEIGHT;
         super.dx = 0;
         super.dy = 0;
 
@@ -53,11 +61,11 @@ public class Player extends Sprite {
      */
     public int playerLimit() {
         if (this.dx < ZERO) {
-            if (this.xPos > Constant.LIMIT_LEFT_PLAYER) {
+            if (this.xPos > LIMIT_LEFT_PLAYER) {
                 this.xPos = this.xPos + this.dx;
             }
         } else if (this.dx > ZERO) {
-            if (this.xPos + this.dx < Constant.LIMIT_RIGHT_PLAYER) {
+            if (this.xPos + this.dx < LIMIT_RIGHT_PLAYER) {
                 this.xPos = this.xPos + this.dx;
             }
         }

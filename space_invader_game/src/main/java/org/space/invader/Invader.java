@@ -11,6 +11,9 @@ import javax.swing.*;
 
 public class Invader extends Sprite {
 
+  public static final int INVADER_SIZE = 33;
+  public static final int INVADER_HEIGHT = 25;
+
   /**
    * Constructor for creating a new Invader object.
    *
@@ -23,8 +26,8 @@ public Invader(int xPos, int yPos, String strImg1, String strImg2 ){
   //Initialize the variables of the super class
   super.xPos = xPos;
   super.yPos = yPos;
-  super.size = Constant.INVADER_SIZE;
-  super.height = Constant.INVADER_HEIGHT;
+  super.size = INVADER_SIZE;
+  super.height = INVADER_HEIGHT;
   super.dx = 0;
   super.dy = 0;
   //Address of the images

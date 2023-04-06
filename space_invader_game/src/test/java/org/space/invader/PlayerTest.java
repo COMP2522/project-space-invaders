@@ -25,7 +25,7 @@ public class PlayerTest {
     Keyboard keyboard = new Keyboard(window);
     KeyEvent event = new KeyEvent(window, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_RIGHT, KeyEvent.CHAR_UNDEFINED);
     keyboard.keyPressed(event);
-    assertEquals(Constant.DX_PLAYER, window.player.getXspeed());
+    assertEquals(Player.DX_PLAYER, window.player.getXspeed());
   }
 
   // test if the left arrow key is pressed and the player moves to the left
@@ -36,7 +36,7 @@ public class PlayerTest {
         Keyboard keyboard = new Keyboard(window);
         KeyEvent event = new KeyEvent(window, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_LEFT, KeyEvent.CHAR_UNDEFINED);
         keyboard.keyPressed(event);
-        assertEquals(-Constant.DX_PLAYER, window.player.getXspeed());
+        assertEquals(-Player.DX_PLAYER, window.player.getXspeed());
     }
 
     // test if the space key is pressed and the player shoots a missile

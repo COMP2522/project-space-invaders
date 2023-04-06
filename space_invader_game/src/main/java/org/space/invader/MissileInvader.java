@@ -10,6 +10,9 @@ import javax.swing.ImageIcon;
  * It extends the Sprite class.
  */
 public class MissileInvader extends Sprite {
+  public static final int SIZE_MISSILE_INVADER = 5;
+  public static final int HEIGHT_MISSILE_INVADER = 15;
+  public final static int DY_MISSILE_INVADER = 3;
   final int INVALID = -1;
   final int ZERO = 0;
   final int ONE = 1;
@@ -20,7 +23,6 @@ public class MissileInvader extends Sprite {
   final int BARRIER_HEIGHT = 27;
   final int MISSILE_MOVE_INTERVAL = 4;
 
-  /**** VARIABLES ****/
   Random rand = new Random();
 
   /**
@@ -33,12 +35,12 @@ public class MissileInvader extends Sprite {
   public MissileInvader(int[] arrayPositionInvader) {
 
     // Initialization of variables in the superclass
-    this.xPos = arrayPositionInvader[ZERO] + Constant.INVADER_SIZE / TWO - ONE;
-    this.yPos = arrayPositionInvader[ONE] + Constant.INVADER_HEIGHT;
-    this.size = Constant.SIZE_MISSILE_INVADER;
-    this.height = Constant.HEIGHT_MISSILE_INVADER;
+    this.xPos = arrayPositionInvader[ZERO] + Invader.INVADER_SIZE / TWO - ONE;
+    this.yPos = arrayPositionInvader[ONE] + Invader.INVADER_HEIGHT;
+    this.size = SIZE_MISSILE_INVADER;
+    this.height = HEIGHT_MISSILE_INVADER;
     this.dx = ZERO;
-    this.dy = Constant.DY_MISSILE_INVADER;
+    this.dy = DY_MISSILE_INVADER;
     this.strImg1 = "/missileInvader1.png";
     this.strImg2 = "/missileInvader2.png";
 //    super.strImg3 = "";
@@ -58,7 +60,7 @@ public class MissileInvader extends Sprite {
   public int moveMissileInvader() {
     if (Stopwatch.count % MISSILE_MOVE_INTERVAL == ZERO) {
       if (this.yPos < WINDOW_HEIGHT) {
-        this.yPos = this.yPos + Constant.DY_MISSILE_INVADER;
+        this.yPos = this.yPos + DY_MISSILE_INVADER;
       }
     }
     return yPos;
@@ -79,8 +81,8 @@ public class MissileInvader extends Sprite {
    * @return true if the missile is at the same height as a barrier, false otherwise.
    */
   private boolean missileInvaderFireAtBarrier() {
-    return this.yPos < Constant.Y_POS_BARRIER + Constant.HEIGHT_BARRIER
-        && this.yPos + this.height > Constant.Y_POS_BARRIER;
+    return this.yPos < Barrier.Y_POS_BARRIER + Barrier.HEIGHT_BARRIER
+        && this.yPos + this.height > Barrier.Y_POS_BARRIER;
   }
 
   /**
@@ -93,10 +95,10 @@ public class MissileInvader extends Sprite {
     int column = INVALID;
     while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
-      if (this.xPos + this.size - ONE > Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + column * (Constant.SIZE_BARRIER +
-          Constant.GAP_BARRIER)
-          && this.xPos + ONE < Constant.WINDOW_MARGIN + Constant.X_POS_INIT_BARRIER + Constant.SIZE_BARRIER +
-          column * (Constant.SIZE_BARRIER + Constant.GAP_BARRIER)) {
+      if (this.xPos + this.size - ONE > Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER +
+          Barrier.GAP_BARRIER)
+          && this.xPos + ONE < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + Barrier.SIZE_BARRIER +
+          column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
         numBarrier = column;
       }
     }
@@ -113,7 +115,7 @@ public class MissileInvader extends Sprite {
   private int xContactMisInvaderBarrier(Barrier barrier) {
     int xPosMissileInvader = INVALID;
     if (this.xPos + this.size > barrier.getxPos()
-            && this.xPos < barrier.getxPos() + Constant.SIZE_BARRIER) {
+            && this.xPos < barrier.getxPos() + Barrier.SIZE_BARRIER) {
       xPosMissileInvader = this.xPos;
     }
     return xPosMissileInvader;
@@ -145,22 +147,27 @@ public class MissileInvader extends Sprite {
    *
    * @param arrayBarriers an array of Barrier objects to check for collision
    */
-  public void misInvaderDestroyBarrier(Barrier arrayBarriers[]) {
+  public void misInvaderDestroyBarrier(Barrier arrayBarriers[])  {
     int[] array = this.missileInvaderTouchBarrier();
     if (array[ZERO] != INVALID) {
       if (arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID
           && arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != BARRIER_HEIGHT) {
         arrayBarriers[array[ZERO]].breakTopBricks(array[ONE]);
         this.yPos = SCREEN_HEIGHT;
-        Audio.playSound("/attacked_barrier.wav");
+        try {
+          Audio audio = Audio.getInstance();
+          audio.playBarrier();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
       }
     }
   }
 
   /**
-   Checks if the current object intersects with a given Player object.
-   @param player the Player object to check for intersection with
-   @return true if there is an intersection, false otherwise
+   * Checks if the current object intersects with a given Player object.
+   * @param player the Player object to check for intersection with
+   * @return true if there is an intersection, false otherwise
    */
   private boolean intersects(Player player) {
     boolean xOverlap = this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize();
@@ -178,7 +185,12 @@ public class MissileInvader extends Sprite {
   public boolean touchPlayer(Player player) {
     if (this.intersects(player)) {
       this.yPos = SCREEN_HEIGHT;
-      Audio.playSound("/player_dead.wav");
+      try {
+        Audio audio = Audio.getInstance();
+        audio.playDeadPlayer();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
       return true;
     } else {
       return false;

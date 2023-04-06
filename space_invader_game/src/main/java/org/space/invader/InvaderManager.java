@@ -9,6 +9,22 @@ import java.util.Random;
 
 
 public class InvaderManager {
+  public final static int ALT_INIT_INVADER = 120;
+  public final static int XPOS_INIT_INVADER = 29 + Window.WINDOW_MARGIN;
+  public final static int SPACE_ROW_INVADER = 40;
+  public final static int SPACE_COLUMN_INVADER = 10;
+
+  //Invader movement unit
+  public final static int DX_INVADER= 2;
+  public final static int DY_INVADER= 20;
+
+  public final static int INVADER_SPEED = 4;
+
+  // Total number of aliens
+  public final static int NUMBER_INVADER = 50;
+  public static final int HIGH_VALUE_INVADER = 50;
+  public static final int MIDDLE_VALUE_INVADER = 40;
+  public static final int LOW_VALUE_INVADER = 20;
   final int NUM_ROWS = 5;
   final int NUM_COLS = 10;
   protected List<Invader> invaders;
@@ -33,7 +49,7 @@ public class InvaderManager {
   Random accident = new Random();
 
   /** The total number of invaders in the group. */
-  private int invaderNum = Constant.NUMBER_INVADER;
+  private int invaderNum = NUMBER_INVADER;
 
   /** The count of how many times the sound of the invaders has been played. */
   private int countSoundInvader = 0;
@@ -46,7 +62,7 @@ public class InvaderManager {
     this.initTableInvaders();
     this.goToRight = true;
     this.pos1 = true;
-    this.speed = Constant.INVADER_SPEED;
+    this.speed = INVADER_SPEED;
   }
 
   /**
@@ -55,15 +71,15 @@ public class InvaderManager {
 public void initTableInvaders(){
     //create the invader table
   for(int column = 0; column < 10; column++){
-    this.tabInvader[0][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER) * column,
-            Constant.ALT_INIT_INVADER, "/alien111.png", "/alien111.png");
+    this.tabInvader[0][column] = new Invader(XPOS_INIT_INVADER + (Invader.INVADER_SIZE + SPACE_COLUMN_INVADER) * column,
+            ALT_INIT_INVADER, "/alien111.png", "/alien111.png");
     for(int row = 1; row <3; row++){
-      this.tabInvader[row][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER) * column,
-              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien222.png", "/alien222.png"  );
+      this.tabInvader[row][column] = new Invader(XPOS_INIT_INVADER + (Invader.INVADER_SIZE + SPACE_COLUMN_INVADER) * column,
+              ALT_INIT_INVADER + SPACE_ROW_INVADER * row, "/alien222.png", "/alien222.png");
     }
     for(int row = 3; row <5; row++){
-      this.tabInvader[row][column] = new Invader(Constant.XPOS_INIT_INVADER + (Constant.INVADER_SIZE + Constant.SPACE_COLOMN_INVADER) * column,
-              Constant.ALT_INIT_INVADER + Constant.SPACE_ROW_INVADER * row, "/alien333.png", "/alien333.png"  );
+      this.tabInvader[row][column] = new Invader(XPOS_INIT_INVADER + (Invader.INVADER_SIZE + SPACE_COLUMN_INVADER) * column,
+              ALT_INIT_INVADER + SPACE_ROW_INVADER * row, "/alien333.png", "/alien333.png");
     }
 
   }
@@ -99,7 +115,7 @@ public void drawInvader(Graphics g, boolean isPaused){
     for (int column = 0; column < 10; column++) {
       for (int row = 0; row < 5; row++) {
         if (this.tabInvader[row][column] != null) {
-          if (this.tabInvader[row][column].getxPos() < Constant.WINDOW_MARGIN) {
+          if (this.tabInvader[row][column].getxPos() < Window.WINDOW_MARGIN) {
             response = true;
             break;
           }
@@ -122,7 +138,7 @@ public void drawInvader(Graphics g, boolean isPaused){
       for(int  row=0;  row<5;  row++) {
         if(this.tabInvader[row][column] != null) {
           if(this.tabInvader[row][column].getxPos() >
-                  Constant.WINDOW_SIZE - Constant.INVADER_SIZE - Constant.DX_INVADER - Constant.WINDOW_MARGIN) {
+                  Window.WINDOW_SIZE - Invader.INVADER_SIZE - DX_INVADER - Window.WINDOW_MARGIN) {
             response = true;
             break;
           }
@@ -143,7 +159,7 @@ public void drawInvader(Graphics g, boolean isPaused){
       for (int column = 0; column < 10; column++) {
         for (int row = 0; row < 5; row++) {
           if (this.tabInvader[row][column] != null) {
-            this.tabInvader[row][column].setyPos(this.tabInvader[row][column].getyPos() + Constant.DY_INVADER);
+            this.tabInvader[row][column].setyPos(this.tabInvader[row][column].getyPos() + DY_INVADER);
           }
         }
       }
@@ -157,7 +173,7 @@ public void drawInvader(Graphics g, boolean isPaused){
           for (int row = 0; row < 5; row++) {
             if (this.tabInvader[row][column] != null) {
               this.tabInvader[row][column].setyPos(
-                      this.tabInvader[row][column].getyPos() + Constant.DY_INVADER);
+                      this.tabInvader[row][column].getyPos() + DY_INVADER);
             }
             }
           }
@@ -187,7 +203,7 @@ public void drawInvader(Graphics g, boolean isPaused){
       for(int column=0; column<10; column++) {
         for(int row=0; row<5; row++) {
           if(this.tabInvader[row][column] != null) {
-            this.tabInvader[row][column].setxPos(this.tabInvader[row][column].getxPos() + Constant.DX_INVADER);
+            this.tabInvader[row][column].setxPos(this.tabInvader[row][column].getxPos() + DX_INVADER);
           }
         }
       }
@@ -195,7 +211,7 @@ public void drawInvader(Graphics g, boolean isPaused){
       for(int column=0; column<10; column++) {
         for(int  row=0;  row<5;  row++) {
           if(this.tabInvader[row][column] != null) {
-            this.tabInvader[row][column].setxPos(this.tabInvader[row][column].getxPos() - Constant.DX_INVADER);
+            this.tabInvader[row][column].setxPos(this.tabInvader[row][column].getxPos() - DX_INVADER);
           }
         }
       }
@@ -229,13 +245,13 @@ public void drawInvader(Graphics g, boolean isPaused){
             this.tabInvaderDead[1] = column;
             if(row == 0) {
 
-              Window.score = Window.score + Constant.HIGH_VALUE_INVADER;}
+              Window.score = Window.score + HIGH_VALUE_INVADER;}
             else if(row>0 && row<3) {
 
-              Window.score = Window.score + Constant.MIDDLE_VALUE_INVADER;}
+              Window.score = Window.score + MIDDLE_VALUE_INVADER;}
             else {
 
-              Window.score = Window.score + Constant.LOW_VALUE_INVADER;}
+              Window.score = Window.score + LOW_VALUE_INVADER;}
 
             break;
           }
