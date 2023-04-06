@@ -37,7 +37,8 @@ The Shootable interface will represent objects that can be shot, the Movable int
 Implementing these interfaces will allow for more modular and reusable code in our game, and make it easier to add new objects with these behaviors.
 
 
+![Window](https://user-images.githubusercontent.com/113272141/230510953-4ac5cafd-3778-4c29-baeb-1818eb872f3a.jpg)
 
-![Window](https://user-images.githubusercontent.com/113272141/230509351-2a833567-3cc3-472f-9e02-2f721d8da12a.jpg)
+
 
 
