@@ -4,6 +4,7 @@ import org.bson.Document;
 
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
@@ -32,7 +33,7 @@ public class MissilePlayer extends Sprite {
     this.dx = ZERO;
     this.dy = DY_MISSILE_PLAYER;  // the speed of missile
     this.strImg1 = "/misPlayer.png";
-    this.ico = new ImageIcon(getClass().getResource(this.strImg1));
+    this.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(this.strImg1)));
     this.img = this.ico.getImage();
   }
 
@@ -188,7 +189,7 @@ public class MissilePlayer extends Sprite {
    *
    * @param BarrierArray array of 'Barrier' objects
    */
-  public void misPlayerDestroyBarrier(Barrier BarrierArray[]) {
+  public void misPlayerDestroyBarrier(Barrier[] BarrierArray) {
     int[] array = this.misPlayerTouchBarrier();
     if (array[ZERO] != INVALID) {
       if (BarrierArray[array[ZERO]].findBrick(BarrierArray[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID) {
@@ -204,15 +205,32 @@ public class MissilePlayer extends Sprite {
     }
   }
 
+  /**
+   * Returns a document containing the current state of the missile.
+   *
+   * @return a document with the missile's x and y positions
+   */
   public Document getState() {
+    // create a new document to hold the missile state
     Document missileState = new Document();
+
+    // add the current x and y positions to the document
     missileState.put("xPos", xPos);
     missileState.put("yPos", yPos);
+
+    // return the document
     return missileState;
   }
 
+  /**
+   * Loads the missile's state from the given document.
+   *
+   * @param missilePlayerState a document containing the missile's x and y positions
+   */
   public void loadState(Document missilePlayerState) {
+    // check that the document is not null
     if (missilePlayerState != null) {
+      // set the missile's x and y positions from the document
       xPos = missilePlayerState.getInteger("xPos");
       yPos = missilePlayerState.getInteger("yPos");
     }

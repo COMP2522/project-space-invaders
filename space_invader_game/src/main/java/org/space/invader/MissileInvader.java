@@ -1,6 +1,7 @@
 package org.space.invader;
 
 import java.awt.Graphics;
+import java.util.Objects;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
@@ -41,9 +42,9 @@ public class MissileInvader extends Sprite {
     this.strImg1 = "/missileInvader1.png";
     this.strImg2 = "/missileInvader2.png";
     if (rand.nextInt(TWO) == ZERO) {
-      this.ico = new ImageIcon(getClass().getResource(this.strImg1));
+      this.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(this.strImg1)));
     } else {
-      this.ico = new ImageIcon(getClass().getResource(this.strImg2));
+      this.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(this.strImg2)));
     }
     this.img = this.ico.getImage();
   }
@@ -131,7 +132,7 @@ public class MissileInvader extends Sprite {
       tabRep[ZERO] = this.numberBarrier();
       if (tabRep[ZERO] != INVALID) {
         tabRep[ONE] = this.xContactMisInvaderBarrier(
-                Window.window.BarrierArray[tabRep[ZERO]]);
+                Window.BarrierArray[tabRep[ZERO]]);
       }
     }
     return tabRep;
@@ -143,7 +144,7 @@ public class MissileInvader extends Sprite {
    *
    * @param arrayBarriers an array of Barrier objects to check for collision
    */
-  public void misInvaderDestroyBarrier(Barrier arrayBarriers[]) {
+  public void misInvaderDestroyBarrier(Barrier[] arrayBarriers) {
     int[] array = this.missileInvaderTouchBarrier();
     if (array[ZERO] != INVALID) {
       if (arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID
@@ -194,6 +195,10 @@ public class MissileInvader extends Sprite {
     }
   }
 
+  /**
+   Returns the current y-coordinate position of this object.
+   @return the y-coordinate position of this object
+   */
   public int getYPos() {
     return yPos;
   }
