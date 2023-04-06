@@ -1,18 +1,19 @@
 # Project
 
 ### How to run our program
-Enter the username on the name field and press Enter. Then the game will be started. Use Space bar to shoot the missile, and left and right arrow key for moving from left or right.
+Enter the username on the name field and press Enter to start the game.
+Use Space bar to shoot the missile, and left and right arrow key for moving from left or right.
 Press P in the keyboard to pause and press P again to resume the game.
 
 ### Contributions
 
-**Bingdi Zhou**: 
+**Bingdi Zhou**
 
-**Tae Hyung Lee**: 
+**Tae Hyung Lee**
 
-**Taehyuk Chung**: 
+**Taehyuk Chung**
 
-**Yeju Jung**: 
+**Yeju Jung**
 
 
 ------------
