@@ -4,25 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="images">
+    <list default="true" id="611420f9-e710-4c20-97d6-f566594dc0c5" name="Changes" comment="Changed the file path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/audio/InvaderDead.wav" beforeDir="false" afterPath="$PROJECT_DIR$/audio/InvaderDead.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/audio/attacked_barrier.wav" beforeDir="false" afterPath="$PROJECT_DIR$/audio/attacked_barrier.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/audio/bgm.wav" beforeDir="false" afterPath="$PROJECT_DIR$/audio/bgm.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/audio/missile.wav" beforeDir="false" afterPath="$PROJECT_DIR$/audio/missile.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/audio/missile_player.wav" beforeDir="false" afterPath="$PROJECT_DIR$/audio/missilePlayer.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/audio/player_dead.wav" beforeDir="false" afterPath="$PROJECT_DIR$/audio/player_dead.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/alien111.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/alien111.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/alien222.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/alien222.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/alien333.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/alien333.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/dead.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/dead.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/misPlayer.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/misPlayer.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/missileInvader1.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/missileInvader1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/missileInvader2.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/missileInvader2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/playerDes1.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/playerDes1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/playerDes2.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/playerDes2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/image/spaceship2.png" beforeDir="false" afterPath="$PROJECT_DIR$/audio/image/spaceship2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Audio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/space_invader_game/src/main/java/org/space/invader/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +87,7 @@
       <recent name="C:\Users\73741\Documents\comp2522\project-space-invaders\space_invader_game\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/audio" />
       <recent name="$PROJECT_DIR$/resources/image" />
       <recent name="$PROJECT_DIR$/resources/audio" />
       <recent name="$PROJECT_DIR$/space_invader_game/src/main/resources" />
@@ -210,7 +204,7 @@
       <workItem from="1679949177585" duration="3655000" />
       <workItem from="1680056057777" duration="4098000" />
       <workItem from="1680551819731" duration="18886000" />
-      <workItem from="1680750952154" duration="4325000" />
+      <workItem from="1680750952154" duration="8017000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed the barrier array null issue">
       <created>1679549057674</created>
@@ -261,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680756455518</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Changed the file path">
+      <created>1680757658716</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680757658716</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +287,8 @@
     <MESSAGE value="These two also needed to be included in last commit" />
     <MESSAGE value="Fixed the minor error" />
     <MESSAGE value="images" />
-    <option name="LAST_COMMIT_MESSAGE" value="images" />
+    <MESSAGE value="Changed the file path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the file path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

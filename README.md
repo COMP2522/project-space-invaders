@@ -1,5 +1,20 @@
 # Project
 
+### How to run our program
+Enter the username on the name field and press Enter. Then the game will be started. Use Space bar to shoot the missile, and left and right arrow key for moving from left or right.
+
+### Contributions
+
+**Bingdi Zhou**: 
+
+**Tae Hyung Lee**: 
+
+**Taehyuk Chung**: 
+
+**Yeju Jung**: 
+
+
+------------
 ## Technical Project Requirements
 
 The minimum requirements for the project are outlined here to give you a starting point. Meeting the minimum requirements alone will not guarantee you a good mark. You are welcome to meet and exceed the minimum requirements if you have good, creative ideas and would like to discuss them with me.
