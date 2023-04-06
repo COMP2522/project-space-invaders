@@ -12,11 +12,18 @@ import java.awt.*;
  */
 
 public class Barrier extends Sprite {
+  public static final int DIMENSION_BARRIER = 2;
+  public static final int SIZE_BARRIER = 72;
+  public static final int HEIGHT_BARRIER = 50;
+  public final static int Y_POS_BARRIER = 400;
+  public final static int X_POS_INIT_BARRIER = 39;
+  public final static int GAP_BARRIER = 42;
+
 
   /** The number of rows in the barrier. */
-  private static final int NUM_ROWS = Constant.HEIGHT_BARRIER / Constant.DIMENSION_BARRIER;
+  private static final int NUM_ROWS = HEIGHT_BARRIER / DIMENSION_BARRIER;
   /** The number of columns in the barrier */
-  private static final int NUM_COLS = Constant.SIZE_BARRIER / Constant.DIMENSION_BARRIER;
+  private static final int NUM_COLS = SIZE_BARRIER / DIMENSION_BARRIER;
   /** An array representing the bricks in the barrier */
   public boolean[][] BarrierArray = new boolean[NUM_ROWS][NUM_COLS];
 
@@ -28,7 +35,7 @@ public class Barrier extends Sprite {
 
   public Barrier(int xPos) {
     super.xPos = xPos; // The leftmost point of the barrier
-    super.yPos = Constant.Y_POS_BARRIER; // Ordinate of the top of the barrier
+    super.yPos = Y_POS_BARRIER; // Ordinate of the top of the barrier
 
     this.initBarrierArray();
   }
@@ -47,7 +54,6 @@ public class Barrier extends Sprite {
     }
 
     // Fill all cells without bricks with false
-    // Making a shape for the top of the castle
     for (int col = 0; col < 6; col++) {
       for (int row = 0; row < 2; row++) {
         BarrierArray[row][col] = false;
@@ -81,7 +87,8 @@ public class Barrier extends Sprite {
         } else {
           g2.setColor(Color.BLACK);
         }
-        g2.fillRect(this.xPos + Constant.DIMENSION_BARRIER*column, this.yPos + Constant.DIMENSION_BARRIER*row, Constant.DIMENSION_BARRIER, Constant.DIMENSION_BARRIER);
+        g2.fillRect(this.xPos + DIMENSION_BARRIER * column, this.yPos + DIMENSION_BARRIER * row,
+            DIMENSION_BARRIER, DIMENSION_BARRIER);
       }
     }
   }
@@ -94,7 +101,7 @@ public class Barrier extends Sprite {
    */
   public int findBarrierColumn(int xMissile) {
     int column = -1;
-    column = (xMissile - this.xPos) / Constant.DIMENSION_BARRIER;
+    column = (xMissile - this.xPos) / DIMENSION_BARRIER;
     return column;
   }
 
@@ -108,9 +115,6 @@ public class Barrier extends Sprite {
     int row = NUM_ROWS - 1;
     while (row >= 0 && BarrierArray[row][column] == false) {
       row--;
-    }
-    if (row < 0) {
-      row = 0;
     }
     return row;
   }
@@ -138,7 +142,6 @@ public class Barrier extends Sprite {
    * @param xShot the x-coordinate of the shot that hit the barrier
    */
   public void breakBricks(int xShot) {
-//    Audio.playSound("/sounds/soundBrickBreak.wav");
     int column = this.findBarrierColumn(xShot);
     this.removeBricks(findBrick(column), column);
   }
@@ -183,10 +186,14 @@ public class Barrier extends Sprite {
    * @param xShot the x-coordinate of the shot that hit the castle
    */
   public void breakTopBricks(int xShot) {
-//    Audio.playSound("/sounds/soundBrickBreak.wav");
     int column = this.findBarrierColumn(xShot);
     this.removeTopBricks(findTopBrick(column), column);
   }
+
+  /**
+   * Loads the state of the barrier for MongoDB.
+   * @param barrierDoc
+   */
   public void loadBarriersState(Document barrierDoc) {
     for (int row = 0; row < NUM_ROWS; row++) {
       for (int col = 0; col < NUM_COLS; col++) {
@@ -194,10 +201,15 @@ public class Barrier extends Sprite {
       }
     }
   }
+
+  /**
+   * Gets the state of the barrier from MongoDB.
+   * @return barrierState
+   */
   public Document getState() {
     Document barrierState = new Document();
-    for (int row = 0; row < NUM_ROWS; row++) {
-      for (int col = 0; col < NUM_COLS; col++) {
+    for (int row = 1; row < NUM_ROWS; row++) {
+      for (int col = 1; col < NUM_COLS; col++) {
         barrierState.put("barrier_" + row + "_" + col, BarrierArray[row][col]);
       }
     }

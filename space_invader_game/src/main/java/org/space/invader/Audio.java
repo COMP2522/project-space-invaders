@@ -9,8 +9,6 @@ import java.nio.file.Paths;
 
 /**
  * Singleton Audio class that manages the sound.
- *
- * @author Yeju Jung, Bingdi Zhou, Taehyuk Chung, and Tae Hyung Lee
  */
 public class Audio {
 
