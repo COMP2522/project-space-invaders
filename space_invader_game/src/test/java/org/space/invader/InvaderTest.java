@@ -55,7 +55,7 @@ public class InvaderTest extends InvaderManager {
   @Test
   public void testTouchRightBorder() {
     InvaderManager invaderManager = new InvaderManager();
-    Invader invader = new Invader(1000, 0, "/alien111.png", "/alien111.png");
+    Invader invader = new Invader(1000, 0, "/alien111.png", "/resources/image/alien111.png");
     invaderManager.tabInvader[0][0] = invader;
     assertTrue(invaderManager.touchRightBorder());
   }
@@ -64,7 +64,7 @@ public class InvaderTest extends InvaderManager {
   @Test
   public void testInvaderTurnAndLower() {
     InvaderManager invaderManager = new InvaderManager();
-    Invader invader = new Invader(1000, 0, "/alien111.png", "/alien111.png");
+    Invader invader = new Invader(1000, 0, "/alien111.png", "/resources/image/alien111.png");
     invaderManager.tabInvader[0][0] = invader;
     invaderManager.invaderTurnAndLower();
     assertEquals(20, invaderManager.tabInvader[0][0].getyPos());
@@ -85,7 +85,7 @@ public class InvaderTest extends InvaderManager {
     }
 
     // Verify that the missile has moved down by DY_MISSILE_INVADER pixels
-    int expectedYPos = originalYPos + Constant.DY_MISSILE_INVADER;
+    int expectedYPos = originalYPos + MissileInvader.DY_MISSILE_INVADER;
     assertEquals(expectedYPos, missile.getYPos());
   }
 

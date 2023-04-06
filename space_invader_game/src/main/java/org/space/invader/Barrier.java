@@ -173,7 +173,7 @@ public class Barrier extends Sprite {
     for (int i = 0; i < 10; i++) {
       if (row + i < NUM_ROWS && column != -1) {
         BarrierArray[row + i][column] = false;
-        if (column < NUM_COLS - 3) {
+        if (column < NUM_COLS - 1) {
           BarrierArray[row + i][column + 1] = false;
         }
       }

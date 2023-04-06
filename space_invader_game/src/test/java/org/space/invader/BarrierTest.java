@@ -13,9 +13,9 @@ public class BarrierTest {
 
   final int INVALID = -1;
 
-  private static final int NUM_ROWS = Constant.HEIGHT_BARRIER / Constant.DIMENSION_BARRIER;
+  private static final int NUM_ROWS = Barrier.HEIGHT_BARRIER / Barrier.DIMENSION_BARRIER;
   /** The number of columns in the barrier */
-  private static final int NUM_COLS = Constant.SIZE_BARRIER / Constant.DIMENSION_BARRIER;
+  private static final int NUM_COLS = Barrier.SIZE_BARRIER / Barrier.DIMENSION_BARRIER;
 
   @Test
   public void testInitBarrierArray() {
