@@ -12,7 +12,6 @@ public class Stopwatch implements Runnable {
   /** The count of time elapsed. */
   public static int count = 0;
 
-
   /**
    *  Runs the Stopwatch in a loop while the game is running.
    *  Increments the count and repaints the window with each iteration.

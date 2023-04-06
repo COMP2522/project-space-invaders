@@ -61,16 +61,11 @@ public class Window extends JPanel {
   /** The score of the game. */
   public static int score;
 
-
   public Timer gameLoop;
   boolean gameStarted = false;
-
   String playerName = "";
   public boolean isGameOverHandled = false;
-
-
   protected boolean isPaused = false;
-
   DatabaseHandler gameStateHandler;
   DatabaseHandler playerDataHandler;
   private GameStateManager gameStateManager;
@@ -148,7 +143,6 @@ public class Window extends JPanel {
       barrierArray[column] = new Barrier(WINDOW_MARGIN
           + Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
     }
-
     // Instantiation of the stopwatch (at the end of the constructor)
     Thread stopwatch = new Thread(new Stopwatch());
     stopwatch.start();
@@ -314,8 +308,6 @@ public class Window extends JPanel {
         }
       }
     });
-
-
   }
 
   /**
