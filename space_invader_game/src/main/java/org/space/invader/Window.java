@@ -60,11 +60,17 @@ public class Window extends JPanel {
 
   /** The score of the game. */
   public static int score;
+
+
   public Timer gameLoop;
   boolean gameStarted = false;
+
   String playerName = "";
   public boolean isGameOverHandled = false;
+
+
   protected boolean isPaused = false;
+
   private DatabaseHandler gameStateHandler;
   private DatabaseHandler playerDataHandler;
   private GameStateManager gameStateManager;
@@ -131,6 +137,7 @@ public class Window extends JPanel {
         player = new Player(playerName);
       }
     });
+
 
     // Initialize the game loop and start it
     gameLoop = new Timer(1000 / 60, new ActionListener() {
@@ -312,16 +319,18 @@ public class Window extends JPanel {
         }
       }
     });
+
+
   }
 
   /**
-   * Paints all the components of the game. It draws the window frame, green line at the bottom,
-   * score display, player, invaders, player missiles, barriers and game messages. It also checks
-   * for collisions between the missiles and the barriers and the player and the missiles. Finally,
-   * it checks for game over and end of game conditions, and restarts the game if all invaders are
-   * destroyed.
+   *  Paints all the components of the game. It draws the window frame, green line at the bottom,
+   *  score display, player, invaders, player missiles, barriers and game messages. It also checks
+   *  for collisions between the missiles and the barriers and the player and the missiles. Finally,
+   *  it checks for game over and end of game conditions, and restarts the game if all invaders are
+   *  destroyed.
    *
-   * @param g the Graphics object used to draw the components of the game.
+   *  @param g the Graphics object used to draw the components of the game.
    */
   public void paintComponent(Graphics g) {
     super.paintComponent(g);

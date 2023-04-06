@@ -78,7 +78,7 @@ public class MissileInvader extends Sprite {
    */
   private boolean missileInvaderFireAtBarrier() {
     return this.yPos < Barrier.Y_POS_BARRIER + Barrier.HEIGHT_BARRIER
-            && this.yPos + this.height > Barrier.Y_POS_BARRIER;
+        && this.yPos + this.height > Barrier.Y_POS_BARRIER;
   }
 
   /**
@@ -92,9 +92,9 @@ public class MissileInvader extends Sprite {
     while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
       if (this.xPos + this.size - ONE > Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER +
-              Barrier.GAP_BARRIER)
-              && this.xPos + ONE < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + Barrier.SIZE_BARRIER +
-              column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
+          Barrier.GAP_BARRIER)
+          && this.xPos + ONE < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + Barrier.SIZE_BARRIER +
+          column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
         numBarrier = column;
       }
     }
