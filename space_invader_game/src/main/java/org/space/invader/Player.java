@@ -3,6 +3,7 @@ package org.space.invader;
 import org.bson.Document;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 /**
  * Player class extends the Sprite class.
@@ -25,8 +26,7 @@ public class Player extends Sprite {
   final int ZERO = 0;
 
   // Add a new instance variable for the player's name
-  private String name;
-  private int score;
+  private final String name;
 
   /**
    * A constructor that sets the initial values for the player object.
@@ -34,7 +34,6 @@ public class Player extends Sprite {
    */
   public Player(String name) {
     this.name = name;
-    this.score = 0;
     super.xPos = X_POS_INIT_PLAYER;
     super.yPos = Y_POS_PLAYER;
     super.size = PLAYER_SIZE;
@@ -46,7 +45,7 @@ public class Player extends Sprite {
     this.strImg2 = "/playerDes1.png";
     this.strImg3 = "/playerDes2.png";
 
-    this.ico = new ImageIcon(getClass().getResource(super.strImg1));
+    this.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(super.strImg1)));
     this.img = this.ico.getImage();
     this.alive = true;
   }
@@ -91,9 +90,9 @@ public class Player extends Sprite {
   public void destructPlayer() {
     if (counter < PLAYER_DESTRUCTION_DURATION) {
       if (Stopwatch.count % EVEN_IMAGE_INDEX == ZERO) {
-        super.ico = new ImageIcon(getClass().getResource(super.strImg2));
+        super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(super.strImg2)));
       } else {
-        super.ico = new ImageIcon(getClass().getResource(super.strImg3));
+        super.ico = new ImageIcon(Objects.requireNonNull(getClass().getResource(super.strImg3)));
       }
       counter++;
     } else {
@@ -102,31 +101,41 @@ public class Player extends Sprite {
     super.img = this.ico.getImage();
   }
 
-  // Getter and setter methods
-  public String getName() {
+  /**
+   Returns the name of the player.
+   @return the name of the player
+   */  public String getName() {
     return name;
   }
 
-  public int getScore() {
-    return score;
-  }
-
-  public void setScore(int score) {
-    this.score = score;
-  }
-
+  /**
+   Returns the current horizontal speed of the player.
+   @return the current horizontal speed of the player
+   */
   public int getXspeed() {
     return dx;
   }
 
+  /**
+   Sets the current horizontal speed of the player.
+   @param i the new horizontal speed of the player
+   */
   public void setDx(int i) {
     this.dx = i;
   }
 
+  /**
+   Sets the x-coordinate of the player's position.
+   @param i the new x-coordinate of the player's position
+   */
   public void setXPos(int i) {
     this.xPos = i;
   }
 
+  /**
+   Returns the current state of the player as a document object.
+   @return a document object representing the current state of the player
+   */
   public Document getState() {
     Document state = new Document();
     state.put("xPos", xPos);
@@ -135,6 +144,10 @@ public class Player extends Sprite {
     return state;
   }
 
+  /**
+   Loads the state of the player from a document object.
+   @param playerState a document object representing the state of the player
+   */
   public void loadState(Document playerState) {
     if (playerState != null) {
       xPos = playerState.getInteger("xPos");
