@@ -7,7 +7,7 @@ package org.space.invader;
 public class Stopwatch implements Runnable {
 
   /** The pause time between each loop iteration. */
-  private final int pause = 5;
+  int pause = 5;
 
   /** The count of time elapsed. */
   public static int count = 0;
@@ -19,7 +19,7 @@ public class Stopwatch implements Runnable {
    */
   @Override
   public void run() {
-    while (Window.window.game == true) {
+    while (Window.game) {
       count++;
       Window.window.repaint(); // Call the PaintComponent method of the window object
       try {

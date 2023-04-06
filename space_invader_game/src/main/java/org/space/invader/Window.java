@@ -53,10 +53,10 @@ public class Window extends JPanel {
   public static Barrier[] barrierArray = new Barrier[4];
 
   /** The font used to display the score. */
-  private Font displayScore = new Font("Arial", Font.PLAIN, displayScoreSize);
+  private final Font displayScore = new Font("Arial", Font.PLAIN, displayScoreSize);
 
   /** The font used to display text. */
-  private Font displayText = new Font("Arial", Font.PLAIN, displayTextSize);
+  private final Font displayText = new Font("Arial", Font.PLAIN, displayTextSize);
 
   /** The score of the game. */
   public static int score;
@@ -71,10 +71,10 @@ public class Window extends JPanel {
 
   protected boolean isPaused = false;
 
-  private DatabaseHandler gameStateHandler;
-  private DatabaseHandler playerDataHandler;
+  DatabaseHandler gameStateHandler;
+  DatabaseHandler playerDataHandler;
   private GameStateManager gameStateManager;
-  private GameRestart gameRestart = new GameRestart();
+  private final GameRestart gameRestart = new GameRestart();
   private Timer rankingBoardDelay;
   boolean isRankingBoardDisplayed = false;
   Rectangle buttonBounds = new Rectangle(300, 300, 200, 60);
@@ -140,17 +140,12 @@ public class Window extends JPanel {
 
 
     // Initialize the game loop and start it
-    gameLoop = new Timer(1000 / 60, new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        repaint();
-      }
-    });
+    gameLoop = new Timer(1000 / 60, e -> repaint());
     gameLoop.start();
 
     // Instantiation of Barrier Array
     for (int column = 0; column < numberBarrier; column++) {
-      this.barrierArray[column] = new Barrier(WINDOW_MARGIN
+      barrierArray[column] = new Barrier(WINDOW_MARGIN
           + Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER));
     }
 
@@ -203,11 +198,11 @@ public class Window extends JPanel {
     this.groupInvaders.drawInvader(g, isPaused);
 
     // Draw the player's missile
-    this.missilePlayer.drawPlayerMissile(g, isPaused);
+    missilePlayer.drawPlayerMissile(g, isPaused);
 
     // Draw the barriers
     for (int column = 0; column < numberBarrier; column++) {
-      this.barrierArray[column].drawBarrier(g);
+      barrierArray[column].drawBarrier(g);
     }
 
     // Draw the invaders' missiles
@@ -228,14 +223,14 @@ public class Window extends JPanel {
    * @param g Graphics
    */
 
-  public void drawInvaderMissile1(Graphics g) {
+  public void shootInvaderMissile1(Graphics g) {
     if (Stopwatch.count % 500 == 0) {
       missileInvader1 = new MissileInvader(groupInvaders.chooseInvaderToDraw());
     }
     if (missileInvader1 != null) {
       missileInvader1.drawInvaderMissile(g);
       missileInvader1.misInvaderDestroyBarrier(barrierArray);
-      if (missileInvader1.touchPlayer(player) == true) {
+      if (missileInvader1.touchPlayer(player)) {
         player.setAlive(false);
       }
     }
@@ -246,14 +241,14 @@ public class Window extends JPanel {
    *
    * @param g Graphics
    */
-  public void drawInvaderMissile2(Graphics g) {
+  public void shootInvaderMissile2(Graphics g) {
     if (Stopwatch.count % 750 == 0) {
       missileInvader2 = new MissileInvader(groupInvaders.chooseInvaderToDraw());
     }
     if (missileInvader2 != null) {
       missileInvader2.drawInvaderMissile(g);
       missileInvader2.misInvaderDestroyBarrier(barrierArray);
-      if (missileInvader2.touchPlayer(player) == true) {
+      if (missileInvader2.touchPlayer(player)) {
         player.setAlive(false);
       }
     }
@@ -264,14 +259,14 @@ public class Window extends JPanel {
    *
    * @param g Graphics
    */
-  public void drawInvaderMissile3(Graphics g) {
+  public void shootInvaderMissile3(Graphics g) {
     if (Stopwatch.count % 900 == 0) {
       missileInvader3 = new MissileInvader(groupInvaders.chooseInvaderToDraw());
     }
     if (missileInvader3 != null) {
       missileInvader3.drawInvaderMissile(g);
       missileInvader3.misInvaderDestroyBarrier(barrierArray);
-      if (missileInvader3.touchPlayer(player) == true) {
+      if (missileInvader3.touchPlayer(player)) {
         player.setAlive(false);
       }
     }
@@ -334,7 +329,6 @@ public class Window extends JPanel {
    */
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
-    Graphics g2 = (Graphics2D) g;
     if (gameStarted) {
       // Pause message
       if (isPaused) {
@@ -344,30 +338,30 @@ public class Window extends JPanel {
       if (!isPaused) {
 
         //Draw the window frame
-        g2.setColor(Color.BLACK);
-        g2.fillRect(0, 0, WINDOW_SIZE, WINDOW_HEIGHT);
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, WINDOW_SIZE, WINDOW_HEIGHT);
 
         //Draw the green line on the bottom of the window
-        g2.setColor(Color.GREEN);
-        g2.fillRect(30, 530, 535, 5);
+        g.setColor(Color.GREEN);
+        g.fillRect(30, 530, 535, 5);
 
         // Display the score
         g.setFont(displayScore);
         g.drawString("SCORE : " + score, 400, 25);
 
         if (this.player != null) {
-          this.player.drawPlayer(g2);
+          this.player.drawPlayer(g);
         }
 
         //Draw the invaders
-        this.groupInvaders.drawInvader(g2, isPaused);
+        this.groupInvaders.drawInvader(g, isPaused);
 
         // Drawing of the spaceship shot
-        this.missilePlayer.drawPlayerMissile(g2, isPaused);
+        missilePlayer.drawPlayerMissile(g, isPaused);
 
         // Draw the barriers
         for (int column = 0; column < numberBarrier; column++) {
-          this.barrierArray[column].drawBarrier(g2);
+          barrierArray[column].drawBarrier(g);
         }
 
         // Start message
@@ -382,13 +376,13 @@ public class Window extends JPanel {
           g.drawString("GAME OVER", 100, 100);
         }
 
-        this.groupInvaders.missilePlayerTouchInvader(this.missilePlayer);
+        this.groupInvaders.missilePlayerTouchInvader(missilePlayer);
         // Direction of spaceship's contact with the barrier
-        this.missilePlayer.misPlayerDestroyBarrier(barrierArray);
+        missilePlayer.misPlayerDestroyBarrier(barrierArray);
 
-        drawInvaderMissile1(g);
-        drawInvaderMissile2(g);
-        drawInvaderMissile3(g);
+        shootInvaderMissile1(g);
+        shootInvaderMissile2(g);
+        shootInvaderMissile3(g);
 
         if (this.groupInvaders.getInvaderNum() == 0) {
           groupInvaders = new InvaderManager();
@@ -410,13 +404,10 @@ public class Window extends JPanel {
           isGameOverHandled = true;
           // Delay the display of the ranking board
           int delay = 3000; // delay in milliseconds (3000 ms = 3 seconds)
-          rankingBoardDelay = new Timer(delay, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-              rankingBoardDelay.stop(); // Stop the timer after it has been triggered once
-              isRankingBoardDisplayed = true;
-              window.repaint(); // Repaint the window to display the ranking board
-            }
+          rankingBoardDelay = new Timer(delay, e -> {
+            rankingBoardDelay.stop(); // Stop the timer after it has been triggered once
+            isRankingBoardDisplayed = true;
+            window.repaint(); // Repaint the window to display the ranking board
           });
           rankingBoardDelay.start();
 
@@ -437,7 +428,6 @@ public class Window extends JPanel {
    * @param args The command line arguments.
    */
   public static void main(String[] args) {
-
     JFrame frame = new JFrame("Space Invaders");
     frame.setSize(WINDOW_SIZE, WINDOW_HEIGHT);
     frame.setResizable(false);
