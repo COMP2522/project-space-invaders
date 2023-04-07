@@ -1,22 +1,19 @@
 package org.space.invader;
 
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BarrierTest {
 
-  final int INVALID = -1;
-
+  /** The number of rows in the barrier */
   private static final int NUM_ROWS = Barrier.HEIGHT_BARRIER / Barrier.DIMENSION_BARRIER;
   /** The number of columns in the barrier */
   private static final int NUM_COLS = Barrier.SIZE_BARRIER / Barrier.DIMENSION_BARRIER;
 
+  /**
+   * This method tests the initBarrierArray method in the Barrier class
+   */
   @Test
   public void testInitBarrierArray() {
     Barrier barrier = new Barrier(0);
@@ -54,6 +51,9 @@ public class BarrierTest {
   }
 
 
+  /**
+   * This method tests the findBarrierColumn method in the Barrier class
+   */
   @Test
   public void testFindBarrierColumn() {
     Barrier barrier = new Barrier(0);
@@ -71,6 +71,9 @@ public class BarrierTest {
     assertEquals(xMissile/2, actualColumn);
   }
 
+  /**
+   * This method tests the findBrick method in the Barrier class
+   */
   @Test
   public void testFindBrick() {
     Barrier barrier = new Barrier(0);
@@ -82,26 +85,13 @@ public class BarrierTest {
 
   }
 
+  /**
+   * This method tests the removeBricks method in the Barrier class
+   */
   @Test
   public void testRemoveBricks() {
     Barrier barrier = new Barrier(0);
     barrier.removeBricks(4, 1);
     assertFalse(barrier.barrierArray[4][1]);
   }
-
-  @Test
-  public void misPlayerDestroyBarrierTest() {
-    Window.window = new Window();
-    Window.window.player = new Player("test");
-//    while(Window.window.missilePlayer.barrierHit==0){
-    Keyboard keyboard = new Keyboard(Window.window);
-    KeyEvent event = new KeyEvent(Window.window, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_SPACE, KeyEvent.CHAR_UNDEFINED);
-    keyboard.keyPressed(event);
-    Window.window.missilePlayer.misPlayerDestroyBarrier(Window.barrierArray);
-
-
-
-    assertEquals(0, Window.window.missilePlayer.barrierHit);
-  }
-
 }

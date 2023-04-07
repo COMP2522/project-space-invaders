@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
-import java.awt.*;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,32 +17,39 @@ import static org.junit.jupiter.api.Assertions.*;
 public class InvaderTest extends InvaderManager {
 
   private InvaderManager invaderManager = new InvaderManager();
-  private Graphics graphics;
 
-  // create a new invader manager before each test
+  /**
+   * This method is used to set up the invader manager before each test
+   */
   @BeforeEach
   public void setUp() {
     invaderManager = new InvaderManager();
   }
 
-  // test if the invader manager is created properly
+  /**
+   * This method is used to test if the invader manager is created properly
+   */
   @Test
   public void testInvaderManager() {
     assertNotNull(invaderManager);
   }
 
 
-  // test if the invader image is loaded properly
+  /**
+   * This method is used to test if the invader image is created properly
+   */
   @Test
   public void testInvaderImage() {
     Invader invader = new Invader(0, 0, "/alien111.png", "/alien111.png");
-    ImageIcon expectedImage = new ImageIcon(getClass().getResource("/alien111.png"));
+    ImageIcon expectedImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("/alien111.png")));
     ImageIcon actualImage = invader.ico;
     assertEquals(expectedImage.getImage(), actualImage.getImage());
 
   }
 
-  // test if any invader in the group has touched the right border of the window
+  /**
+   * this is the test if any invader in the group has touched the right border of the window
+   */
   @Test
   public void testTouchLeftBorder() {
     InvaderManager invaderManager = new InvaderManager();
@@ -51,7 +58,10 @@ public class InvaderTest extends InvaderManager {
     assertTrue(invaderManager.touchLeftBorder());
   }
 
-  // test if any invader in the group has touched the right border of the window
+
+  /**
+   * this is the test if any invader in the group has touched the right border of the window
+   */
   @Test
   public void testTouchRightBorder() {
     InvaderManager invaderManager = new InvaderManager();
@@ -60,7 +70,9 @@ public class InvaderTest extends InvaderManager {
     assertTrue(invaderManager.touchRightBorder());
   }
 
-  // test if the direction of movement of the invaders changes and they are lowered by one notch
+  /**
+   * this is the test if the direction of movement of the invaders changes and they are lowered by one notch
+   */
   @Test
   public void testInvaderTurnAndLower() {
     InvaderManager invaderManager = new InvaderManager();
@@ -70,7 +82,10 @@ public class InvaderTest extends InvaderManager {
     assertEquals(20, invaderManager.tabInvader[0][0].getyPos());
   }
 
-  // Test if the invaders are moving and shooting properly
+
+  /**
+   * this is the test if the invaders are moving and shooting properly
+   */
   @Test
   public void testMoveMissileInvader() {
     Window.window = new Window();

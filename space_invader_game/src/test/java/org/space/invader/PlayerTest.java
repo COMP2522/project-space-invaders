@@ -16,8 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class PlayerTest {
 
-
-  // test if the right arrow key is pressed and the player moves to the right
+  /**
+   * This method is used to test if the right arrow key is pressed and the player moves to the right
+   */
   @Test
   public void testRightKeyPressed() {
     Window window = new Window();
@@ -28,7 +29,9 @@ public class PlayerTest {
     assertEquals(Player.DX_PLAYER, window.player.getXspeed());
   }
 
-  // test if the left arrow key is pressed and the player moves to the left
+  /**
+   * This method is used to test if the left arrow key is pressed and the player moves to the left
+   */
     @Test
     public void testLeftKeyPressed() {
         Window window = new Window();
@@ -39,8 +42,10 @@ public class PlayerTest {
         assertEquals(-Player.DX_PLAYER, window.player.getXspeed());
     }
 
-    // test if the space key is pressed and the player shoots a missile
-    @Test
+  /**
+   * This method is used to test if the space key is pressed and the player shoots
+   */
+  @Test
     public void testSpaceKeyPressed() {
         Window window = new Window();
         window.player = new Player("test");
@@ -50,7 +55,9 @@ public class PlayerTest {
       assertTrue(Window.missilePlayer.isPlayerShoot());
     }
 
-    // test if the player image is loaded properly
+  /**
+   * This method is used to test if the image of the player is loaded
+   */
   @Test
   public void testDrawPlayer() {
     Window window = new Window();
@@ -62,7 +69,9 @@ public class PlayerTest {
     assertNotNull(window.player.getImg());
   }
 
-  // test if the player is limited to the window
+  /**
+   * This method is used to test the playerLimit() method
+   */
   @Test
   public void testPlayerLimit() {
     Player player = new Player("test");
