@@ -1,20 +1,44 @@
 # Project
 
 ### How to run our program
-Enter the username on the name field and press Enter to start the game.
-Use Space bar to shoot the missile, and left and right arrow key for moving from left or right.
-Press P in the keyboard to pause and press P again to resume the game.
+- Run `Window.java`
+- Enter the username in the name field and press `Enter` to start the game.
+- Use `Space bar` to shoot the missile, and `left` and `right` arrow key for moving from left or right.
+- Press `P` in the keyboard to pause and press `P` again to resume the game.
+- Press `RESTART` on the ranking board screen to restart the game.
 
 ### Contributions
 
-**Bingdi Zhou**
+- **Bingdi Zhou**
+  - Database
+  - Backend
+  - Refactoring
+  - Debugging
+  - CheckStyle Fix
+  
 
-**Tae Hyung Lee**
+- **Tae Hyung Lee**
+  - Tests maker
+  - Architect
+  - Project goals
+  - Refactoring
+  - CheckStyle Fix
+  
 
-**Taehyuk Chung**
+- **Taehyuk Chung**
+  - Design
+  - Integration
+  - Refactoring
+  - Debugging
+  - CheckStyle Fix
+  
 
-**Yeju Jung**
-
+- **Yeju Jung**
+  - UX / UI
+  - Frontend
+  - Refactoring
+  - Debugging
+  - CheckStyle Fix
 
 ------------
 ## Technical Project Requirements
