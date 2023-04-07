@@ -17,7 +17,6 @@ public class MissilePlayer extends Sprite {
   final int ZERO = 0;
   final int ONE = 1;
   final ImageObserver NONE = null;
-  public int barrierHit = 0;
   private boolean playerShoot = false;
 
   /**

@@ -1,8 +1,7 @@
 package org.space.invader;
 
-import org.bson.Document;
-
 import javax.swing.*;
+import org.bson.Document;
 
 /**
  * The Invader class represents an alien invader in the Space Invaders game.
@@ -58,6 +57,12 @@ public class Invader extends Sprite {
     super.img = this.ico.getImage(); // Change of image
   }
 
+
+  /**
+   * This method returns the state of the invader as a Document object.
+   *
+   * @return state as Document
+   */
   public Document getState() {
     Document state = new Document();
     state.put("xPos", xPos);
@@ -66,6 +71,11 @@ public class Invader extends Sprite {
     return state;
   }
 
+  /**
+   * This method loads the state of the invader from a Document object.
+   *
+   * @param document Document object
+   */
   public void loadState(Document document) {
   }
 }
