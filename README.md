@@ -1,4 +1,8 @@
 # Project
+![img.png](img.png)
+
+**Defend the galaxy!**
+**Play 'Space Invader' now**
 
 ### How to run our program
 - Run `Window.java`
