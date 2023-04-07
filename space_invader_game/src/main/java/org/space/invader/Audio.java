@@ -70,9 +70,8 @@ public class Audio {
    *
    * @return the singleton instance of the Audio class.
    * @throws FileNotFoundException if the specified sound file cannot be found.
-   * @throws LineUnavailableException if a Line cannot be opened due to resource restrictions.
    */
-  public static Audio getInstance() throws FileNotFoundException, LineUnavailableException {
+  public static Audio getInstance() throws FileNotFoundException {
     if (onlyAudio == null) {
       onlyAudio = new Audio();
     }
