@@ -1,9 +1,9 @@
 package org.space.invader;
 
-import org.bson.Document;
-import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
+import javax.swing.*;
+import org.bson.Document;
 
 /**
  * Player class extends the Sprite class.
@@ -12,11 +12,11 @@ import java.util.Objects;
 public class Player extends Sprite {
   public static final int PLAYER_SIZE = 39;
   public static final int PLAYER_HEIGHT = 24;
-  public final static int X_POS_INIT_PLAYER = (Window.WINDOW_SIZE - PLAYER_SIZE) / 2;
-  public final static int Y_POS_PLAYER = 490;
-  public final static int DX_PLAYER = 1;
-  public final static int LIMIT_LEFT_PLAYER = 60;
-  public final static int LIMIT_RIGHT_PLAYER = 500;
+  public static final int X_POS_INIT_PLAYER = (Window.WINDOW_SIZE - PLAYER_SIZE) / 2;
+  public static final int Y_POS_PLAYER = 490;
+  public static final int DX_PLAYER = 1;
+  public static final int LIMIT_LEFT_PLAYER = 60;
+  public static final int LIMIT_RIGHT_PLAYER = 500;
   /**
    * An integer that counts the number of times a player is destroyed.
    */
@@ -102,39 +102,45 @@ public class Player extends Sprite {
   }
 
   /**
-   Returns the name of the player.
-   @return the name of the player
-   */  public String getName() {
+   * Returns the name of the player.
+   *
+   * @return the name of the player
+   */
+  public String getName() {
     return name;
   }
 
   /**
-   Returns the current horizontal speed of the player.
-   @return the current horizontal speed of the player
+   * Returns the current horizontal speed of the player.
+   *
+   * @return the current horizontal speed of the player
    */
   public int getXspeed() {
     return dx;
   }
 
   /**
-   Sets the current horizontal speed of the player.
-   @param i the new horizontal speed of the player
+   * Sets the current horizontal speed of the player.
+   *
+   * @param i the new horizontal speed of the player
    */
   public void setDx(int i) {
     this.dx = i;
   }
 
   /**
-   Sets the x-coordinate of the player's position.
-   @param i the new x-coordinate of the player's position
+   * Sets the x-coordinate of the player's position.
+   *
+   * @param i the new x-coordinate of the player's position
    */
   public void setXPos(int i) {
     this.xPos = i;
   }
 
   /**
-   Returns the current state of the player as a document object.
-   @return a document object representing the current state of the player
+   * Returns the current state of the player as a document object.
+   *
+   * @return a document object representing the current state of the player
    */
   public Document getState() {
     Document state = new Document();
@@ -145,8 +151,9 @@ public class Player extends Sprite {
   }
 
   /**
-   Loads the state of the player from a document object.
-   @param playerState a document object representing the state of the player
+   * Loads the state of the player from a document object.
+   *
+   * @param playerState a document object representing the state of the player
    */
   public void loadState(Document playerState) {
     if (playerState != null) {

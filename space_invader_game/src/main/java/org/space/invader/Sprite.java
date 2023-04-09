@@ -1,8 +1,11 @@
 package org.space.invader;
 
-import javax.swing.*;
 import java.awt.Image;
+import javax.swing.*;
 
+/**
+ * The abstract Sprite class represents a sprite and its properties and methods.
+ */
 public abstract class Sprite {
   /**
    * The size of the sprite.

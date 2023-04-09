@@ -1,17 +1,18 @@
 package org.space.invader;
 
-import org.bson.Document;
-
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 import java.util.Objects;
-
 import javax.swing.ImageIcon;
+import org.bson.Document;
 
+/**
+ * MissilePlayer class that handles the player's missile.
+ */
 public class MissilePlayer extends Sprite {
   public static final int SIZE_MISSILE_PLAYER = 3;
   public static final int HEIGHT_MISSILE_PLAYER = 13;
-  public final static int DY_MISSILE_PLAYER = 2;
+  public static final int DY_MISSILE_PLAYER = 2;
   final int INVALID = -1;
   final int NUMBER_COLUMN = 4;
   final int ZERO = 0;
@@ -133,10 +134,11 @@ public class MissilePlayer extends Sprite {
     int column = INVALID;
     while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
-      if (this.xPos + this.size > Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + column *
-              (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)
-              && this.xPos < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + Barrier.SIZE_BARRIER + column *
-              (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
+      if (this.xPos + this.size > Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + column
+              * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)
+              && this.xPos < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER
+              + Barrier.SIZE_BARRIER + column
+              * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
         numBarrier = column;
       }
     }
@@ -152,7 +154,8 @@ public class MissilePlayer extends Sprite {
    */
   private int xContactMisBarrier(Barrier barrier) {
     int xPosMisPlayer = INVALID;
-    if (this.xPos + this.size > barrier.getxPos() && this.xPos < barrier.getxPos() + Barrier.SIZE_BARRIER) {
+    if (this.xPos + this.size > barrier.getxPos() && this.xPos
+            < barrier.getxPos() + Barrier.SIZE_BARRIER) {
       xPosMisPlayer = this.xPos;
     }
     return xPosMisPlayer;
@@ -191,7 +194,8 @@ public class MissilePlayer extends Sprite {
   public void misPlayerDestroyBarrier(Barrier[] BarrierArray) {
     int[] array = this.misPlayerTouchBarrier();
     if (array[ZERO] != INVALID) {
-      if (BarrierArray[array[ZERO]].findBrick(BarrierArray[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID) {
+      if (BarrierArray[array[ZERO]].findBrick(BarrierArray[array[ZERO]]
+              .findBarrierColumn(array[ONE])) != INVALID) {
         BarrierArray[array[ZERO]].breakBricks(array[ONE]);
         this.yPos = INVALID;
         try {

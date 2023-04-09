@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 public class MissileInvader extends Sprite {
   public static final int SIZE_MISSILE_INVADER = 5;
   public static final int HEIGHT_MISSILE_INVADER = 15;
-  public final static int DY_MISSILE_INVADER = 3;
+  public static final int DY_MISSILE_INVADER = 3;
   final int INVALID = -1;
   final int ZERO = 0;
   final int ONE = 1;
@@ -79,23 +79,25 @@ public class MissileInvader extends Sprite {
    */
   private boolean missileInvaderFireAtBarrier() {
     return this.yPos < Barrier.Y_POS_BARRIER + Barrier.HEIGHT_BARRIER
-        && this.yPos + this.height > Barrier.Y_POS_BARRIER;
+            && this.yPos + this.height > Barrier.Y_POS_BARRIER;
   }
 
   /**
-   * Determines the number of the barrier that is closest to the invader missile based on its x-coordinate.
+   * Determines the number of the barrier that is closest
+   * to the invader missile based on its x-coordinate.
    *
-   * @return the number of the barrier closest to the missile, or -1 if there is no barrier close enough.
+   * @return the number of the barrier
+   * closest to the missile, or -1 if there is no barrier close enough.
    */
   private int numberBarrier() {
     int numBarrier = INVALID;
     int column = INVALID;
     while (numBarrier == INVALID && column < NUMBER_COLUMN) {
       column++;
-      if (this.xPos + this.size - ONE > Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + column * (Barrier.SIZE_BARRIER +
-          Barrier.GAP_BARRIER)
-          && this.xPos + ONE < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER + Barrier.SIZE_BARRIER +
-          column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
+      if (this.xPos + this.size - ONE > Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER
+              + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)
+              && this.xPos + ONE < Window.WINDOW_MARGIN + Barrier.X_POS_INIT_BARRIER
+              + Barrier.SIZE_BARRIER + column * (Barrier.SIZE_BARRIER + Barrier.GAP_BARRIER)) {
         numBarrier = column;
       }
     }
@@ -119,15 +121,17 @@ public class MissileInvader extends Sprite {
   }
 
   /**
-   * Returns an integer array with two values: the index of the barrier that the invader missile touches,
-   * and the x-coordinate of the point where the missile touches the barrier. If the missile does not touch
-   * any barrier, both values in the array are set to -1.
+   * Returns an integer array with two values:
+   * the index of the barrier that the invader missile touches,
+   * and the x-coordinate of the point where the missile touches the barrier.
+   * If the missile does not touch any barrier, both values in the array are set to -1.
    *
-   * @return an integer array with two values representing the index of the barrier and the x-coordinate of
+   * @return an integer array with two values
+   * representing the index of the barrier and the x-coordinate of
    * the point where the missile touches the barrier, or {-1, -1} if there is no contact
    */
   public int[] missileInvaderTouchBarrier() {
-    int[] tabRep = {INVALID, INVALID};    // tabRep[0] = the number of Barrier, tabRep[1] = x position
+    int[] tabRep = {INVALID, INVALID};
     if (this.missileInvaderFireAtBarrier()) {
       tabRep[ZERO] = this.numberBarrier();
       if (tabRep[ZERO] != INVALID) {
@@ -139,16 +143,20 @@ public class MissileInvader extends Sprite {
   }
 
   /**
-   * Checks if the invader missile touches any barrier, and breaks the top brick of the corresponding
-   * barrier column if it does. Also updates the y-coordinate of the missile to move it off the screen.
+   * Checks if the invader missile touches any barrier,
+   * and breaks the top brick of the corresponding
+   * barrier column if it does. Also updates the y-coordinate of the missile
+   * to move it off the screen.
    *
    * @param arrayBarriers an array of Barrier objects to check for collision
    */
   public void misInvaderDestroyBarrier(Barrier[] arrayBarriers) {
     int[] array = this.missileInvaderTouchBarrier();
     if (array[ZERO] != INVALID) {
-      if (arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != INVALID
-              && arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]].findBarrierColumn(array[ONE])) != BARRIER_HEIGHT) {
+      if (arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]]
+              .findBarrierColumn(array[ONE])) != INVALID
+              && arrayBarriers[array[ZERO]].findTopBrick(arrayBarriers[array[ZERO]]
+              .findBarrierColumn(array[ONE])) != BARRIER_HEIGHT) {
         arrayBarriers[array[ZERO]].breakTopBricks(array[ONE]);
         this.yPos = SCREEN_HEIGHT;
         try {
@@ -168,13 +176,16 @@ public class MissileInvader extends Sprite {
    * @return true if there is an intersection, false otherwise
    */
   private boolean intersects(Player player) {
-    boolean xOverlap = this.xPos + this.size > player.getxPos() && this.xPos < player.getxPos() + player.getSize();
-    boolean yOverlap = this.yPos + this.height > player.getyPos() && this.yPos < player.getyPos() + player.getHeight();
+    boolean xOverlap = this.xPos + this.size > player.getxPos()
+            && this.xPos < player.getxPos() + player.getSize();
+    boolean yOverlap = this.yPos + this.height > player.getyPos()
+            && this.yPos < player.getyPos() + player.getHeight();
     return xOverlap && yOverlap;
   }
 
   /**
-   * Checks if the invader missile touches the player's ship, and returns true if it does. Also updates
+   * Checks if the invader missile touches the player's ship,
+   * and returns true if it does. Also updates
    * the y-coordinate of the missile to move it off the screen.
    *
    * @param player the Player object representing the player's ship
@@ -196,8 +207,9 @@ public class MissileInvader extends Sprite {
   }
 
   /**
-   Returns the current y-coordinate position of this object.
-   @return the y-coordinate position of this object
+   * Returns the current y-coordinate position of this object.
+   *
+   * @return the y-coordinate position of this object
    */
   public int getYPos() {
     return yPos;

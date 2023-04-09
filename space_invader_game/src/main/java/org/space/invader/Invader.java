@@ -57,7 +57,6 @@ public class Invader extends Sprite {
     super.img = this.ico.getImage(); // Change of image
   }
 
-
   /**
    * This method returns the state of the invader as a Document object.
    *

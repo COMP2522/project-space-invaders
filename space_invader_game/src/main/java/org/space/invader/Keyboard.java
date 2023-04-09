@@ -7,7 +7,8 @@ import java.awt.event.KeyListener;
  * Keyboard class that implements KeyListener interface to handle user keyboard input.
  */
 public class Keyboard implements KeyListener {
-  final private Window window;
+  private final Window window;
+
   public Keyboard(Window window) {
     this.window = window;
   }

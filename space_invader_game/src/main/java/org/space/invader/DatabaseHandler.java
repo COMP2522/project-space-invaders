@@ -24,11 +24,13 @@ public class DatabaseHandler implements Iterable<Document> {
   /**
    * Constructor for DatabaseHandler.
    *
-   * @param databaseName as String
+   * @param databaseName   as String
    * @param collectionName as String
    */
   public DatabaseHandler(String databaseName, String collectionName) {
-    ConnectionString connectionString = new ConnectionString("mongodb+srv://bzhou26:" + Password.password + "@cluster0.scdg1au.mongodb.net/?retryWrites=true&w=majority");
+    ConnectionString connectionString = new ConnectionString("mongodb+srv://bzhou26:"
+            + Password.password
+            + "@cluster0.scdg1au.mongodb.net/?retryWrites=true&w=majority");
     MongoClientSettings settings = MongoClientSettings.builder()
             .applyConnectionString(connectionString)
             .serverApi(ServerApi.builder()
@@ -59,7 +61,7 @@ public class DatabaseHandler implements Iterable<Document> {
    * create a document for player.
    *
    * @param playerName as String
-   * @param score as int
+   * @param score      as int
    * @return player as Document
    */
   public static Document createPlayerDocument(String playerName, int score) {
@@ -76,14 +78,16 @@ public class DatabaseHandler implements Iterable<Document> {
    */
   public Document getLatest() {
     Document latestGameState = null;
-    String mongoDBUri = "mongodb+srv://bzhou26:" + Password.password + "@cluster0.scdg1au.mongodb.net/?retryWrites=true&w=majority";
+    String mongoDBUri = "mongodb+srv://bzhou26:" + Password.password
+            + "@cluster0.scdg1au.mongodb.net/?retryWrites=true&w=majority";
     String databaseName = "test";
     String collectionName = "game_state";
     try (MongoClient mongoClient = MongoClients.create(mongoDBUri)) {
       MongoDatabase database = mongoClient.getDatabase(databaseName);
       MongoCollection<Document> collection = database.getCollection(collectionName);
 
-      FindIterable<Document> findIterable = collection.find().sort(new Document("_id", -1)).limit(1);
+      FindIterable<Document> findIterable = collection
+              .find().sort(new Document("_id", -1)).limit(1);
       latestGameState = findIterable.first();
     } catch (Exception e) {
       System.err.println("Error while retrieving the latest game state: " + e.getMessage());
@@ -101,9 +105,10 @@ public class DatabaseHandler implements Iterable<Document> {
     String collectionName = "players";
     List<Document> topPlayers = new ArrayList<>();
     MongoCollection<Document> collection = database.getCollection(collectionName);
-    Iterator<Document> iterator = collection.find().sort(Sorts.descending("score")).limit(limit).iterator();
+    Iterator<Document> iterator = collection.find()
+            .sort(Sorts.descending("score")).limit(limit).iterator();
 
-    while(iterator.hasNext()) {
+    while (iterator.hasNext()) {
       topPlayers.add(iterator.next());
     }
     return topPlayers;

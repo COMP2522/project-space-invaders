@@ -74,7 +74,8 @@ public class GameStateManager {
    * @return boolean
    */
 
-  public boolean loadGameState(String playerName, Player player, InvaderManager groupInvaders, MissilePlayer missilePlayer, Barrier[] BarrierArray) {
+  public boolean loadGameState(String playerName, Player player, InvaderManager groupInvaders,
+                               MissilePlayer missilePlayer, Barrier[] BarrierArray) {
     Document gameStateDoc = gameStateHandler.getLatest();
 
     if (gameStateDoc != null) {
